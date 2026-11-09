@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>双截龙格斗 · 出招表</title>
+<style>
+
+:root {
+  --paper: #f7f3ea;
+  --panel: #fffdf7;
+  --ink: #12141c;
+  --mute: #5a5660;
+  --line: #d2c7b0;
+  --navy: #0c183c;
+  --forest: #246c24;
+  --gold: #b4840c;
+  --ember: #906000;
+  --sky: #183054;
+  --base: 6.8mm;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: var(--base); }
+body {
+  font-family: "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", "PingFang SC", sans-serif;
+  background: #ddd4c4;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page {
+  width: 210mm; height: 297mm; margin: 12px auto;
+  background:
+    linear-gradient(90deg, rgba(12,24,60,.05) 0 0.35em, transparent 0.35em),
+    linear-gradient(180deg, #fffaf0 0%, var(--paper) 55%, #f1e8d8 100%);
+  box-shadow: 0 6px 20px rgba(0,0,0,.12);
+  position: relative;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  padding: 0.45em 0.5em 0.38em;
+  gap: 0.2em;
+  page-break-after: always;
+}
+.page:last-of-type { page-break-after: auto; }
+.page::before {
+  content: ""; position: absolute; inset: 0.22em;
+  border: 0.12em solid var(--navy); pointer-events: none; z-index: 4;
+}
+.page::after {
+  content: ""; position: absolute; inset: 0.38em;
+  border: 0.04em solid rgba(180,132,12,.5); pointer-events: none; z-index: 4;
+}
+
+.mast {
+  position: relative; z-index: 1; flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 0.5em;
+  padding: 0.06em 0.08em 0.18em;
+  border-bottom: 0.1em solid var(--gold);
+}
+.mast .logo {
+  flex: 0 0 auto;
+  width: auto; height: 2.85em;
+  object-fit: contain; object-position: left center;
+  background: transparent; border: none; padding: 0;
+  display: block;
+}
+.mast-right {
+  flex: 1 1 auto; min-width: 0;
+  text-align: right;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 0.08em;
+}
+.mast-right .zh {
+  font-size: 1.05em; font-weight: 900; letter-spacing: .14em;
+  color: var(--gold); line-height: 1.05;
+}
+.mast-right .en {
+  font-size: 0.55em; font-weight: 800; letter-spacing: .16em;
+  color: var(--navy); text-transform: uppercase;
+}
+.mast-right .unlock {
+  font-size: 0.42em; font-weight: 700; line-height: 1.35;
+  color: var(--mute); letter-spacing: .02em;
+}
+.mast-right .unlock b { color: var(--gold); font-weight: 900; }
+
+.stack {
+  position: relative; z-index: 1;
+  flex: 1 1 auto; min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.12em;
+}
+
+.fighter {
+  display: flex; flex-direction: column;
+  background: var(--panel);
+  border: 0.06em solid var(--line);
+  border-left: 0.18em solid var(--gold);
+  overflow: hidden; min-height: 0;
+  padding: 0.14em 0.2em 0.1em;
+  gap: 0.08em;
+}
+.fighter-head {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 0.2em;
+  flex: 0 0 auto;
+  border-bottom: 0.04em dashed var(--line);
+  padding-bottom: 0.1em;
+  min-width: 0;
+}
+.fighter-head .face {
+  flex: 0 0 auto;
+  width: 2.15em; height: auto;
+  image-rendering: pixelated;
+  display: block;
+}
+.fighter-head h2 {
+  flex: 1 1 auto; min-width: 0;
+  text-align: right;
+  font-size: 0.72em; font-weight: 900; color: var(--navy); letter-spacing: .04em;
+  line-height: 1.1;
+}
+.fighter-head h2 small {
+  display: block;
+  margin-left: 0;
+  font-size: 0.52em; font-weight: 800; letter-spacing: .05em;
+  color: var(--gold); text-transform: uppercase;
+}
+.fighter-tag {
+  display: none;
+}
+.mv-list {
+  list-style: none;
+  flex: 1 1 auto; min-height: 0;
+  display: flex; flex-direction: column;
+  gap: 0.02em;
+  align-content: start;
+  overflow: hidden;
+}
+.mv {
+  display: flex; justify-content: space-between; gap: 0.08em;
+  align-items: baseline;
+  font-size: 0.48em; line-height: 1.22; font-weight: 700;
+}
+.mv-n { color: var(--ink); font-weight: 900; white-space: nowrap; }
+.mv-c {
+  color: var(--mute); text-align: right; margin-left: auto;
+  max-width: 60%; font-weight: 700;
+}
+.mv--super .mv-n { color: var(--ember); }
+.mv--charge .mv-n { color: var(--gold); }
+.mv--air .mv-n { color: var(--sky); }
+
+@media screen { body { padding: 14px 0 36px; } }
+@media print {
+  @page { size: 210mm 297mm; margin: 0; }
+  html, body { width: 210mm; margin: 0 !important; padding: 0 !important; background: #fff; }
+  .page {
+    margin: 0 !important; box-shadow: none !important;
+    width: 210mm !important; height: 297mm !important;
+    page-break-after: always; break-after: page;
+  }
+  .page:last-of-type { page-break-after: auto; break-after: auto; }
+}
+
+</style>
+</head>
+<body>
+
+<section class="page" aria-label="出招表 01">
+  <header class="mast">
+    <img class="logo" src="assets/logo.png" alt="DOUBLE DRAGON" />
+    <div class="mast-right">
+      <div class="zh">双截龙格斗</div>
+      <div class="en">DOUBLE DRAGON</div>
+      <div class="unlock">隐藏人物：选人依次停在 <b>比利→玛丽安→成虎→杰米</b>，各停留 <b>≥3秒</b>（反向亦可）</div>
+    </div>
+  </header>
+  <div class="stack">
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/billy.png" alt="比利" width="96" height="112" />
+    <h2>比利<small>Billy Lee</small></h2>
+    <span class="fighter-tag">双截龙 · 可变身</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv mv--air"><span class="mv-n">空截</span><span class="mv-c">空中近身 ←/→ · B/C/D</span></li>
+<li class="mv"><span class="mv-n">双袭牙</span><span class="mv-c">↓↘→ · P</span></li>
+<li class="mv"><span class="mv-n">裂空破</span><span class="mv-c">→↓↘ · P</span></li>
+<li class="mv mv--air"><span class="mv-n">龙尾旋</span><span class="mv-c">↓↙← · P（可空中）</span></li>
+<li class="mv"><span class="mv-n">上升龙尾旋</span><span class="mv-c">↓↙←↖↑ · P（直上）/ ↓↙←↖ · P（斜后）/ ↓↙←↖↑↗ · P（斜前）</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)吠龙击破</span><span class="mv-c">↓↘→ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)双龙转生</span><span class="mv-c">A+B+C+D（变身）</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/jimmy.png" alt="杰米" width="96" height="112" />
+    <h2>杰米<small>Jimmy Lee</small></h2>
+    <span class="fighter-tag">双截龙 · 可变身</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv mv--air"><span class="mv-n">空截</span><span class="mv-c">空中近身 ←/→ · B/C/D</span></li>
+<li class="mv"><span class="mv-n">双龙牙</span><span class="mv-c">↓↘→ · P</span></li>
+<li class="mv"><span class="mv-n">裂空破</span><span class="mv-c">→↓↘ · P</span></li>
+<li class="mv mv--air"><span class="mv-n">龙尾旋</span><span class="mv-c">↓↙← · P（可空中）</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)闪空破</span><span class="mv-c">→↓↘ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)双龙转生</span><span class="mv-c">A+B+C+D（变身）</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/marian.png" alt="玛丽安" width="96" height="112" />
+    <h2>玛丽安<small>Marian</small></h2>
+    <span class="fighter-tag">高速 · 蓄力技</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv mv--air"><span class="mv-n">空截</span><span class="mv-c">空中近身 ←/→ · B/C</span></li>
+<li class="mv mv--charge"><span class="mv-n">环轴毁灭</span><span class="mv-c">↓蓄↑ · P</span></li>
+<li class="mv mv--charge"><span class="mv-n">月之滑行</span><span class="mv-c">←蓄→ · P</span></li>
+<li class="mv"><span class="mv-n">必杀投</span><span class="mv-c">近身 ←↙↓↘→ · P 或 →↘↓↙← · P</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)环轴屠杀</span><span class="mv-c">↓蓄↑ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)月行战车</span><span class="mv-c">←蓄→ · PP</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/amon.png" alt="阿暮" width="96" height="112" />
+    <h2>阿暮<small>Amon</small></h2>
+    <span class="fighter-tag">忍术 · 蓄力</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv mv--air"><span class="mv-n">空截</span><span class="mv-c">空中近身 ←/→ · C/D</span></li>
+<li class="mv mv--air"><span class="mv-n">鹰爪拳</span><span class="mv-c">空中 ←↙↓ · P</span></li>
+<li class="mv mv--charge"><span class="mv-n">烈火爆炎壁</span><span class="mv-c">↓蓄↑ · P</span></li>
+<li class="mv mv--charge"><span class="mv-n">刺凤拳</span><span class="mv-c">←蓄→ · P（按P可打身后）</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)雷光阵</span><span class="mv-c">↓蓄↑ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)忍法覆灭</span><span class="mv-c">←↙↓↘→ · PP（可空中）</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/burnov.png" alt="卜诺夫" width="96" height="112" />
+    <h2>卜诺夫<small>Burnov</small></h2>
+    <span class="fighter-tag">火焰巨汉</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv mv--air"><span class="mv-n">空截</span><span class="mv-c">空中近身 ←/→ · C</span></li>
+<li class="mv"><span class="mv-n">三连打</span><span class="mv-c">近身 ←↙↓↘→ · P 或 →↘↓↙← · P</span></li>
+<li class="mv"><span class="mv-n">烈火斩</span><span class="mv-c">↓↘→ · P</span></li>
+<li class="mv mv--charge"><span class="mv-n">加农炮弹</span><span class="mv-c">←蓄→ · P</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)野火飞爆</span><span class="mv-c">↓↘→ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)重创陨星</span><span class="mv-c">←蓄→ · PP</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/rebecca.png" alt="雷贝卡" width="96" height="112" />
+    <h2>雷贝卡<small>Rebecca</small></h2>
+    <span class="fighter-tag">红刃 · 飞蝶</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv mv--air"><span class="mv-n">空截</span><span class="mv-c">空中近身 ←/→ · B/C</span></li>
+<li class="mv"><span class="mv-n">飞蝶斩</span><span class="mv-c">→↓↘ · P</span></li>
+<li class="mv"><span class="mv-n">红刃拳</span><span class="mv-c">↓↘→ · P</span></li>
+<li class="mv mv--air"><span class="mv-n">空中红刃拳</span><span class="mv-c">空中 ←↙↓ · P</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)奥义·飞蝶之舞</span><span class="mv-c">→↓↘ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)蝴蝶烈风杀</span><span class="mv-c">↓↘→ · PP（可空中）</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/dulton.png" alt="都灵顿" width="96" height="112" />
+    <h2>都灵顿<small>Dulton</small></h2>
+    <span class="fighter-tag">猛男 · 连打</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv mv--air"><span class="mv-n">空截</span><span class="mv-c">空中近身 ←/→ · D</span></li>
+<li class="mv mv--charge"><span class="mv-n">男之力</span><span class="mv-c">←蓄→ · P</span></li>
+<li class="mv"><span class="mv-n">男之刀</span><span class="mv-c">P 连打</span></li>
+<li class="mv"><span class="mv-n">男之气合弹</span><span class="mv-c">↓↘→ · P</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)男之情热弹</span><span class="mv-c">↓↘→ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)男之烈火弹</span><span class="mv-c">PP 连打</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/chengfu.png" alt="成虎" width="96" height="112" />
+    <h2>成虎<small>Cheng-Fu</small></h2>
+    <span class="fighter-tag">醉拳</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv"><span class="mv-n">黄龙脚</span><span class="mv-c">→↓↘ · P</span></li>
+<li class="mv"><span class="mv-n">醉虎烈打</span><span class="mv-c">↓↘→ · P</span></li>
+<li class="mv"><span class="mv-n">飞翔脚</span><span class="mv-c">↓↙← · P</span></li>
+<li class="mv"><span class="mv-n">当身</span><span class="mv-c">←↓↙ · P（↙按紧）</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)醉虎诱胜</span><span class="mv-c">↓↘→ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)醉虎乱打</span><span class="mv-c">→↓↘ · PP</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/abobo.png" alt="阿波波" width="96" height="112" />
+    <h2>阿波波<small>Abobo</small></h2>
+    <span class="fighter-tag">怪力 · 震地</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv mv--air"><span class="mv-n">空截</span><span class="mv-c">空中近身 ←/→ · D</span></li>
+<li class="mv"><span class="mv-n">巨人摇摆</span><span class="mv-c">近身 →↘↓↙← · P 或 ←↙↓↘→ · P</span></li>
+<li class="mv"><span class="mv-n">终极炸弹</span><span class="mv-c">近身 ↓↘→ · P</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)裂破天地</span><span class="mv-c">→↘↓ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)强压爆弹</span><span class="mv-c">近身 ←↙↓↘→ · PP 或 →↘↓↙← · PP</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/eddie.png" alt="埃迪" width="96" height="112" />
+    <h2>埃迪<small>Eddie</small></h2>
+    <span class="fighter-tag">腿技 · 化合物</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv mv--charge"><span class="mv-n">碎布杀</span><span class="mv-c">←蓄→ · P</span></li>
+<li class="mv mv--charge"><span class="mv-n">空碎杀</span><span class="mv-c">↓蓄↑ · P</span></li>
+<li class="mv"><span class="mv-n">危险化合物</span><span class="mv-c">→↓↘ · P</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)云海猎魔</span><span class="mv-c">↓蓄↑ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)D.H.D</span><span class="mv-c">→↓↘ · PP</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/duke.png" alt="杜克" width="96" height="112" />
+    <h2>杜克<small>Duke</small></h2>
+    <span class="fighter-tag">隐藏 BOSS</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv"><span class="mv-n">烈虎连打</span><span class="mv-c">↓↘→ · P</span></li>
+<li class="mv"><span class="mv-n">升天脚</span><span class="mv-c">→↓↘ · P</span></li>
+<li class="mv mv--charge"><span class="mv-n">飞翔脚</span><span class="mv-c">↓蓄↑ · P</span></li>
+<li class="mv mv--air"><span class="mv-n">空中技</span><span class="mv-c">空中 ←↙↓ · P</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)烈虎连打·狱炎</span><span class="mv-c">↓↘→ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)凤凰天升脚</span><span class="mv-c">→↓↘ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)空中超杀</span><span class="mv-c">空中 ←↙↓ · PP</span></li>
+  </ul>
+</article>
+
+<article class="fighter">
+  <header class="fighter-head">
+    <img class="face" src="assets/art/shuko.png" alt="修库" width="96" height="112" />
+    <h2>修库<small>Shuko</small></h2>
+    <span class="fighter-tag">隐藏 BOSS</span>
+  </header>
+  <ul class="mv-list">
+<li class="mv mv--air"><span class="mv-n">空中技</span><span class="mv-c">空中 ←↙↓ · P</span></li>
+<li class="mv mv--charge"><span class="mv-n">白虎/玄武类</span><span class="mv-c">↓蓄↑ · P</span></li>
+<li class="mv"><span class="mv-n">隐身</span><span class="mv-c">↓↙← · ↓↙← · ↓↙← · P</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)麒麟系</span><span class="mv-c">→↓↘ · PP</span></li>
+<li class="mv mv--super"><span class="mv-n">(超)逆鳞系</span><span class="mv-c">→↘↓ · PP</span></li>
+  </ul>
+</article>
+  </div>
+</section>
+
+</body>
+</html>
