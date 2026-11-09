@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Street Fighter Alpha 3 · 出招表</title>
+<style>
+
+:root {
+  --paper: #f3eee6;
+  --ink: #1a1412;
+  --muted: #4a3c36;
+  --red: #b4161d;
+  --gold: #8a6414;
+  --blue: #1a3a6e;
+  --green: #16633a;
+  --sa: #9a2a12;
+  --line: #c9b7a4;
+  --base: 4mm;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: var(--base); }
+body {
+  font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+  background: #1e1a18;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.sheet {
+  width: 210mm;
+  height: 297mm;
+  margin: 14px auto;
+  padding: 0.65em 0.75em;
+  background: var(--paper);
+  box-shadow: 0 10px 28px rgba(0,0,0,.4);
+  overflow: hidden;
+  page-break-after: always;
+}
+.sheet:last-of-type { page-break-after: auto; }
+.panel {
+  height: 100%;
+  border: 0.12em solid #2a1c16;
+  outline: 0.08em solid #c45a28;
+  outline-offset: -0.26em;
+  padding: 0.5em 0.55em 0.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(196,90,40,.10), transparent 45%),
+    linear-gradient(180deg, #f7f2ea 0%, #efe6da 100%);
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55em;
+  flex: 0 0 auto;
+  padding-bottom: 0.3em;
+  border-bottom: 0.08em solid var(--line);
+}
+.brand { display: flex; align-items: center; gap: 0.5em; min-width: 0; }
+.brand img.logo {
+  height: 3.1em;
+  width: auto;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+.brand h1 {
+  font-size: 1.28em;
+  letter-spacing: .05em;
+  color: var(--blue);
+  line-height: 1.12;
+}
+.brand .sub {
+  font-size: 0.82em;
+  color: var(--muted);
+  letter-spacing: .06em;
+  margin-top: 0.08em;
+  font-weight: 700;
+}
+.page-tag {
+  font-size: 0.95em;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: .12em;
+  text-align: right;
+  flex: 0 0 auto;
+}
+/* 首页：上区 1 份 + 底部人物 2 份 → 单卡高度 = 其它页 3 行轨的 1/3 */
+.home-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55em;
+}
+.home-top {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.home-hero-logo {
+  flex: 0 0 auto;
+  display: block;
+  width: min(96%, 28em);
+  height: auto;
+  margin: 0.25em auto 0;
+  filter:
+    drop-shadow(0 0.1em 0.16em rgba(0,0,0,.28))
+    drop-shadow(0 0 0.4em rgba(247,242,234,.9));
+}
+.home-extra {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45em;
+}
+.sys-note {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.35em;
+}
+.sys-note .box {
+  background: #fff;
+  border: 0.07em solid var(--line);
+  padding: 0.38em 0.42em;
+}
+.sys-note h2 {
+  font-size: 0.82em;
+  color: var(--gold);
+  letter-spacing: .1em;
+  margin-bottom: 0.16em;
+  border-left: 0.14em solid var(--red);
+  padding-left: 0.24em;
+}
+.sys-note p {
+  font-size: 0.72em;
+  line-height: 1.34;
+  color: var(--muted);
+}
+.cover-side {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.cover-side .box {
+  background: #fff;
+  border: 0.07em solid var(--line);
+  padding: 0.4em 0.45em;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.28em;
+  box-sizing: border-box;
+}
+.cover-side h2 {
+  flex: 0 0 auto;
+  font-size: 0.9em;
+  color: var(--gold);
+  letter-spacing: .1em;
+  border-left: 0.16em solid var(--red);
+  padding-left: 0.26em;
+}
+.cast {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.28em;
+  align-content: stretch;
+}
+.cast .c {
+  background: #fff;
+  border: 0.06em solid var(--line);
+  text-align: center;
+  padding: 0.2em 0.06em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.12em;
+  min-height: 0;
+}
+.cast img {
+  width: 2.85em;
+  height: 2.85em;
+  image-rendering: pixelated;
+  display: block;
+  object-fit: contain;
+}
+.cast span {
+  font-size: 0.62em;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
+}
+.roster {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.32em;
+}
+/* 底部两人高 = 其它页两行卡；flex:2 相对 home-top 的 flex:1 */
+.home-roster {
+  flex: 2 1 0;
+  min-height: 0;
+  grid-template-rows: repeat(2, 1fr);
+}
+.char {
+  position: relative;
+  overflow: hidden;
+  border: 0.07em solid #2a1c16;
+  background: var(--char-bg, #f8f8f8);
+  min-height: 0;
+}
+.char.boss { border-color: var(--red); }
+.char .art {
+  position: absolute;
+  right: -8%;
+  bottom: -4%;
+  height: 118%;
+  width: auto;
+  max-width: 52%;
+  object-fit: contain;
+  object-position: right bottom;
+  pointer-events: none;
+  z-index: 0;
+  filter: saturate(1.02) contrast(.96);
+  opacity: .9;
+}
+.char .shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--char-shade);
+}
+.char .body {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12em;
+  padding: 0.28em 0.34em 0.22em;
+}
+.id {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  flex: 0 0 auto;
+  padding-bottom: 1em;
+}
+.face {
+  image-rendering: pixelated;
+  background: #111;
+  border: 0.06em solid #2a1c16;
+}
+.names .zh {
+  font-size: 1.08em;
+  font-weight: 900;
+  letter-spacing: .05em;
+  line-height: 1.05;
+  color: var(--ink);
+  text-shadow: 0 0 0.28em rgba(255,255,255,.9);
+}
+.char.boss .names .zh { color: var(--red); }
+.names .en {
+  font-size: 0.62em;
+  color: var(--muted);
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.moves {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.06em;
+}
+.sec {
+  margin-top: 0.06em;
+  font-size: 0.66em;
+  letter-spacing: .1em;
+  font-weight: 900;
+  color: var(--gold);
+  background: rgba(255,255,255,.88);
+  border-left: 0.12em solid var(--red);
+  padding: 0.04em 0.2em;
+  width: fit-content;
+  max-width: 100%;
+}
+.mv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 0.28em;
+  row-gap: 0.01em;
+  align-items: baseline;
+  line-height: 1.22;
+  padding: 0.04em 0.14em;
+  background: rgba(255,255,255,.28);
+  border-radius: 0.06em;
+}
+.mv .n {
+  font-size: 0.92em;
+  font-weight: 900;
+  color: var(--ink);
+  white-space: nowrap;
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+.mv .c {
+  font-size: 0.82em;
+  color: var(--muted);
+  font-weight: 700;
+  text-align: right;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  margin-left: auto;
+  max-width: 100%;
+}
+.mv.special .n { color: var(--green); }
+.mv.sa .n { color: var(--sa); }
+.mv.unique .n { color: #4a2e78; }
+
+@media screen { body { padding: 16px 0 40px; } }
+@media print {
+  @page { size: 210mm 297mm; margin: 0; }
+  html, body {
+    width: 210mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff;
+  }
+  .sheet {
+    margin: 0 !important;
+    box-shadow: none !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .sheet:last-of-type {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<section class="sheet" aria-label="隆 · 肯 · 豪鬼 · 丹">
+  <div class="panel">
+    <header class="top">
+      <div class="brand">
+        <div>
+          <h1>STREET FIGHTER ALPHA 3 · 出招表</h1>
+          <div class="sub">ARCADE / CPS-2 · 街霸ZERO 3 · 隆 · 肯 · 豪鬼 · 丹</div>
+        </div>
+      </div>
+      <div class="page-tag">PAGE 1 / 5</div>
+    </header>
+    <div class="home-body">
+      <div class="home-top">
+        <img class="home-hero-logo" src="assets/logo.png" alt="Street Fighter Alpha 3" />
+        <div class="home-extra">
+          <div class="sys-note">
+            <div class="box">
+              <h2>A-ISM</h2>
+              <p>α系列标准：三级气槽、空中受身、传统超必杀，招式面最全。</p>
+            </div>
+            <div class="box">
+              <h2>X-ISM</h2>
+              <p>接近超二风格：单槽超必杀、无空中防御、伤害偏高，节奏更硬。</p>
+            </div>
+            <div class="box">
+              <h2>V-ISM</h2>
+              <p>可变连段气槽：无传统超必杀，靠气槽取消打出高密度连段。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="roster home-roster">
+        
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/ryu.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/ryu.png" alt="隆" />
+      <div class="names">
+        <div class="zh">隆</div>
+        <div class="en">Ryu</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">背负投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">旋风脚</span><span class="c">→+中脚</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">升龙拳</span><span class="c">→↓↘+拳</span></div>
+<div class="mv special"><span class="n">波动拳</span><span class="c">↓↘→+拳</span></div>
+<div class="mv special"><span class="n">灼热波动拳</span><span class="c">←↙↓↘→ + 拳</span></div>
+<div class="mv special"><span class="n">龙卷旋风腿</span><span class="c">↓↙← + 脚 (地/空)</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">真空波动拳</span><span class="c">↓↘→↓↘→ + 拳</span></div>
+<div class="mv sa"><span class="n">真空龙卷旋风腿</span><span class="c">↓↙←↓↙← + 脚</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/ken.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/ken.png" alt="肯" />
+      <div class="names">
+        <div class="zh">肯</div>
+        <div class="en">Ken</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">地狱车</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">稻妻割</span><span class="c">→+中腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">波动拳</span><span class="c">↓↘→+拳</span></div>
+<div class="mv special"><span class="n">火焰升龙拳</span><span class="c">→↓↘+拳</span></div>
+<div class="mv special"><span class="n">龙卷旋风腿</span><span class="c">↓↙← + 脚 (地/空)</span></div>
+<div class="mv special"><span class="n">翻滚</span><span class="c">↓↙←+拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">秘升龙烈破</span><span class="c">↓↘→↓↘+拳</span></div>
+<div class="mv sa"><span class="n">神龙拳</span><span class="c">↓↘→↓↘++腿</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char boss" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/gouki.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/gouki.png" alt="豪鬼" />
+      <div class="names">
+        <div class="zh">豪鬼</div>
+        <div class="en">Akuma</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">背负投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">天魔空刃腿</span><span class="c">跳到最高点时，↓+中腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">豪波动拳</span><span class="c">↓↘→+拳</span></div>
+<div class="mv special"><span class="n">斩空波动拳</span><span class="c">空中↓↘→+拳</span></div>
+<div class="mv special"><span class="n">灼热波动拳</span><span class="c">→↘↓↙←+拳</span></div>
+<div class="mv special"><span class="n">豪升龙拳</span><span class="c">→↓↘+拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">灭杀豪波动</span><span class="c">→↘↓↙←→↘↓↙←+拳</span></div>
+<div class="mv sa"><span class="n">灭杀豪升龙</span><span class="c">↓↘→↓↘→+拳</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/dan.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/dan.png" alt="丹" />
+      <div class="names">
+        <div class="zh">丹</div>
+        <div class="en">Dan</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">背负投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">蹲下挑衅</span><span class="c">蹲下状态， START</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">我道拳</span><span class="c">↓↘→ + 拳</span></div>
+<div class="mv special"><span class="n">晃龙拳</span><span class="c">→↓↘ + 拳</span></div>
+<div class="mv special"><span class="n">断空脚</span><span class="c">↓↙← + 轻、中、重脚</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">晃龙烈火</span><span class="c">↓↘→↓↘→ + 脚</span></div>
+<div class="mv sa"><span class="n">震空我道拳</span><span class="c">↓↘→↓↘→ + 拳</span></div>
+    </div>
+  </div>
+</article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="sheet" aria-label="樱 · 春丽 · 花梨 · 罗丝 · 嘉米 · 美华">
+  <div class="panel">
+    <header class="top">
+      <div class="brand">
+        <img class="logo" src="assets/logo.png" alt="Street Fighter Alpha 3" />
+        <div>
+          <h1>SF ALPHA 3 · 出招表</h1>
+          <div class="sub">樱 · 春丽 · 花梨 · 罗丝 · 嘉米 · 美华</div>
+        </div>
+      </div>
+      <div class="page-tag">PAGE 2 / 5</div>
+    </header>
+    <div class="roster">
+      
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/sakura.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/sakura.png" alt="樱" />
+      <div class="names">
+        <div class="zh">樱</div>
+        <div class="en">Sakura</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">樱绞</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">花踢</span><span class="c">→+中腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">春风脚（空中可）</span><span class="c">↓↙← + 脚</span></div>
+<div class="mv special"><span class="n">盛樱拳</span><span class="c">→↓↘ + 拳</span></div>
+<div class="mv special"><span class="n">波动拳</span><span class="c">↓↘→ + 拳(依照按拳的次数决定射程远近)</span></div>
+<div class="mv special"><span class="n">樱花落</span><span class="c">→↓↘ + 脚, 之后接拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">真空波动拳</span><span class="c">↓↘→↓↘→ + 拳</span></div>
+<div class="mv sa"><span class="n">春一番</span><span class="c">↓↙←↓↙← + 脚</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/chunli.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/chunli.png" alt="春丽" />
+      <div class="names">
+        <div class="zh">春丽</div>
+        <div class="en">Chun-Li</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">虎袭倒</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">后方回旋腿(中段技)</span><span class="c">↘+中腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">气功拳</span><span class="c">←↙↓↘→+拳</span></div>
+<div class="mv special"><span class="n">霸山蹴</span><span class="c">→↘↓↙←+腿</span></div>
+<div class="mv special"><span class="n">百裂蹴</span><span class="c">腿连打</span></div>
+<div class="mv special"><span class="n">天升腿</span><span class="c">↓储↑+腿 （X-ISM为REVERSAL状态专用）</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">千裂腿</span><span class="c">←储→←→+腿</span></div>
+<div class="mv sa"><span class="n">气功掌</span><span class="c">↓↘→↓↘→+腿</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/karin.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/karin.png" alt="花梨" />
+      <div class="names">
+        <div class="zh">花梨</div>
+        <div class="en">Karin</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">社崩</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">旋风割</span><span class="c">→+中腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">红莲拳</span><span class="c">↓↘→ + 拳 (可连续输入3次)</span></div>
+<div class="mv special"><span class="n">┣红莲烈尖顶</span><span class="c">“红莲拳”1-2段中，↘+拳</span></div>
+<div class="mv special"><span class="n">┣红莲崩掌</span><span class="c">“红莲拳”1-2段中，→+拳</span></div>
+<div class="mv special"><span class="n">┣红莲上段夜叉返</span><span class="c">“红莲拳”1-2段中，←+拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">神月流神扉开闢</span><span class="c">↓↘→↓↘→ + 拳</span></div>
+<div class="mv sa"><span class="n">神月流皇王拳</span><span class="c">↓↘→↓↘→ + 脚</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/rose.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/rose.png" alt="罗丝" />
+      <div class="names">
+        <div class="zh">罗丝</div>
+        <div class="en">Rose</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">灵魂吸收</span><span class="c">近身 ←/→+双脚</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">下铲腿</span><span class="c">↘+中腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">灵魂之镜</span><span class="c">↓↙← + 拳</span></div>
+<div class="mv special"><span class="n">灵魂之箭</span><span class="c">→↓↘ + 拳</span></div>
+<div class="mv special"><span class="n">灵魂波动</span><span class="c">←↙↓↘→ + 拳</span></div>
+<div class="mv special"><span class="n">灵魂冲击</span><span class="c">↓↘→ + 脚</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">超灵魂之箭</span><span class="c">↓↘→↓↘→ + 拳</span></div>
+<div class="mv sa"><span class="n">灵魂幻影</span><span class="c">↓↘→↓↘→ + 脚</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/cammy.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/cammy.png" alt="嘉米" />
+      <div class="names">
+        <div class="zh">嘉米</div>
+        <div class="en">Cammy</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">火箭投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">旋转之箭</span><span class="c">↓↘→ + 拳</span></div>
+<div class="mv special"><span class="n">大炮轰击</span><span class="c">→↓↘ + 拳</span></div>
+<div class="mv special"><span class="n">回旋掌</span><span class="c">→↘↓↙← + 腿</span></div>
+<div class="mv special"><span class="n">火箭结合</span><span class="c">↙↓↘↗ + 拳（按腿取消）</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">针刺者</span><span class="c">↓↘→↓↘ + 脚</span></div>
+<div class="mv sa"><span class="n">反向驱动器</span><span class="c">↓↙←↓↙← + 脚 （任意键连打）</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/rainbow.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/rainbow.png" alt="美华" />
+      <div class="names">
+        <div class="zh">美华</div>
+        <div class="en">R.Mika</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">白日梦投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">彩虹踢</span><span class="c">←/→+中腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">飞砂</span><span class="c">↓↙← + 拳</span></div>
+<div class="mv special"><span class="n">射砂</span><span class="c">↓↙← + 腿</span></div>
+<div class="mv special"><span class="n">白日梦锁头</span><span class="c">摇杆一圈 + 拳</span></div>
+<div class="mv special"><span class="n">天堂拥抱</span><span class="c">近身摇杆一圈 + 腿（任意键连打）</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">天堂动力</span><span class="c">近身摇杆两圈 + 拳（任意键连打）</span></div>
+<div class="mv sa"><span class="n">彩虹打击</span><span class="c">↓↘→↓↘ + 拳</span></div>
+    </div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</section>
+
+<section class="sheet" aria-label="凯 · 科迪 · 桑吉尔夫 · 伯迪 · 苏杜姆 · 本田">
+  <div class="panel">
+    <header class="top">
+      <div class="brand">
+        <img class="logo" src="assets/logo.png" alt="Street Fighter Alpha 3" />
+        <div>
+          <h1>SF ALPHA 3 · 出招表</h1>
+          <div class="sub">凯 · 科迪 · 桑吉尔夫 · 伯迪 · 苏杜姆 · 本田</div>
+        </div>
+      </div>
+      <div class="page-tag">PAGE 3 / 5</div>
+    </header>
+    <div class="roster">
+      
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/guy.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/guy.png" alt="凯" />
+      <div class="names">
+        <div class="zh">凯</div>
+        <div class="en">Guy</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">背负投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">三角跳</span><span class="c">空中近版边时按相反方向</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">武神旋风脚</span><span class="c">↓↙← + K</span></div>
+<div class="mv special"><span class="n">蹦山斗</span><span class="c">↓↙← + 拳</span></div>
+<div class="mv special"><span class="n">饭纲肘落</span><span class="c">↓↘→ + 拳.拳</span></div>
+<div class="mv special"><span class="n">武神饭纲落</span><span class="c">↓↘→ + 拳.近身，拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">武神刚雷脚</span><span class="c">↓↘→↓↘→ + 腿</span></div>
+<div class="mv sa"><span class="n">武神八双拳</span><span class="c">↓↘→↓↘→ + 拳</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/cody.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/cody.png" alt="科迪" />
+      <div class="names">
+        <div class="zh">科迪</div>
+        <div class="en">Cody</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">犯人投掷</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">击胃</span><span class="c">→+中拳</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">坏石子</span><span class="c">↓↘→ + 拳（非持刀状态）</span></div>
+<div class="mv special"><span class="n">拉芬踢</span><span class="c">↓↙← + 腿</span></div>
+<div class="mv special"><span class="n">飓风上击</span><span class="c">↓↙← + 拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">终极毁灭</span><span class="c">↓↘→↓↘→ + 拳（摇杆控制移动；拳或脚攻击）</span></div>
+<div class="mv sa"><span class="n">死亡终结</span><span class="c">↓↘→↓↘ + 腿</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/zangief.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/zangief.png" alt="桑吉尔夫" />
+      <div class="names">
+        <div class="zh">桑吉尔夫</div>
+        <div class="en">Zangief</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">后落</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">俄式踢</span><span class="c">↓或↘+中腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">双截旋风掌</span><span class="c">3个拳同时按（←/→控制人物移动）</span></div>
+<div class="mv special"><span class="n">快速旋风掌</span><span class="c">3个脚同时按（←/→控制人物移动）</span></div>
+<div class="mv special"><span class="n">碎金掌</span><span class="c">→↓↘+ 拳或→↘↓+ 拳</span></div>
+<div class="mv special"><span class="n">螺旋打桩</span><span class="c">近身摇杆一圈 + 拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">终极原子弹爆炸</span><span class="c">近身摇杆两圈 + 拳</span></div>
+<div class="mv sa"><span class="n">俄罗斯空投</span><span class="c">↓↘→↓↘ + 拳或腿</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/birdie.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/birdie.png" alt="伯迪" />
+      <div class="names">
+        <div class="zh">伯迪</div>
+        <div class="en">Birdie</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">公牛斯派克</span><span class="c">近身，←or→+双拳(任意键连打)</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">躯干撞</span><span class="c">空中↓+重P</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">牛角</span><span class="c">2个拳or双脚住一会再放开(根据蓄力时间的不同共分为5…</span></div>
+<div class="mv special"><span class="n">牛头</span><span class="c">←蓄→+拳</span></div>
+<div class="mv special"><span class="n">死亡之链</span><span class="c">近身，摇杆转一圈+拳</span></div>
+<div class="mv special"><span class="n">伯迪之键</span><span class="c">近身，摇杆转一圈+脚</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">我是伯迪</span><span class="c">←蓄→←→+拳</span></div>
+<div class="mv sa"><span class="n">公牛复仇</span><span class="c">↓↘→↓↘+拳 or 脚</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/sodom.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/sodom.png" alt="苏杜姆" />
+      <div class="names">
+        <div class="zh">苏杜姆</div>
+        <div class="en">Sodom</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">将军投</span><span class="c">近身 ←/→+2个拳键或双脚</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">后转移动起</span><span class="c">倒地前，→↘↓+ 拳</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">地狱</span><span class="c">↓↘→ + 拳</span></div>
+<div class="mv special"><span class="n">白刃</span><span class="c">→↓↘ + 腿</span></div>
+<div class="mv special"><span class="n">失仓反击</span><span class="c">←↓↙ + 腿</span></div>
+<div class="mv special"><span class="n">佛灭</span><span class="c">近身摇杆一圈 + 拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">冥士之礼</span><span class="c">↓↘→↓↘ + 拳</span></div>
+<div class="mv sa"><span class="n">天中杀</span><span class="c">近身摇杆两圈 + 拳</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/honda.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/honda.png" alt="本田" />
+      <div class="names">
+        <div class="zh">本田</div>
+        <div class="en">E.Honda</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">俵投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">膝蹴</span><span class="c">←或→+中腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">超级百贯落</span><span class="c">↓儲↑ + 腿</span></div>
+<div class="mv special"><span class="n">超级头突</span><span class="c">←儲→ + 拳</span></div>
+<div class="mv special"><span class="n">百裂張手</span><span class="c">拳连打</span></div>
+<div class="mv special"><span class="n">大銀杏投</span><span class="c">近距离摇杆一周 +拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">大蛇碎（lv3)</span><span class="c">近距离摇杆两周 +拳</span></div>
+<div class="mv sa"><span class="n">富士碎</span><span class="c">←儲→←→ +腿</span></div>
+    </div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</section>
+
+<section class="sheet" aria-label="罗连托 · 纳什 · 布兰卡 · 元 · 达尔锡姆 · 阿东">
+  <div class="panel">
+    <header class="top">
+      <div class="brand">
+        <img class="logo" src="assets/logo.png" alt="Street Fighter Alpha 3" />
+        <div>
+          <h1>SF ALPHA 3 · 出招表</h1>
+          <div class="sub">罗连托 · 纳什 · 布兰卡 · 元 · 达尔锡姆 · 阿东</div>
+        </div>
+      </div>
+      <div class="page-tag">PAGE 4 / 5</div>
+    </header>
+    <div class="roster">
+      
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/rolento.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/rolento.png" alt="罗连托" />
+      <div class="names">
+        <div class="zh">罗连托</div>
+        <div class="en">Rolento</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">职业杀投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">虚幻棍</span><span class="c">→+中腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">爱国者旋棍</span><span class="c">↓↘→ + 拳（可连续输入3次）</span></div>
+<div class="mv special"><span class="n">刺针飞刀</span><span class="c">→↓↘ + 腿.拳或腿</span></div>
+<div class="mv special"><span class="n">三角回旋</span><span class="c">↓↙← + 腿.腿</span></div>
+<div class="mv special"><span class="n">三角跳击</span><span class="c">↓↙← + 腿.拳或腿</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">杀人钢索</span><span class="c">↓↘→↓↘→ + 拳</span></div>
+<div class="mv sa"><span class="n">钢刀雨</span><span class="c">↓↘→↓↘ + 腿</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/nash.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/nash.png" alt="纳什" />
+      <div class="names">
+        <div class="zh">纳什</div>
+        <div class="en">Charlie</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">龙投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">快步</span><span class="c">→→</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">音速刀</span><span class="c">←儲→ + 拳</span></div>
+<div class="mv special"><span class="n">倒跃盾</span><span class="c">↓儲↑ + 腿</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">正义倒跃踢</span><span class="c">↙储↘↙↗+腿</span></div>
+<div class="mv sa"><span class="n">音速爆破</span><span class="c">←儲→←→ +拳.拳连打</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/blanka.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/blanka.png" alt="布兰卡" />
+      <div class="names">
+        <div class="zh">布兰卡</div>
+        <div class="en">Blanka</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">野蛮啃杀</span><span class="c">近身 ←/→+双拳（任意键连打)</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">二段啃</span><span class="c">近距离，←/→+中拳</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">雷霆电击</span><span class="c">拳连打</span></div>
+<div class="mv special"><span class="n">回旋撞击</span><span class="c">←儲→ + 拳</span></div>
+<div class="mv special"><span class="n">后步转</span><span class="c">←儲→ + 腿</span></div>
+<div class="mv special"><span class="n">回旋上击</span><span class="c">↓儲↑ + 腿</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">乱刀突刺</span><span class="c">←儲→←→ +拳.（按住键可以令时间改变……波斯王子吗…</span></div>
+<div class="mv sa"><span class="n">热带危机</span><span class="c">↙储↘↙↗+腿</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/gen.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/gen.png" alt="元" />
+      <div class="names">
+        <div class="zh">元</div>
+        <div class="en">Gen</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">囚掠</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">脊断</span><span class="c">空中重腿击中时重腿</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">丧流.百连勾</span><span class="c">拳连打</span></div>
+<div class="mv special"><span class="n">丧流.逆泷</span><span class="c">→↓↘ + 腿.腿连打</span></div>
+<div class="mv special"><span class="n">忌流.蛇穿</span><span class="c">←儲→ + 拳</span></div>
+<div class="mv special"><span class="n">忌流.偟牙</span><span class="c">↓儲↑ + 腿</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">丧流.惨影</span><span class="c">↓↘→↓↘ + 拳</span></div>
+<div class="mv sa"><span class="n">丧流.死点穴</span><span class="c">↓↙←↓↙ + 拳</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/dhalsim.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/dhalsim.png" alt="达尔锡姆" />
+      <div class="names">
+        <div class="zh">达尔锡姆</div>
+        <div class="en">Dhalsim</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">瑜伽猛击</span><span class="c">近身 ←/→+双拳（任意键连打)</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">手刀水平击</span><span class="c">→+轻拳</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">瑜伽火</span><span class="c">↓↘→ + 拳</span></div>
+<div class="mv special"><span class="n">瑜伽光明</span><span class="c">←↙↓↘→或→↘↓↙← + 拳</span></div>
+<div class="mv special"><span class="n">瑜伽爆炎</span><span class="c">←↙↓↘→或→↘↓↙← + 脚</span></div>
+<div class="mv special"><span class="n">瑜伽隐身</span><span class="c">→↓↘或←↓↙+三拳或三腿同事按（Z-ISM或V-IS…</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">瑜伽大火</span><span class="c">←↙↓↘→←↙↓↘→ +拳</span></div>
+<div class="mv sa"><span class="n">瑜伽神火</span><span class="c">↓↘→↓↘→ + 拳</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/adon.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/adon.png" alt="阿东" />
+      <div class="names">
+        <div class="zh">阿东</div>
+        <div class="en">Adon</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">美洲虎投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">虎击破</span><span class="c">→+中拳</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">猛虎膝</span><span class="c">→↓↘ + 腿</span></div>
+<div class="mv special"><span class="n">虎烈踢</span><span class="c">空中，腿或←↓↙ + 脚</span></div>
+<div class="mv special"><span class="n">虎牙击打</span><span class="c">→↘↓↙← + 脚</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">猛虎连拳</span><span class="c">↓↘→↓↘ + 拳（X-ISM拳或脚连打，Z0ISM …</span></div>
+<div class="mv sa"><span class="n">猛虎连踢</span><span class="c">↓↘→↓↘ + 腿</span></div>
+    </div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</section>
+
+<section class="sheet" aria-label="萨卡特 · 巴洛克 · 维加 · 尤丽 · 尤妮 · 拜森">
+  <div class="panel">
+    <header class="top">
+      <div class="brand">
+        <img class="logo" src="assets/logo.png" alt="Street Fighter Alpha 3" />
+        <div>
+          <h1>SF ALPHA 3 · 出招表</h1>
+          <div class="sub">萨卡特 · 巴洛克 · 维加 · 尤丽 · 尤妮 · 拜森</div>
+        </div>
+      </div>
+      <div class="page-tag">PAGE 5 / 5</div>
+    </header>
+    <div class="roster">
+      
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/sagat.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/sagat.png" alt="萨卡特" />
+      <div class="names">
+        <div class="zh">萨卡特</div>
+        <div class="en">Sagat</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">虎背</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">奇踢</span><span class="c">站立中脚.中脚</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">上段猛虎波</span><span class="c">↓↘→ + 拳</span></div>
+<div class="mv special"><span class="n">下段猛虎波</span><span class="c">↓↘→ + 腿</span></div>
+<div class="mv special"><span class="n">猛虎剪手</span><span class="c">→↓↘ + 拳</span></div>
+<div class="mv special"><span class="n">猛虎上升</span><span class="c">→↓↘ + 拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">猛虎暴怒</span><span class="c">↓↘→↓↘ + 腿</span></div>
+<div class="mv sa"><span class="n">猛虎波动炮</span><span class="c">↓↘→↓↘ →+ 拳</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/balrog.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/balrog.png" alt="巴洛克" />
+      <div class="names">
+        <div class="zh">巴洛克</div>
+        <div class="en">Balrog</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">彩虹后拉抱</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">三角跳</span><span class="c">空中近版边时按相反方向</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">滚动水晶刺</span><span class="c">←储→+拳</span></div>
+<div class="mv special"><span class="n">伤疤之恨</span><span class="c">↙储→+腿</span></div>
+<div class="mv special"><span class="n">高空杀</span><span class="c">↓儲↑+拳（再按拳可以令攻击形式改变）</span></div>
+<div class="mv special"><span class="n">飞翔巴塞罗那</span><span class="c">↓儲↑+脚，弹墙后，拳（下降中可以控制方向）</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">超级飞翔巴塞罗那</span><span class="c">↙储↘↙↗+腿，弹墙后，拳（下降中可以控制方向）</span></div>
+<div class="mv sa"><span class="n">张付飞翔巴塞罗那</span><span class="c">↙储↘↙↗+3个腿键同时按，弹墙后，拳（下降中可以控制…</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/vega.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/vega.png" alt="维加" />
+      <div class="names">
+        <div class="zh">维加</div>
+        <div class="en">Vega</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">死亡投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">精神爆击</span><span class="c">←蓄→ + 拳</span></div>
+<div class="mv special"><span class="n">精神爆弹</span><span class="c">←蓄→ + 拳</span></div>
+<div class="mv special"><span class="n">双重膝压</span><span class="c">←蓄→ + 腿</span></div>
+<div class="mv special"><span class="n">恶魔颠倒</span><span class="c">↓儲↑ + 拳.拳</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">膝压恶梦</span><span class="c">←蓄→←→ + 腿</span></div>
+<div class="mv sa"><span class="n">超级精神爆弹</span><span class="c">←蓄→←→ + 拳</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char boss" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/juli.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/juli.png" alt="尤丽" />
+      <div class="names">
+        <div class="zh">尤丽</div>
+        <div class="en">Juli</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">火箭投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">弧形落脚</span><span class="c">→ +中脚</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">精神箭</span><span class="c">↓↘→ + 腿</span></div>
+<div class="mv special"><span class="n">大炮轰击</span><span class="c">→↓↘ + 腿</span></div>
+<div class="mv special"><span class="n">回旋拳</span><span class="c">→↘↓↙← + 拳</span></div>
+<div class="mv special"><span class="n">精神补充ɑ</span><span class="c">3个拳键同时按住（尤丽和尤妮组队二对一模式专用）</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">反向驱动器</span><span class="c">↓↙←↓↙←+腿（任意键连打）</span></div>
+<div class="mv sa"><span class="n">针刺者</span><span class="c">↓↘→↓↘ + 腿</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char boss" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/juni.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/juni.png" alt="尤妮" />
+      <div class="names">
+        <div class="zh">尤妮</div>
+        <div class="en">Juni</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">火箭投</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">特殊</div>
+<div class="mv unique"><span class="n">弧形落脚</span><span class="c">→ +中脚</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">旋转之箭</span><span class="c">←蓄→ + 腿（空中可）</span></div>
+<div class="mv special"><span class="n">大炮轰击</span><span class="c">↓儲↑ + 腿</span></div>
+<div class="mv special"><span class="n">火箭组合</span><span class="c">↙↓↘↗ + 拳（可按脚取消）</span></div>
+<div class="mv special"><span class="n">┣剃刀踢</span><span class="c">“火箭结合”后没有输入任何指令</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">反向驱动器</span><span class="c">↓↙←↓↙←+拳</span></div>
+<div class="mv sa"><span class="n">针刺者</span><span class="c">↙储↘↙↗ +腿</span></div>
+    </div>
+  </div>
+</article>
+
+<article class="char boss" style="--char-bg:#f8f8f8; --char-shade:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.96) 48%,rgba(248,248,248,.78) 68%,rgba(248,248,248,.35) 86%,rgba(248,248,248,.12) 100%)">
+  <img class="art" src="assets/art/bison.jpg" alt="" />
+  <div class="shade"></div>
+  <div class="body">
+    <div class="id">
+      <img class="face" src="assets/select/bison.png" alt="拜森" />
+      <div class="names">
+        <div class="zh">拜森</div>
+        <div class="en">M.Bison</div>
+      </div>
+    </div>
+    <div class="moves">
+      <div class="sec">投技</div>
+<div class="mv throw"><span class="n">头部炸弹</span><span class="c">近身 ←/→+双拳</span></div>
+<div class="sec">必杀</div>
+<div class="mv special"><span class="n">回旋拳</span><span class="c">3个拳键或脚键同时按住一会再放开（根据蓄力时间分为10…</span></div>
+<div class="mv special"><span class="n">前冲直拳</span><span class="c">←蓄→ + 拳</span></div>
+<div class="mv special"><span class="n">前冲直勾拳</span><span class="c">←蓄↘ + 拳</span></div>
+<div class="mv special"><span class="n">前冲勾拳</span><span class="c">←蓄→ + 腿</span></div>
+<div class="sec">超必杀</div>
+<div class="mv sa"><span class="n">狂牛组合拳</span><span class="c">←蓄→←→ + 拳或脚（按住脚不放能令动作改变）</span></div>
+<div class="mv sa"><span class="n">回旋重击（LV3专用）</span><span class="c">←蓄→←→ + 脚</span></div>
+    </div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

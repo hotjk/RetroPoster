@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>电神魔傀Ⅱ · 出招表</title>
+<style>
+:root {
+  --ink: #1a2433;
+  --dim: #4a5a70;
+  --paper: #f7f9fc;
+  --card: #ffffff;
+  --line: rgba(14,116,144,.28);
+  --line-soft: rgba(26,36,51,.14);
+  --amber: #b45309;
+  --cyan: #0e7490;
+  --hot: #be123c;
+  --lime: #3f6212;
+  --paper-cmd: #b45309;
+  --paper-super: #be123c;
+  --paper-charge: #b45309;
+  --paper-air: #0e7490;
+  --paper-ult: #3f6212;
+  --paper-accent: #0e7490;
+  --base: 5.2mm;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: var(--base); }
+body {
+  font-family: "Bahnschrift", "Segoe UI", "SimHei", "黑体", sans-serif;
+  background: #dce3ec;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.sheet {
+  width: 210mm;
+  height: 297mm;
+  margin: 16px auto;
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(14,116,144,.08), transparent 42%),
+    radial-gradient(ellipse at 100% 8%, rgba(180,83,9,.07), transparent 38%),
+    linear-gradient(180deg, #ffffff 0%, #f3f6fa 55%, #eef2f7 100%);
+  box-shadow: 0 10px 28px rgba(26,36,51,.18);
+  overflow: hidden;
+  page-break-after: always;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.55em 0.6em 0.45em;
+  gap: 0.3em;
+}
+.sheet:last-of-type { page-break-after: auto; }
+.sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0.28em;
+  border: 0.08em solid var(--line);
+  pointer-events: none;
+  z-index: 5;
+}
+.sheet::after {
+  content: "";
+  position: absolute;
+  inset: 0.46em;
+  border: 0.03em dashed rgba(180,83,9,.35);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.mast {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.5em;
+  align-items: center;
+  padding: 0.12em 0.1em 0.24em;
+  border-bottom: 0.08em solid var(--line);
+  background: linear-gradient(90deg, rgba(14,116,144,.08), transparent 72%);
+}
+.logo-wrap img {
+  width: 6.8em;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0.08em 0.18em rgba(26,36,51,.2));
+}
+.mast-mid {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05em;
+}
+.kicker {
+  font-size: 0.74em;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  font-weight: 800;
+}
+.title-zh {
+  font-size: 1.72em;
+  font-weight: 900;
+  letter-spacing: .12em;
+  line-height: 1.05;
+  color: var(--ink);
+}
+.title-en {
+  font-size: 0.84em;
+  letter-spacing: .14em;
+  color: var(--cyan);
+  font-weight: 800;
+}
+.meta {
+  font-size: 0.72em;
+  color: var(--dim);
+  letter-spacing: .05em;
+  line-height: 1.3;
+  font-weight: 600;
+}
+.page-tag {
+  font-size: 0.86em;
+  font-weight: 900;
+  letter-spacing: .16em;
+  color: var(--hot);
+  border: 0.06em solid rgba(190,18,60,.4);
+  padding: 0.3em 0.38em;
+  background: #fff1f2;
+  white-space: nowrap;
+}
+
+.sys {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.16em 0.35em;
+  background: var(--card);
+  border: 0.06em solid var(--line-soft);
+  border-left: 0.18em solid var(--cyan);
+  padding: 0.28em 0.4em;
+  box-shadow: 0 0.08em 0.2em rgba(26,36,51,.06);
+}
+.sys h3 {
+  grid-column: 1 / -1;
+  font-size: 0.8em;
+  letter-spacing: .16em;
+  color: #0f766e;
+  margin-bottom: 0.06em;
+  font-weight: 900;
+}
+.sys .cell {
+  font-size: 0.68em;
+  line-height: 1.3;
+  color: var(--dim);
+}
+.sys .cell b {
+  color: var(--ink);
+  font-weight: 800;
+}
+.sys .cell .cmd {
+  color: var(--paper-cmd);
+  font-weight: 800;
+}
+
+.rails {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.22em;
+}
+.rail {
+  display: grid;
+  grid-template-columns: 3.8em 1fr;
+  gap: 0;
+  background: var(--card);
+  border: 0.06em solid var(--line-soft);
+  border-left: 0.22em solid var(--accent, var(--cyan));
+  overflow: hidden;
+  min-height: 0;
+  box-shadow: 0 0.08em 0.18em rgba(26,36,51,.06);
+}
+.rail:nth-child(1) { --accent: #0e7490; --accent-soft: #ecfeff; }
+.rail:nth-child(2) { --accent: #b45309; --accent-soft: #fff7ed; }
+.rail:nth-child(3) { --accent: #be123c; --accent-soft: #fff1f2; }
+.rail:nth-child(4) { --accent: #4d7c0f; --accent-soft: #f7fee7; }
+
+.portrait {
+  background:
+    radial-gradient(circle at 50% 72%, color-mix(in srgb, var(--accent) 18%, #fff), transparent 58%),
+    linear-gradient(180deg, #e8eef5 0%, #d9e2ec 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  border-right: 0.05em solid var(--line-soft);
+}
+.portrait img {
+  width: 92%;
+  height: auto;
+  max-height: 96%;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0.1em 0.15em rgba(26,36,51,.25));
+  transform: scale(1.06);
+  transform-origin: bottom center;
+}
+.body {
+  min-width: 0;
+  min-height: 0;
+  padding: 0.16em 0.38em 0.14em 0.32em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+  overflow: hidden;
+  background: var(--card);
+  color: var(--ink);
+}
+.idline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.3em;
+  flex: 0 0 auto;
+}
+.zh {
+  font-size: 1.22em;
+  font-weight: 900;
+  letter-spacing: .08em;
+  color: var(--ink);
+}
+.en {
+  font-size: 0.72em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent, var(--paper-accent));
+  font-weight: 800;
+}
+.tag {
+  font-size: 0.66em;
+  letter-spacing: .05em;
+  color: var(--dim);
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.ratings {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.1em;
+  flex: 0 0 auto;
+}
+.rt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.02em;
+  background: var(--accent-soft, #eef2f7);
+  border: 0.03em solid var(--line-soft);
+  padding: 0.05em 0.14em;
+}
+.rt .l {
+  font-size: 0.58em;
+  letter-spacing: .08em;
+  color: var(--dim);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.rt .s {
+  font-size: 0.7em;
+  color: var(--amber);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.moves {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.04em 0.4em;
+  align-content: start;
+}
+.mv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 0.16em;
+  align-items: baseline;
+  line-height: 1.2;
+  font-size: 0.7em;
+}
+.mv .n {
+  color: var(--ink);
+  font-weight: 800;
+  white-space: nowrap;
+}
+.mv .c {
+  color: var(--dim);
+  font-weight: 700;
+  text-align: right;
+  margin-left: auto;
+  white-space: normal;
+  max-width: 68%;
+}
+.mv.super .n { color: var(--paper-super); }
+.mv.charge .n { color: var(--paper-charge); }
+.mv.air .n { color: var(--paper-air); }
+.mv.ult .n { color: var(--paper-ult); }
+
+@media screen { body { padding: 18px 0 48px; } }
+@media print {
+  @page { size: 210mm 297mm; margin: 0; }
+  html, body {
+    width: 210mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff;
+  }
+  .sheet {
+    margin: 0 !important;
+    box-shadow: none !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    page-break-after: always;
+    break-after: page;
+  }
+  .sheet:last-of-type {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<section class="sheet" aria-label="共通技 · 泽尔·迪亚 · 刃零 · P型机器人 · 斯卡鲁·尤雷">
+  <header class="mast">
+    <div class="logo-wrap">
+      <img src="assets/logo-jp.png" alt="電神魔傀 II" />
+    </div>
+    <div class="mast-mid">
+      <div class="kicker">ARCADE / 1995 / WINKYSOFT · BANPRESTO</div>
+      <div class="title-zh">电神魔傀Ⅱ</div>
+      <div class="title-en">GUARDIANS · DENJIN MAKAI II</div>
+      <div class="meta">完整出招表 · A攻击 · B跳 · C能量</div>
+    </div>
+    <div class="page-tag">01 / 02</div>
+  </header>
+
+  <div class="sys">
+    <h3>全员共通技</h3>
+    <div class="cell"><b>前冲</b> <span class="cmd">→→</span></div>
+    <div class="cell"><b>移位跳</b> <span class="cmd">方向 + B</span></div>
+    <div class="cell"><b>防御</b> <span class="cmd">按住 A</span></div>
+    <div class="cell"><b>快速防御</b> <span class="cmd">反向 + A</span></div>
+    <div class="cell"><b>上下躲避</b> <span class="cmd">↑↑ / ↓↓</span></div>
+    <div class="cell"><b>反击</b> <span class="cmd">防御中 + 前</span></div>
+    <div class="cell"><b>起身躲避</b> <span class="cmd">倒地按住 ↓/↑</span></div>
+    <div class="cell"><b>起身反击</b> <span class="cmd">倒地摇杆或 AB</span></div>
+    <div class="cell"><b>背击</b> <span class="cmd">←+A / →+A</span></div>
+    <div class="cell"><b>倒地攻击</b> <span class="cmd">B + ↓A</span></div>
+    <div class="cell"><b>受身</b> <span class="cmd">连打 A+B</span></div>
+    <div class="cell"><b>组合拳</b> <span class="cmd">原地/↑/→/↓ + 连A</span></div>
+    <div class="cell"><b>保险</b> <span class="cmd">A+B</span>（扣能量）</div>
+    <div class="cell"><b>大保险</b> <span class="cmd">A+C</span>（扣血）</div>
+    <div class="cell"><b>同角色</b> <span class="cmd">第二人投币按住C选人</span></div>
+  </div>
+
+  <div class="rails">
+    <article class="rail">
+      <div class="portrait"><img src="assets/select/zeldia.png" alt="泽尔·迪亚" /></div>
+      <div class="body">
+        <div class="idline">
+          <div><span class="zh">泽尔·迪亚</span> <span class="en">Zeldia</span></div>
+          <div class="tag">天使</div>
+        </div>
+        <div class="ratings">
+          <div class="rt"><span class="l">Power</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Speed</span><span class="s">★★★</span></div>
+          <div class="rt"><span class="l">Skill</span><span class="s">★★★★★</span></div>
+          <div class="rt"><span class="l">Difficulty</span><span class="s">★★★★</span></div>
+        </div>
+        <div class="moves">
+          <div class="mv air"><span class="n">飞行</span><span class="c">按住 B</span></div>
+          <div class="mv air"><span class="n">滑翔</span><span class="c">方向 + B，放开 B</span></div>
+          <div class="mv air"><span class="n">滑翔探爪</span><span class="c">滑翔中 + A</span></div>
+          <div class="mv air"><span class="n">前冲飞行</span><span class="c">前冲按住 B，再 A 出爪</span></div>
+          <div class="mv charge"><span class="n">螺旋奔袭</span><span class="c">蓄A+←→ · 续A加Hit / B浮空</span></div>
+          <div class="mv charge"><span class="n">羽翼折</span><span class="c">蓄A + ↓↑ 对空</span></div>
+          <div class="mv air"><span class="n">跳跃 AB</span><span class="c">跳中 + AB</span></div>
+          <div class="mv"><span class="n">抓取</span><span class="c">抓住 AB / B / →→</span></div>
+          <div class="mv"><span class="n">剑技</span><span class="c">→→ + AB</span></div>
+          <div class="mv super"><span class="n">极地风暴</span><span class="c">气满 蓄A + ↑↓→</span></div>
+          <div class="mv ult"><span class="n">神之怒</span><span class="c">终极奥义 A + C</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="rail">
+      <div class="portrait"><img src="assets/select/jinrei.png" alt="刃零" /></div>
+      <div class="body">
+        <div class="idline">
+          <div><span class="zh">刃零</span> <span class="en">Jinrei</span></div>
+          <div class="tag">忍者</div>
+        </div>
+        <div class="ratings">
+          <div class="rt"><span class="l">Power</span><span class="s">★★★★★</span></div>
+          <div class="rt"><span class="l">Speed</span><span class="s">★★★</span></div>
+          <div class="rt"><span class="l">Skill</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Difficulty</span><span class="s">★★★</span></div>
+        </div>
+        <div class="moves">
+          <div class="mv"><span class="n">双刃斩</span><span class="c">→→ + AB</span></div>
+          <div class="mv charge"><span class="n">天龙牙</span><span class="c">蓄A + ←→</span></div>
+          <div class="mv charge"><span class="n">第二形态</span><span class="c">蓄A + ↓↑（光环态）</span></div>
+          <div class="mv air"><span class="n">空坠</span><span class="c">跳中近敌A · 可前后翻</span></div>
+          <div class="mv air"><span class="n">弹开坠击</span><span class="c">前后跳B，再快A</span></div>
+          <div class="mv air"><span class="n">翻越坠击</span><span class="c">前跳按住前+B，再快A</span></div>
+          <div class="mv"><span class="n">版边反弹</span><span class="c">跳版边 + 反向B</span></div>
+          <div class="mv"><span class="n">抓取</span><span class="c">抓住 AB / B / →→</span></div>
+          <div class="mv"><span class="n">剑技</span><span class="c">蓄A + ↓↑</span></div>
+          <div class="mv super"><span class="n">忍法妖火</span><span class="c">气满 蓄A + →→←→</span></div>
+          <div class="mv ult"><span class="n">八卦封魔阵</span><span class="c">终极奥义 A + C</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="rail">
+      <div class="portrait"><img src="assets/select/belva.png" alt="P型机器人" /></div>
+      <div class="body">
+        <div class="idline">
+          <div><span class="zh">P型机器人</span> <span class="en">P. Belva</span></div>
+          <div class="tag">机体</div>
+        </div>
+        <div class="ratings">
+          <div class="rt"><span class="l">Power</span><span class="s">★★★</span></div>
+          <div class="rt"><span class="l">Speed</span><span class="s">★★★★★</span></div>
+          <div class="rt"><span class="l">Skill</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Difficulty</span><span class="s">★★★★</span></div>
+        </div>
+        <div class="moves">
+          <div class="mv air"><span class="n">二级跳</span><span class="c">B + B</span></div>
+          <div class="mv"><span class="n">前冲 AB</span><span class="c">→→+AB · 连A≤3Hit</span></div>
+          <div class="mv charge"><span class="n">音速拳</span><span class="c">蓄A + ←→</span></div>
+          <div class="mv charge"><span class="n">扫落</span><span class="c">蓄A+↓↑ · 空中按下扫落</span></div>
+          <div class="mv"><span class="n">抓取前冲</span><span class="c">抓住 + →→</span></div>
+          <div class="mv"><span class="n">抓取 B</span><span class="c">抓住+B 连打≤5Hit</span></div>
+          <div class="mv"><span class="n">抓取 AB</span><span class="c">抓住+AB · 可双抓</span></div>
+          <div class="mv"><span class="n">剑技</span><span class="c">无 · 持剑近身极强</span></div>
+          <div class="mv super"><span class="n">超音速拳</span><span class="c">气满 →→蓄A击中 + ←→</span></div>
+          <div class="mv ult"><span class="n">激光加农炮</span><span class="c">终极奥义 A + C</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="rail">
+      <div class="portrait"><img src="assets/select/skullbyule.png" alt="斯卡鲁·尤雷" /></div>
+      <div class="body">
+        <div class="idline">
+          <div><span class="zh">斯卡鲁·尤雷</span> <span class="en">Skullbyule</span></div>
+          <div class="tag">异形兽</div>
+        </div>
+        <div class="ratings">
+          <div class="rt"><span class="l">Power</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Speed</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Skill</span><span class="s">★★★★★</span></div>
+          <div class="rt"><span class="l">Difficulty</span><span class="s">★★★★</span></div>
+        </div>
+        <div class="moves">
+          <div class="mv"><span class="n">前冲连打</span><span class="c">→→+A · 连A倒地≤14</span></div>
+          <div class="mv"><span class="n">前冲 AB</span><span class="c">→→ + AB</span></div>
+          <div class="mv charge"><span class="n">蜂刃</span><span class="c">蓄A + ←→</span></div>
+          <div class="mv charge"><span class="n">背刺</span><span class="c">蓄A + ↓↑（浮空）</span></div>
+          <div class="mv air"><span class="n">空中 AC</span><span class="c">跳中 + AC（扣血）</span></div>
+          <div class="mv charge"><span class="n">倒地追加</span><span class="c">蓄A + ↓↓ ≤3次</span></div>
+          <div class="mv"><span class="n">抓取 AB / B</span><span class="c">抓住+AB · 抓住+B再A</span></div>
+          <div class="mv"><span class="n">炸弹技</span><span class="c">A / 跳A / AB / →→+AB</span></div>
+          <div class="mv super"><span class="n">死亡蜂刺</span><span class="c">气满 蓄A + →→←→</span></div>
+          <div class="mv ult"><span class="n">毁灭脉冲</span><span class="c">终极 A+C · 空中亦可</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sheet" aria-label="塔鲁克斯 · 吉鲁利安 · 胧天明 · 黑骑士">
+  <header class="mast">
+    <div class="logo-wrap">
+      <img src="assets/logo-jp.png" alt="電神魔傀 II" />
+    </div>
+    <div class="mast-mid">
+      <div class="kicker">ROSTER B · FULL MOVE LIST</div>
+      <div class="title-zh">电神魔傀Ⅱ</div>
+      <div class="title-en">GUARDIANS · CHARACTER MOVES</div>
+      <div class="meta">完整出招表 · A攻击 · B跳 · C能量</div>
+    </div>
+    <div class="page-tag">02 / 02</div>
+  </header>
+
+  <div class="sys">
+    <h3>备注</h3>
+    <div class="cell"><b>起身反击</b> 胧天明需同时摇方向键并按住 AB</div>
+    <div class="cell"><b>气满</b> 超必杀需能量槽满</div>
+    <div class="cell"><b>终极奥义</b> 全员 A+C（扣血）</div>
+    <div class="cell"><b>模拟器</b> 按键映射可能不同</div>
+    <div class="cell"><b>方向招</b> 建议进游戏实测确认</div>
+    <div class="cell"><b>POW</b> 胧天明可低于5块时速集气</div>
+  </div>
+
+  <div class="rails">
+    <article class="rail">
+      <div class="portrait"><img src="assets/select/tulks.png" alt="塔鲁克斯" /></div>
+      <div class="body">
+        <div class="idline">
+          <div><span class="zh">塔鲁克斯</span> <span class="en">Tulks</span></div>
+          <div class="tag">肌肉男</div>
+        </div>
+        <div class="ratings">
+          <div class="rt"><span class="l">Power</span><span class="s">★★★★★</span></div>
+          <div class="rt"><span class="l">Speed</span><span class="s">★★</span></div>
+          <div class="rt"><span class="l">Skill</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Difficulty</span><span class="s">★★</span></div>
+        </div>
+        <div class="moves">
+          <div class="mv air"><span class="n">空投</span><span class="c">跳中近敌A · 无限判定</span></div>
+          <div class="mv air"><span class="n">钻击</span><span class="c">前冲跳↓A · 落地前AB变钻</span></div>
+          <div class="mv"><span class="n">前冲 AB</span><span class="c">→→（空中可）A+B</span></div>
+          <div class="mv charge"><span class="n">火属性踢</span><span class="c">蓄A+←→（慢、远）</span></div>
+          <div class="mv charge"><span class="n">电属性踢</span><span class="c">蓄A+↓→（快、低）</span></div>
+          <div class="mv charge"><span class="n">夹头摔</span><span class="c">蓄A + ↓↑</span></div>
+          <div class="mv charge"><span class="n">近身扑击</span><span class="c">蓄A+→→ · 抓B扑 / 续A踢 / AB钻</span></div>
+          <div class="mv charge"><span class="n">前钻</span><span class="c">蓄A+→→ 未抓敌按B</span></div>
+          <div class="mv"><span class="n">抓取 B / 棍技</span><span class="c">抓住+B · A+B</span></div>
+          <div class="mv super"><span class="n">炼狱火轮</span><span class="c">气满 抓住 A+B</span></div>
+          <div class="mv super"><span class="n">肌肉男之歌</span><span class="c">气满近身 蓄A+↑←↓→</span></div>
+          <div class="mv ult"><span class="n">毁天灭地</span><span class="c">终极奥义 A + C</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="rail">
+      <div class="portrait"><img src="assets/select/girulian.png" alt="吉鲁利安" /></div>
+      <div class="body">
+        <div class="idline">
+          <div><span class="zh">吉鲁利安</span> <span class="en">Girulian</span></div>
+          <div class="tag">魔傀</div>
+        </div>
+        <div class="ratings">
+          <div class="rt"><span class="l">Power</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Speed</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Skill</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Difficulty</span><span class="s">★★★</span></div>
+        </div>
+        <div class="moves">
+          <div class="mv air"><span class="n">浮空冲</span><span class="c">按住B + 方向×2 ≤3次</span></div>
+          <div class="mv"><span class="n">前冲 AB</span><span class="c">→→（空中可）A+B · 近身倒劲摔</span></div>
+          <div class="mv"><span class="n">倒劲摔追加</span><span class="c">抓后A扑拳 · AB再抓</span></div>
+          <div class="mv charge"><span class="n">追加判定</span><span class="c">蓄A + ↓↓↑</span></div>
+          <div class="mv air"><span class="n">跳跃 AB</span><span class="c">跳中AB · 连A追加</span></div>
+          <div class="mv charge"><span class="n">烈脚三连袭</span><span class="c">蓄A + ←→</span></div>
+          <div class="mv charge"><span class="n">火烈弹</span><span class="c">蓄A + ↓↑（浮空）</span></div>
+          <div class="mv"><span class="n">抓取 / 剑技</span><span class="c">抓住AB/B · 蓄A+↓↑</span></div>
+          <div class="mv super"><span class="n">真三连袭·改</span><span class="c">气满 蓄A + ↑↓→</span></div>
+          <div class="mv ult"><span class="n">流星落</span><span class="c">终极奥义 A + C</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="rail">
+      <div class="portrait"><img src="assets/select/rou.png" alt="胧天明" /></div>
+      <div class="body">
+        <div class="idline">
+          <div><span class="zh">胧天明</span> <span class="en">Rou</span></div>
+          <div class="tag">胧·天明</div>
+        </div>
+        <div class="ratings">
+          <div class="rt"><span class="l">Power</span><span class="s">★★★</span></div>
+          <div class="rt"><span class="l">Speed</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Skill</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Difficulty</span><span class="s">★★★★</span></div>
+        </div>
+        <div class="moves">
+          <div class="mv"><span class="n">定身灵符</span><span class="c">C · 命中暂时定身</span></div>
+          <div class="mv charge"><span class="n">雷霆鞭袭</span><span class="c">蓄A+←→ · 续A电击 / 后拉 / 斜后浮空</span></div>
+          <div class="mv charge"><span class="n">腕电斩</span><span class="c">蓄A + ↓↑ 对空</span></div>
+          <div class="mv"><span class="n">剑技 / 棍技</span><span class="c">蓄A + →→</span></div>
+          <div class="mv air"><span class="n">跳跃 AB</span><span class="c">跳中 + AB</span></div>
+          <div class="mv"><span class="n">前冲 AB</span><span class="c">→→ + AB</span></div>
+          <div class="mv"><span class="n">抓取</span><span class="c">抓住 AB / B / →→</span></div>
+          <div class="mv"><span class="n">快速集气</span><span class="c">POW&lt;5 时 蓄A+↑↑</span></div>
+          <div class="mv super"><span class="n">夺命追魂斩</span><span class="c">气满 →→蓄A击中 + ↓↑</span></div>
+          <div class="mv ult"><span class="n">双极雷霆破</span><span class="c">终极奥义 A + C</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="rail">
+      <div class="portrait"><img src="assets/select/kurokishi.png" alt="黑骑士" /></div>
+      <div class="body">
+        <div class="idline">
+          <div><span class="zh">黑骑士</span> <span class="en">Kurokishi</span></div>
+          <div class="tag">钢之守护</div>
+        </div>
+        <div class="ratings">
+          <div class="rt"><span class="l">Power</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Speed</span><span class="s">★★★</span></div>
+          <div class="rt"><span class="l">Skill</span><span class="s">★★★★</span></div>
+          <div class="rt"><span class="l">Difficulty</span><span class="s">★★★</span></div>
+        </div>
+        <div class="moves">
+          <div class="mv"><span class="n">前冲 AB</span><span class="c">→→+AB · 连A追加</span></div>
+          <div class="mv charge"><span class="n">连踢</span><span class="c">蓄A + ↓↓↑</span></div>
+          <div class="mv air"><span class="n">跳跃连击</span><span class="c">B+A+B / B+A+A</span></div>
+          <div class="mv air"><span class="n">空擒</span><span class="c">空中近敌 A</span></div>
+          <div class="mv"><span class="n">版边反弹</span><span class="c">版边 B + ← + B</span></div>
+          <div class="mv"><span class="n">剑技</span><span class="c">蓄A + ←→</span></div>
+          <div class="mv super"><span class="n">红莲乱舞</span><span class="c">气满 →→蓄A + ←→</span></div>
+          <div class="mv super"><span class="n">空中红莲乱舞</span><span class="c">气满 →→B 后蓄A，空中←→</span></div>
+          <div class="mv ult"><span class="n">星尘风暴</span><span class="c">终极奥义 A + C</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+</body>
+</html>

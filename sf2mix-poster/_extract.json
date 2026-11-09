@@ -1,0 +1,984 @@
+{
+  "ryu": [
+    {
+      "section": "throw",
+      "name": "Seoi Nage",
+      "cmd": "(close) → / ← + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Tomoe Nage",
+      "cmd": "(close) → / ← + MK or HK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Hadouken",
+      "cmd": "↓↘→ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Shoryuken",
+      "cmd": "→↓↘ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Tatsumaki Senpuukyaku",
+      "cmd": "↓↙← + MK or HK",
+      "note": " *Goes through projectiles except Eletric Hadouken"
+    },
+    {
+      "section": "special",
+      "name": "Kuchuu Tatsumaki Senpuukyaku",
+      "cmd": "空中 ↓↙← + K",
+      "note": ""
+    },
+    {
+      "section": "extra",
+      "name": "Tatsumaki Senpuukyaku",
+      "cmd": "↓↙← + LK (Extra Hit)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Eletric Hadouken (VigorBar >= 1/4)",
+      "cmd": "↓↘→ + K (Extra Hit - 1/4 VigorBar)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Fail Hadouken (VigorBar",
+      "cmd": "↓↘→ + K (the hadouken does not come out)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Double Eletric Hadouken",
+      "cmd": "↓↘→ + P×2 (1/2 VigorBar and delay for recover)",
+      "note": " *Necessary to hold the buttons in combos"
+    },
+    {
+      "section": "vigor",
+      "name": "Awakening Evil Ryu",
+      "cmd": "↓↘→ + K×2 (Loses 1/3 health and Full VigorBar)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Awakening Evil Ryu (full clothes)",
+      "cmd": "↓↘→ + K×3 (Loses 1/3 health and Full VigorBar)",
+      "note": ""
+    }
+  ],
+  "honda": [
+    {
+      "section": "throw",
+      "name": "Tawara Nage",
+      "cmd": "(close) → / ← + MP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Saba Ori",
+      "cmd": "(close) → / ← + HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Sekkan Kyaku",
+      "cmd": "(close) → / ← + HK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Hiza Geri",
+      "cmd": "(far) HK (Extra Hit)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Hyakuretsu Harite",
+      "cmd": "连打 + P ( → / ← )",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Super Zutsuki",
+      "cmd": "蓄← → + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Super Hyakkan Otoshi",
+      "cmd": "蓄↓ ↑ + K",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Super Rage Zutsuki",
+      "cmd": "蓄← → + P×2 (1/2 VigorBar and delay for recover)",
+      "note": " *Cause Guard Crush when defended."
+    }
+  ],
+  "blanka": [
+    {
+      "section": "throw",
+      "name": "Wild Fang",
+      "cmd": "(close) → / ← + HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Rock Crush",
+      "cmd": "(close) → / ← + MP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Electric Thunder",
+      "cmd": "连打 + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Rolling Attack",
+      "cmd": "蓄← → + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "L Second Rolling Attack",
+      "cmd": "Hold ↑ (1/5 Vigorbar)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "L Cancel Rolling Attack",
+      "cmd": "Hold ↓ (1/4 Vigorbar)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Vertical Rolling",
+      "cmd": "蓄↓ ↑ + K",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Electric Rolling Attack",
+      "cmd": "蓄← → + P×2 (1/2 VigorBar and delay for recover)",
+      "note": "L Spin Dash Hold P"
+    },
+    {
+      "section": "vigor",
+      "name": "L Second Rolling Attack",
+      "cmd": "Hold ↑ (1/4 Vigorbar)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "L Cancel Rolling Attack",
+      "cmd": "Hold ↓ (1/4 Vigorbar)",
+      "note": ""
+    }
+  ],
+  "guile": [
+    {
+      "section": "throw",
+      "name": "Judo Throw",
+      "cmd": "(close) → / ← + MP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Dragon Suplex",
+      "cmd": "(close) → / ← + HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Flying Mare",
+      "cmd": "(close) 空中 ↓ + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Flying Buster Drop",
+      "cmd": "(close) 空中 ↓ + MK or HK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Knee Bazooka",
+      "cmd": "→ / ← + MK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Reverse Spin Kick",
+      "cmd": "→ / ← + HK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Sonic Boom",
+      "cmd": "蓄← → + LP or HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Flash Kick",
+      "cmd": "蓄↓ ↑ + K",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Vertical Sonic Boom",
+      "cmd": "蓄← → + MP (Extra Hit)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Rolling Sobat",
+      "cmd": "→→ hold + MK",
+      "note": "(1/3 VigorBar) *Jump projectiles except Eletric Hadouken"
+    },
+    {
+      "section": "vigor",
+      "name": "Double Flash Kick",
+      "cmd": "蓄↓ ↑ + K×2 (1/2 VigorBar and delay for recover)",
+      "note": ""
+    }
+  ],
+  "ken": [
+    {
+      "section": "throw",
+      "name": "Seoi Nage",
+      "cmd": "(close) → / ← + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Tomoe Nage",
+      "cmd": "(close) → / ← + MK or HK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Hadouken",
+      "cmd": "↓↘→ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Fake Hadouken",
+      "cmd": "↓↘→ + P×2 (fast recovery)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Fire Shoryuken (VigorBar > 0)",
+      "cmd": "→↓↘ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Shoryuken (VigorBar = 0)",
+      "cmd": "→↓↘ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Tatsumaki Senpuukyaku",
+      "cmd": "↓↙← + K",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "L Final Kick",
+      "cmd": "K",
+      "note": " *Goes through projectiles except Eletric Hadouken"
+    },
+    {
+      "section": "special",
+      "name": "Kuchuu Tatsumaki Senpuukyaku",
+      "cmd": "空中 ↓↙← + K",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Fire Hadouken (VigorBar >= 1/3)",
+      "cmd": "↓↘→ + K (Extra Hit - 1/3 VigorBar)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Fail Hadouken (VigorBar",
+      "cmd": "↓↘→ + K (the hadouken does not come out)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Super Fire Shoryuken",
+      "cmd": "→↓↘ + P×2 (1/2 VigorBar and delay for recover)",
+      "note": " *Necessary to hold the buttons in combos"
+    },
+    {
+      "section": "vigor",
+      "name": "Awakening Violent Ken (White Hair)",
+      "cmd": "↓↘→ + K×3 (Loses 1/3 health and Full VigorBar)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Awakening Violent Ken (without changing the kimono)",
+      "cmd": "↓↘→ + LK + HK (Loses 1/3 health and Full VigorBar)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Awakening Violent Ken (Yellow Hair)",
+      "cmd": "↓↘→ + LK + MK (Loses 1/3 health and Full VigorBar)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Awakening Violent Ken (Blue Hair)",
+      "cmd": "↓↘→ + MK + HK (Loses 1/3 health and Full VigorBar)",
+      "note": ""
+    }
+  ],
+  "chunli": [
+    {
+      "section": "throw",
+      "name": "Koshuu Tou",
+      "cmd": "(close) → / ← + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Ryuusei Raku",
+      "cmd": "(close) 空中 → / ← + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Sankaku Tobi",
+      "cmd": "Jump against a Wall, press in opposite direction.",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Kouhou Kaiten Kyaku",
+      "cmd": "→ / ← + MK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Kaku Kyaku Raku",
+      "cmd": "→ / ← + HK (Extra Hit)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Air Back Flip",
+      "cmd": "空中 ↑ + HK (Extra Hit)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Yousou Kyaku",
+      "cmd": "空中 ↓ + MK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Hyakuretsu Kyaku",
+      "cmd": "连打 + K",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Kikouken",
+      "cmd": "↓↘→ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Spinning Bird Kick",
+      "cmd": "↓ ↑ + K",
+      "note": " *Goes through projectiles except Eletric Hadouken"
+    },
+    {
+      "section": "special",
+      "name": "L Cancel Spinning Bird Kick",
+      "cmd": "Hold P (1/4 Vigorbar)",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Air Spinning Bird Kick",
+      "cmd": "↑ 空中 ↓ ↑ + K",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Double Kick",
+      "cmd": "↓↘→ + K",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Focus Kikouken",
+      "cmd": "↓↘→ + P×2 (1/2 VigorBar and delay for recover)",
+      "note": ""
+    }
+  ],
+  "zanguief": [
+    {
+      "section": "throw",
+      "name": "Piledriver",
+      "cmd": "(close) → / ← + MP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Brain Buster",
+      "cmd": "(close) → / ← + HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Deadly Driver",
+      "cmd": "(close) ↘ / ↙ + MP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Leg Throw",
+      "cmd": "(close) ↘ / ↙ + HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "German Suplex",
+      "cmd": "(close) → / ← + MK",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Thunder Fire Powerbomb",
+      "cmd": "(close) → / ← + HK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Iron Claw",
+      "cmd": "→ / ← + MP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Kamitsuki",
+      "cmd": "→ / ← + HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Stomach Claw",
+      "cmd": "↘ / ↙ + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Kuuchuu Headbutt",
+      "cmd": "空中 ↑ + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Flying Body Attack",
+      "cmd": "↑ 空中 ↓ + HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Quick Lariat",
+      "cmd": "LP + MP (move → / ← long distance)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Double Lariat",
+      "cmd": "MP + HP (move → / ← short distance)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Screw Piledriver",
+      "cmd": "(close) ←↙↓↘→ + P",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Air Piledriver",
+      "cmd": "(close) 空中 ←↙↓↘→ + P",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Hopak Kick",
+      "cmd": "MK + HK (move → / ← long distance)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Super Screw Piledriver",
+      "cmd": "(close) ←↙↓↘→ + P×3 (3/4 VigorBar and delay for recover)",
+      "note": ""
+    }
+  ],
+  "dhalsim": [
+    {
+      "section": "throw",
+      "name": "Yoga Smash",
+      "cmd": "(close) → / ← + MP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Yoga Throw",
+      "cmd": "(close) → / ← + MP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Yoga Mummy",
+      "cmd": "空中 ↓ + HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Yoga Spear",
+      "cmd": "空中 ↓ + HK (Extra Hit)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Yoga Fire",
+      "cmd": "↓↘→ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Yoga Flame",
+      "cmd": "↓↙← + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Yoga Teleport Forward",
+      "cmd": "→↓↘ + K",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Yoga Teleport Backward",
+      "cmd": "←↓↙ + K",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Air Yoga Teleport Forward",
+      "cmd": "空中 →↓↘ + K",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Air Yoga Teleport Backward",
+      "cmd": "空中 ←↓↙ + K",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Double Yoga Fire",
+      "cmd": "↓↘→ + P×2 (1/2 VigorBar and delay for recover)",
+      "note": " *Necessary to hold the buttons in combos"
+    }
+  ],
+  "balrog": [
+    {
+      "section": "throw",
+      "name": "Head Bomber",
+      "cmd": "(close) → / ← + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Dash Straight",
+      "cmd": "蓄← → + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Dash Upper",
+      "cmd": "蓄← → + K",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Turn Punch",
+      "cmd": "Hold P or K and release",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Dash Ground Straight",
+      "cmd": "蓄← ↘ + P",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Buffalo Headbutt",
+      "cmd": "蓄↓ ↑ + P (Extra Hit and goes through projectiles)",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "L Final Attack",
+      "cmd": "P or K",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Punch Machine",
+      "cmd": "蓄← → + P×2 (1/2 VigorBar and delay for recover)",
+      "note": " *Necessary to hold the buttons in combos"
+    },
+    {
+      "section": "vigor",
+      "name": "You Can Fly",
+      "cmd": "蓄← ↘ + P×2 (1/2 VigorBar and delay for recover)",
+      "note": " *Necessary to hold the buttons in combos"
+    }
+  ],
+  "vega": [
+    {
+      "section": "throw",
+      "name": "Rainbow Suplex",
+      "cmd": "(close) → / ← + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Stardust Drop",
+      "cmd": "(close) 空中 → / ← + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Sankaku Tobi",
+      "cmd": "Jump against a Wall, press in opposite direction.",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Rolling Crystal Flash",
+      "cmd": "蓄← → + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Flying Barcelona Attack",
+      "cmd": "蓄↓ ↑ + K, then P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Hang on the Grid",
+      "cmd": "蓄↓ ↑ + LK (only in the Vega scenario)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Izuna Drop Attack",
+      "cmd": "蓄↓ ↑ + K, then (close) → / ← + P",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Scarlet Kick Attack",
+      "cmd": "蓄↓ ↑ + P",
+      "note": ""
+    },
+    {
+      "section": "new",
+      "name": "Remove the Claw",
+      "cmd": "K×3 (Recover 1/4 VigorBar)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Elemental Fire Claw",
+      "cmd": "P×3 (1/2 VigorBar and delay for recover)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "With Claw",
+      "cmd": "*Increases Claw damage and causes damage to the defence",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Reserve Claw",
+      "cmd": "P×3 (1/2 VigorBar and delay for recover)",
+      "note": ""
+    }
+  ],
+  "sagat": [
+    {
+      "section": "throw",
+      "name": "Tiger Carry",
+      "cmd": "(close) → / ← + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Tiger Shot",
+      "cmd": "↓↘→ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Ground Tiger Shot",
+      "cmd": "↓↘→ + K",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Tiger Uppercut",
+      "cmd": "→↓↘ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Tiger Knee Crush",
+      "cmd": "→↓↘ + K",
+      "note": ""
+    },
+    {
+      "section": "extra",
+      "name": "Tiger Knee Crush",
+      "cmd": "→↓↘ + LK (Extra Hit)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Quick Tiger Knee",
+      "cmd": "→↓↘ + K×2 (1/2 VigorBar and delay for recover)",
+      "note": ""
+    }
+  ],
+  "bison": [
+    {
+      "section": "throw",
+      "name": "Deadly Throw",
+      "cmd": "(close) → / ← + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Psycho Punch",
+      "cmd": "P or ↓ P (causes damage to defense)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Air Psycho Punch",
+      "cmd": "空中 P (Extra Hit and causes damage to defense)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Psycho Crusher",
+      "cmd": "蓄← → + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "L Cancel Psycho Crusher",
+      "cmd": "Hold K (1/4 Vigorbar)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Double Knee Press",
+      "cmd": "蓄← → + K",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Head Press",
+      "cmd": "蓄↓ ↑ + K, then P (Somersault Skull Diver)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Air Psycho Crusher",
+      "cmd": "空中 蓄← → + P (1/5 VigorBar and delay for recover)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "L Cancel Air Psycho Crusher",
+      "cmd": "Hold K (1/4 Vigorbar)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Hyper Psycho Crusher",
+      "cmd": "蓄← → + P×2 (1/2 VigorBar and delay for recover)",
+      "note": " *Autoguard - Defends automatically if hit."
+    }
+  ],
+  "eryu": [
+    {
+      "section": "throw",
+      "name": "Seoi Nage",
+      "cmd": "(close) → / ← + MP or HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Tomoe Nage",
+      "cmd": "(close) → / ← + MK or HK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Fire Hadouken",
+      "cmd": "↓↘→ + P (Extra Hit)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Fake Hadouken",
+      "cmd": "↓↘→ + K (fast recovery)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Shoryuken",
+      "cmd": "→↓↘ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Tatsumaki Senpuukyaku",
+      "cmd": "↓↙← + MK or HK",
+      "note": " *Goes through projectiles except Eletric Hadouken"
+    },
+    {
+      "section": "special",
+      "name": "Kuchuu Tatsumaki Senpuukyaku",
+      "cmd": "空中 ↓↙← + K (Extra Hit)",
+      "note": ""
+    },
+    {
+      "section": "extra",
+      "name": "Tatsumaki Senpuukyaku",
+      "cmd": "↓↙← + LK (Extra Hit)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Ashura Senku",
+      "cmd": "→↓↘ + K (3/16 VigorBar and delay for recover)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Double Fire Hadouken",
+      "cmd": "↓↘→ + P×2 (1/2 VigorBar and delay for recover)",
+      "note": " *Necessary to hold the buttons in combos"
+    }
+  ],
+  "vken": [
+    {
+      "section": "throw",
+      "name": "Seoi Nage",
+      "cmd": "(close) → / ← + MP ou HP",
+      "note": ""
+    },
+    {
+      "section": "throw",
+      "name": "Tomoe Nage",
+      "cmd": "(close) → / ← + MK ou HK",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Hadouken",
+      "cmd": "↓↘→ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Fake Hadouken",
+      "cmd": "↓↘→ + P×2 (fast recovery)",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Psycho Shoryuken",
+      "cmd": "→↓↘ + P",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "Tatsumaki Senpuukyaku",
+      "cmd": "↓↙← + K",
+      "note": ""
+    },
+    {
+      "section": "special",
+      "name": "L Final Kick",
+      "cmd": "K",
+      "note": " *Goes through projectiles except Eletric Hadouken"
+    },
+    {
+      "section": "special",
+      "name": "Kuchuu Tatsumaki Senpuukyaku",
+      "cmd": "空中 ↓↙← + K",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Psycho Hadouken",
+      "cmd": "↓↘→ + K (Extra Hit - 1/4 VigorBar)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Rasetsukyaku",
+      "cmd": "→↓↘ + K (3/16 VigorBar and delay for recover)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "Super Rasetsukyaku",
+      "cmd": "→↓↘ + K×2 (1/2 VigorBar and delay for recover)",
+      "note": ""
+    },
+    {
+      "section": "vigor",
+      "name": "L Super Psycho Shoryuken",
+      "cmd": "P",
+      "note": ""
+    }
+  ]
+}

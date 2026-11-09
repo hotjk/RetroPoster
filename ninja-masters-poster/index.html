@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>霸王忍法帖 · 出招表海报</title>
+<style>
+  :root {
+    /*
+      统一调节入口：只改 --base 即可整体缩放文字与间距。
+      首页已按 4.2mm 适配；更大需再压缩 cover 区布局。
+    */
+    --base: 4.0mm;
+
+    --space-1: 0.2em;
+    --space-2: 0.35em;
+    --space-3: 0.55em;
+    --space-4: 0.75em;
+    --space-5: 1em;
+    --space-6: 1.25em;
+    --space-7: 1.6em;
+
+    --fs-xs: 0.72em;
+    --fs-sm: 0.84em;
+    --fs: 1em;
+    --fs-md: 1.12em;
+    --fs-lg: 1.28em;
+    --fs-xl: 1.55em;
+    --fs-2xl: 2.7em;
+    --fs-3xl: 3.55em;
+    --fs-display: 3.9em;
+
+    --ink: #16120f;
+    --ink-soft: #3a322c;
+    --paper: #e8dfd0;
+    --paper-deep: #d5c7b2;
+    --wash: #c9b89a;
+    --vermilion: #b83324;
+    --vermilion-deep: #8e2419;
+    --gold: #9a7b3c;
+    --line: rgba(22, 18, 15, 0.18);
+    --mark-a: #b83324;
+    --mark-star: #8e2419;
+    --mark-dia: #2f5d4a;
+    --mark-super: #6b4f1d;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    font-size: var(--base);
+  }
+
+  body {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--ink);
+    background: #2a241e;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sheet {
+    width: 420mm;
+    min-height: 297mm;
+    margin: 12px auto;
+    padding: var(--space-7) calc(var(--space-7) * 1.15) var(--space-6);
+    background:
+      radial-gradient(ellipse at 12% 8%, rgba(184, 51, 36, 0.07), transparent 42%),
+      radial-gradient(ellipse at 88% 92%, rgba(47, 93, 74, 0.08), transparent 45%),
+      linear-gradient(180deg, #efe6d6 0%, var(--paper) 45%, var(--paper-deep) 100%);
+    box-shadow: 0 12px 40px rgba(0,0,0,.45);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sheet::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(22,18,15,.015) 3px, rgba(22,18,15,.015) 4px);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  .sheet > * { position: relative; z-index: 1; }
+
+  .page-frame {
+    border: 0.08em solid var(--ink);
+    outline: 0.05em solid rgba(154, 123, 60, .45);
+    outline-offset: var(--space-4);
+    min-height: calc(297mm - 4.2 * var(--base));
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  /* —— Cover: left text / right image —— */
+  .page-cover {
+    height: 297mm;
+    max-height: 297mm;
+    overflow: hidden;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    /* 首页外沿收紧，给左侧正文留高度 */
+    padding: 0.7em 0.85em;
+  }
+
+  .page-cover .page-frame {
+    height: calc(297mm - 1.7em);
+    min-height: 0;
+    max-height: calc(297mm - 1.7em);
+    padding: 0.45em;
+    gap: 0;
+    outline-offset: 0.35em;
+  }
+
+  .cover-split {
+    display: grid;
+    grid-template-columns: 1.18fr 0.82fr;
+    gap: 0.7em;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .cover-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.7em;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .cover-brand {
+    border-bottom: 0.12em solid var(--ink);
+    padding-bottom: 0.5em;
+    flex-shrink: 0;
+  }
+
+  .page-cover .brand {
+    font-size: 3.15em;
+  }
+
+  .page-cover .tagline {
+    font-size: var(--fs);
+    margin-top: 0.3em;
+  }
+
+  .page-cover .meta {
+    margin-top: 0.3em;
+    gap: 0.25em 0.85em;
+  }
+
+  .page-cover .panel {
+    padding: 0.65em 0.75em;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .page-cover .panel .sys-blocks,
+  .page-cover .panel .legend-list {
+    flex: 1;
+  }
+
+  .page-cover .section-title {
+    margin-bottom: 0.45em;
+  }
+
+  .page-cover .sys-blocks {
+    gap: 0.65em;
+  }
+
+  .page-cover .sys-block ul {
+    gap: 0.25em;
+  }
+
+  .page-cover .legend-list {
+    gap: 0.35em;
+    align-content: space-evenly;
+  }
+
+  .page-cover .cast-strip {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.35em;
+    flex: 0 0 auto;
+  }
+
+  .page-cover .cast-strip figcaption {
+    font-size: var(--fs-xs);
+  }
+
+  .page-cover .hidden-box {
+    padding: 0.55em 0.65em;
+    gap: 0.55em;
+    margin-top: 0;
+    flex: 0 0 auto;
+  }
+
+  .page-cover .hidden-box h3 {
+    margin-bottom: 0.35em;
+    font-size: var(--fs);
+  }
+
+  .page-cover .hidden-box .badge {
+    font-size: var(--fs);
+    padding: 0.45em 0.2em;
+    letter-spacing: .18em;
+  }
+
+  .page-cover .unlock-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.45em;
+  }
+
+  .page-cover .unlock-card {
+    padding: 0.4em 0.5em;
+  }
+
+  .page-cover .unlock-card code {
+    font-size: var(--fs-xs);
+    margin-top: 0.2em;
+  }
+
+  .brand-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .brand {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-weight: 900;
+    font-size: var(--fs-display);
+    line-height: .92;
+    letter-spacing: .04em;
+    color: var(--ink);
+  }
+
+  .brand em {
+    font-style: normal;
+    color: var(--vermilion);
+  }
+
+  .subbrand {
+    font-size: var(--fs-sm);
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .tagline {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-size: var(--fs);
+    color: var(--ink-soft);
+    line-height: 1.4;
+    margin-top: var(--space-2);
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+    font-size: var(--fs-sm);
+    color: var(--ink-soft);
+    margin-top: var(--space-2);
+  }
+
+  .meta span::before {
+    content: "◆";
+    color: var(--vermilion);
+    margin-right: var(--space-1);
+    font-size: var(--fs-xs);
+  }
+
+  .cover-right {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1d1814, #3d2f24 55%, #6a3a28);
+    border: 0.06em solid var(--ink);
+    min-height: 0;
+    height: 100%;
+  }
+
+  .cover-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+  }
+
+  .cover-right::after {
+    content: "NINJA MASTER'S  ·  1996 ADK / SNK";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--fs-xs);
+    letter-spacing: .2em;
+    color: #f3e8d4;
+    background: linear-gradient(transparent, rgba(0,0,0,.72));
+  }
+
+  .section-title {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-size: var(--fs-md);
+    font-weight: 700;
+    letter-spacing: .12em;
+    color: var(--vermilion-deep);
+    margin-bottom: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .panel {
+    background: rgba(255,255,255,.28);
+    border: 1px solid var(--line);
+    padding: var(--space-4) var(--space-5);
+    flex-shrink: 0;
+  }
+
+  .sys-blocks {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .sys-block h3 {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-size: var(--fs);
+    margin-bottom: var(--space-2);
+    color: var(--ink);
+  }
+
+  .sys-block p,
+  .sys-block li {
+    font-size: var(--fs-sm);
+    line-height: 1.35;
+    color: var(--ink-soft);
+  }
+
+  .sys-block ul {
+    list-style: none;
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  .sys-block li b { color: var(--ink); }
+
+  .btn-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-2);
+  }
+
+  .btn-pill {
+    border: 0.06em solid var(--ink);
+    background: rgba(255,252,245,.7);
+    text-align: center;
+    padding: var(--space-2) var(--space-1);
+  }
+
+  .btn-pill strong {
+    display: block;
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-size: var(--fs-lg);
+    line-height: 1;
+  }
+
+  .btn-pill span {
+    font-size: var(--fs-xs);
+    color: var(--ink-soft);
+  }
+
+  .legend-list {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .legend-item {
+    display: grid;
+    grid-template-columns: 1.6em 1fr;
+    gap: var(--space-3);
+    align-items: start;
+    font-size: var(--fs-sm);
+    line-height: 1.3;
+    color: var(--ink-soft);
+  }
+
+  .legend-item i {
+    font-style: normal;
+    font-weight: 900;
+    font-size: var(--fs-md);
+    line-height: 1;
+    text-align: center;
+  }
+
+  .mk-a { color: var(--mark-a); }
+  .mk-s { color: var(--mark-super); }
+  .mk-t { color: var(--mark-star); }
+  .mk-d { color: var(--mark-dia); }
+  .mk-p { color: #3d4f7a; }
+
+  .cast-strip {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-2);
+    flex-shrink: 0;
+  }
+
+  .cast-strip figure { text-align: center; }
+
+  .cast-strip img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    image-rendering: pixelated;
+    background: rgba(22,18,15,.08);
+    border: 1px solid var(--line);
+  }
+
+  .cast-strip figcaption {
+    font-size: var(--fs-xs);
+    margin-top: var(--space-1);
+    color: var(--ink-soft);
+    letter-spacing: .02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hidden-box {
+    border: 0.1em solid var(--vermilion);
+    background: rgba(184, 51, 36, 0.06);
+    padding: var(--space-3) var(--space-4);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4);
+    align-items: stretch;
+    flex-shrink: 0;
+    margin-top: auto;
+  }
+
+  .hidden-box .badge {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    writing-mode: vertical-rl;
+    letter-spacing: .22em;
+    font-weight: 900;
+    font-size: var(--fs);
+    color: #fff;
+    background: var(--vermilion);
+    padding: var(--space-3) var(--space-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hidden-box h3 {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-size: var(--fs);
+    margin-bottom: var(--space-2);
+  }
+
+  .unlock-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .unlock-card {
+    background: rgba(255,252,245,.55);
+    border: 1px solid var(--line);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .unlock-card .who {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    margin-bottom: var(--space-1);
+  }
+
+  .unlock-card p {
+    font-size: var(--fs-sm);
+    line-height: 1.35;
+    color: var(--ink-soft);
+  }
+
+  .unlock-card code {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    background: rgba(22,18,15,.06);
+    padding: 0.05em 0.2em;
+    color: var(--ink);
+    display: inline-block;
+    margin-top: var(--space-1);
+    line-height: 1.4;
+    font-size: var(--fs-sm);
+  }
+
+  /* —— Character pages —— */
+  .hero-slim {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-5);
+    border-bottom: 0.12em solid var(--ink);
+    padding-bottom: var(--space-4);
+  }
+
+  .hero-slim .brand { font-size: var(--fs-3xl); }
+
+  .hero-slim .right {
+    text-align: right;
+    font-size: var(--fs-sm);
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+
+  .roster {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    flex: 1;
+  }
+
+  .char {
+    border: 0.06em solid var(--ink);
+    background: #fff;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .char-head {
+    display: grid;
+    grid-template-columns: 3.4em 1fr;
+    gap: var(--space-3);
+    align-items: center;
+    padding: var(--space-3) var(--space-4);
+    background: linear-gradient(90deg, #1c1713 0%, #2c221b 70%, #4a2a20);
+    color: #f4ead8;
+  }
+
+  .char-head img.select {
+    width: 3.4em;
+    height: 3.4em;
+    object-fit: contain;
+    image-rendering: pixelated;
+    background: rgba(255,255,255,.08);
+  }
+
+  .char-titles .style {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-size: var(--fs-xs);
+    letter-spacing: .16em;
+    color: #d4b06a;
+  }
+
+  .char-titles .name {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-weight: 900;
+    font-size: var(--fs-xl);
+    letter-spacing: .08em;
+    line-height: 1.05;
+  }
+
+  .char-titles .roma {
+    font-size: var(--fs-xs);
+    letter-spacing: .14em;
+    opacity: .7;
+    text-transform: uppercase;
+  }
+
+  .char-body {
+    position: relative;
+    display: block;
+    min-height: 21.5em;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  .char-art {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #fff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    pointer-events: none;
+    padding: var(--space-3) var(--space-2) var(--space-3) 0;
+  }
+
+  .char-art img {
+    width: auto;
+    height: 100%;
+    max-width: 58%;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: right center;
+    display: block;
+    transform: none;
+    filter: none;
+  }
+
+  .char-art .accent {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    left: auto;
+    font-size: var(--fs-xs);
+    letter-spacing: .12em;
+    color: var(--vermilion-deep);
+    writing-mode: vertical-rl;
+    opacity: .35;
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    z-index: 1;
+  }
+
+  .moves {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-4) 18% var(--space-5) var(--space-4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-2);
+    font-size: 1em;
+    line-height: 1.32;
+    min-height: 21.5em;
+    background: transparent;
+  }
+
+  .move {
+    display: grid;
+    grid-template-columns: 1.05fr 1.35fr;
+    gap: var(--space-3);
+    align-items: baseline;
+    border-bottom: 1px dotted rgba(22,18,15,.14);
+    padding-bottom: var(--space-1);
+  }
+
+  .move:last-child { border-bottom: 0; }
+
+  .move .n,
+  .move .cmd {
+    text-shadow:
+      /* soft halo */
+      0 0 0.2em #fff,
+      0 0 0.45em #fff,
+      0 0 0.8em #fff,
+      0 0 1.2em rgba(255, 255, 255, .95),
+      /* hard stroke — 8 directions */
+      0.07em 0 0 #fff,
+      -0.07em 0 0 #fff,
+      0 0.07em 0 #fff,
+      0 -0.07em 0 #fff,
+      0.07em 0.07em 0 #fff,
+      -0.07em -0.07em 0 #fff,
+      0.07em -0.07em 0 #fff,
+      -0.07em 0.07em 0 #fff,
+      /* thicker outer stroke */
+      0.12em 0 0 #fff,
+      -0.12em 0 0 #fff,
+      0 0.12em 0 #fff,
+      0 -0.12em 0 #fff,
+      0.1em 0.1em 0 #fff,
+      -0.1em -0.1em 0 #fff,
+      0.1em -0.1em 0 #fff,
+      -0.1em 0.1em 0 #fff;
+  }
+
+  .move .n { font-weight: 700; color: #120e0c; }
+
+  .move .n .tag {
+    display: inline-block;
+    font-size: 0.85em;
+    font-weight: 700;
+    margin-right: 0.15em;
+  }
+
+  .move .cmd {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    color: #2a221c;
+    font-weight: 500;
+    word-break: break-all;
+  }
+
+  .boss .char-head {
+    background: linear-gradient(90deg, #2a0e0c 0%, #4a1812 55%, #7a2e18);
+  }
+
+  .boss .char-art {
+    background: #fff;
+  }
+
+  @media screen {
+    body { padding: 16px 0 40px; }
+  }
+
+  @media print {
+    /* 本海报为 A3 横版（宽>高）；选 Portrait 也会按横版页盒出纸 */
+    @page { size: 420mm 297mm; margin: 0; }
+    html, body {
+      width: 420mm;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #fff;
+    }
+    body { background: none; }
+    .sheet {
+      margin: 0 !important;
+      box-shadow: none !important;
+      width: 420mm !important;
+      height: 297mm !important;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+    }
+    .page-cover {
+      height: 297mm;
+      max-height: 297mm;
+      overflow: hidden;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      page-break-after: always;
+      break-after: page;
+    }
+    .sheet:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .sheet {
+      width: 100%;
+      min-height: auto;
+      height: auto;
+      max-height: none;
+      margin: 0 0 24px;
+    }
+    .page-cover .page-frame { height: auto; max-height: none; }
+    .page-frame { outline: none; }
+    .roster, .btn-row, .cast-strip {
+      grid-template-columns: 1fr 1fr;
+    }
+    .cover-split, .hidden-box,
+    .page-cover .unlock-grid {
+      grid-template-columns: 1fr;
+    }
+    .page-cover .cast-strip {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .cover-right { min-height: 280px; }
+    .moves { padding-right: 2.4mm; }
+    .char-art img {
+      max-width: 100%;
+      opacity: .28;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1 · 系统 / 隐藏 ===================== -->
+<section class="sheet page-cover" aria-label="系统说明与隐藏要素">
+  <div class="page-frame">
+    <div class="cover-split">
+      <div class="cover-left">
+        <header class="cover-brand">
+          <div class="brand-row">
+            <h1 class="brand">霸王<em>忍法帖</em></h1>
+            <div class="subbrand">Haoh-Ninpo-Cho · Move Chart</div>
+          </div>
+          <p class="tagline">忍者 COMBO · 空手 / 持武器双态 · 瞬杀烈火与潜在奥义</p>
+          <div class="meta">
+            <span>ADK × SNK · 1996 Neo Geo</span>
+            <span>街机 / NEOGEO / PS2 / Switch / PS4</span>
+            <span>舞台：时叛宫</span>
+          </div>
+        </header>
+
+        <section class="panel">
+          <h2 class="section-title">系统说明</h2>
+          <div class="sys-blocks">
+            <div class="sys-block">
+              <h3>按键</h3>
+              <div class="btn-row">
+                <div class="btn-pill"><strong>A</strong><span>轻斩</span></div>
+                <div class="btn-pill"><strong>B</strong><span>重斩</span></div>
+                <div class="btn-pill"><strong>C</strong><span>轻踢</span></div>
+                <div class="btn-pill"><strong>D</strong><span>重踢</span></div>
+              </div>
+            </div>
+            <div class="sys-block">
+              <h3>通用操作</h3>
+              <ul>
+                <li><b>B+C</b> 武器收放　·　<b>↓+AB</b> 挑衅　·　<b>↓+CD</b> 气力回复</li>
+                <li><b>空手</b>：移动与攻击更快，威力较低</li>
+                <li><b>持武器</b>：招式威力更大，硬直也更大</li>
+              </ul>
+            </div>
+            <div class="sys-block">
+              <h3>核心机制</h3>
+              <ul>
+                <li><b>忍者 COMBO</b>：按角色特定顺序输入；另有暗忍者 COMBO</li>
+                <li><b>真必杀</b>：气满时，普通必杀中同按轻、重键</li>
+                <li>收放武器会改变部分必杀的形态与性能</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="section-title">招式标记</h2>
+          <div class="legend-list">
+            <div class="legend-item"><i class="mk-a">▲</i><span><b>瞬杀烈火</b>：连招指令，按段衔接输入</span></div>
+            <div class="legend-item"><i class="mk-s">☆</i><span><b>超力必杀</b>：威力随当前气力值变化</span></div>
+            <div class="legend-item"><i class="mk-t">★</i><span><b>真超力</b>：体力≤1/4 且气满，A+B+C 后出</span></div>
+            <div class="legend-item"><i class="mk-d">◇</i><span><b>潜在连击</b>：气满发动，消耗气力</span></div>
+            <div class="legend-item"><i class="mk-p">◆</i><span><b>潜在超必杀</b>：气满且体力为红</span></div>
+            <div class="legend-item"><i>投</i><span><b>指令投</b>：近身指令投掷</span></div>
+          </div>
+        </section>
+
+        <div class="cast-strip" aria-label="全员选人像">
+          <figure><img src="assets/sasuke_s.png" alt="叉介" /><figcaption>叉介</figcaption></figure>
+          <figure><img src="assets/karasu_s.png" alt="鸦" /><figcaption>鸦</figcaption></figure>
+          <figure><img src="assets/unzen_s.png" alt="云仙" /><figcaption>云仙</figcaption></figure>
+          <figure><img src="assets/natsume_s.png" alt="枣" /><figcaption>枣</figcaption></figure>
+          <figure><img src="assets/kamui_s.png" alt="神威" /><figcaption>神威</figcaption></figure>
+          <figure><img src="assets/raiga_s.png" alt="雷牙" /><figcaption>雷牙</figcaption></figure>
+          <figure><img src="assets/kasumi_s.png" alt="霞" /><figcaption>霞</figcaption></figure>
+          <figure><img src="assets/goemon_s.png" alt="伍佑卫门" /><figcaption>伍佑卫门</figcaption></figure>
+          <figure><img src="assets/houoh_s.png" alt="凤凰" /><figcaption>凤凰</figcaption></figure>
+          <figure><img src="assets/tenho_s.png" alt="天和" /><figcaption>天和</figcaption></figure>
+          <figure><img src="assets/ranmaru_s.png" alt="兰丸" /><figcaption>兰丸</figcaption></figure>
+          <figure><img src="assets/nobunaga_s.png" alt="信长" /><figcaption>信长</figcaption></figure>
+        </div>
+
+        <section class="hidden-box">
+          <div class="badge">隐藏要素</div>
+          <div>
+            <h3>兰丸 / 信长 解锁指令</h3>
+            <div class="unlock-grid">
+              <div class="unlock-card">
+                <div class="who">1P · 光标停在「义介」→ 后按 C+D</div>
+                <code>← ← ↓ ← ↑ ← ↓ ← ↑ → ↓ → ↑</code>
+              </div>
+              <div class="unlock-card">
+                <div class="who">2P · 光标停在「神威」→ 后按 C+D（须严格按序）</div>
+                <code>→ → ↓ → ↑ → ↓ → ↑ ← ↓ ← ↑</code>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="cover-right">
+        <img src="assets/team.webp" alt="Ninja Master's 全员立绘" />
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PAGE 2 · 人物出招 1 ===================== -->
+<section class="sheet" aria-label="人物出招表一">
+  <div class="page-frame">
+    <header class="hero-slim">
+      <div>
+        <div class="subbrand" style="margin-bottom:1mm">出招表 · 其一</div>
+        <h1 class="brand">霸王<em>忍法帖</em></h1>
+      </div>
+      <div class="right">
+        圣传白龙 · 涅槃无天 · 金刚罗汉<br />
+        南天朱雀 · 黑风影虎 · 无法赤狼
+      </div>
+    </header>
+
+    <div class="roster">
+      <article class="char">
+        <header class="char-head">
+          <img class="select" src="assets/sasuke_s.png" alt="叉介选人像" />
+          <div class="char-titles">
+            <div class="style">圣传白龙</div>
+            <div class="name">叉介</div>
+            <div class="roma">Sasuke</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">天舞</span>
+            <img src="assets/sasuke.png" alt="叉介立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">飞苍月</span><span class="cmd">↓↘→ A/B</span></div>
+            <div class="move"><span class="n">苍空脚·旋</span><span class="cmd">↓↙← C/D</span></div>
+            <div class="move"><span class="n">苍空脚·裂</span><span class="cmd">空中 ↓↙← C/D</span></div>
+            <div class="move"><span class="n">飞苍拳</span><span class="cmd">→↓↘ A/B</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">→↘↓↙← D</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>飞苍拳·旋空裂</span><span class="cmd">→↓↘ B → ↓↘→ B/AB×2</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>神击破</span><span class="cmd">→←↙↓↘→ A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>疾风烈神击</span><span class="cmd">→↘↓↙←↙↓↘→ A+C</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>四门杀·逆磷</span><span class="cmd">A·B·B·B·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>苍神粉碎爆</span><span class="cmd">↓↓↙←→ A+B</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="char">
+        <header class="char-head">
+          <img class="select" src="assets/karasu_s.png" alt="鸦选人像" />
+          <div class="char-titles">
+            <div class="style">涅槃无天</div>
+            <div class="name">鸦</div>
+            <div class="roma">Karasu</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">黑羽</span>
+            <img src="assets/karasu.png" alt="鸦立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">鸦</span><span class="cmd">↓↘→ A/B</span></div>
+            <div class="move"><span class="n">鸦刃</span><span class="cmd">→↓↘ A/B</span></div>
+            <div class="move"><span class="n">疾风羽</span><span class="cmd">（无刀）→↓↘ A/B</span></div>
+            <div class="move"><span class="n">乱羽</span><span class="cmd">↓↙← A/B → A/B</span></div>
+            <div class="move"><span class="n">羽刀</span><span class="cmd">空中 ↓↘→ A/B</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">→←↙ B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>暗鸦·阴惨灭</span><span class="cmd">↓↘→A/B·→→A/B·→→A/B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>气狂障壁</span><span class="cmd">→←↙↓↘→ A+C</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>怨冥鸦</span><span class="cmd">→↘↓↙←→ A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>狂刃</span><span class="cmd">近·持收 A·C·BC·B·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>鸦地狱之舞</span><span class="cmd">←→↘↓↙← A+B</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="char">
+        <header class="char-head">
+          <img class="select" src="assets/unzen_s.png" alt="云仙选人像" />
+          <div class="char-titles">
+            <div class="style">金刚罗汉</div>
+            <div class="name">云仙</div>
+            <div class="roma">Unzen</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">刚僧</span>
+            <img src="assets/unzen.png" alt="云仙立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">大粉碎击</span><span class="cmd">B+D</span></div>
+            <div class="move"><span class="n">大地鸣动</span><span class="cmd">→↘↓↙← A/B</span></div>
+            <div class="move"><span class="n">大狱杀弹</span><span class="cmd">近 ↓↙←→↘↓↙← A/B</span></div>
+            <div class="move"><span class="n">制裁罪人</span><span class="cmd">→↓↘ A/B</span></div>
+            <div class="move"><span class="n">因果报应</span><span class="cmd">↓↙←↖ A/B</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">↙↓↘→ B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>忏悔觉悟</span><span class="cmd">(↓↘→ C/D)×3</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>命脉微尘</span><span class="cmd">←蓄→ A+C</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>命丧黄泉</span><span class="cmd">←→↘↓↙←→ A+C</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>怒涛炎狱杀</span><span class="cmd">A·B·B·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>引导渡</span><span class="cmd">↓↙←↙↓↘→ A+C</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="char">
+        <header class="char-head">
+          <img class="select" src="assets/natsume_s.png" alt="枣选人像" />
+          <div class="char-titles">
+            <div class="style">南天朱雀</div>
+            <div class="name">枣</div>
+            <div class="roma">Natsume</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">朱雀</span>
+            <img src="assets/natsume.png" alt="枣立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">忍空斩</span><span class="cmd">→↓↘ A/B</span></div>
+            <div class="move"><span class="n">百鬼连碎</span><span class="cmd">↓← A/B 连打</span></div>
+            <div class="move"><span class="n">飞鸟</span><span class="cmd">←↙↓↘→ A/B；回时 B+C 接</span></div>
+            <div class="move"><span class="n">轰斩斧</span><span class="cmd">↓↙← C/D</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">←↓↙ D</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>踏破穿击</span><span class="cmd">(↓↘→ C/D)×3</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>天破裂脚</span><span class="cmd">→←↙↓↘→ C+D</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>鏖杀·幻梦缭乱</span><span class="cmd">→↘↓↙←↓↘→ A+C</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>无鸳流瞬击·鏖</span><span class="cmd">↘A·→A·→A·A·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>极流狱杀掌</span><span class="cmd">→↘↓→↘↓ A+B</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="char">
+        <header class="char-head">
+          <img class="select" src="assets/kamui_s.png" alt="神威选人像" />
+          <div class="char-titles">
+            <div class="style">黑风影虎</div>
+            <div class="name">神威</div>
+            <div class="roma">Kamui</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">影虎</span>
+            <img src="assets/kamui.png" alt="神威立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">风牙</span><span class="cmd">↓↘→ A/B</span></div>
+            <div class="move"><span class="n">龙头牙</span><span class="cmd">→↓↘ A/B</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">→←↙↓ D</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>杀鬼骸业歼</span><span class="cmd">(↓↙← C/D)×3</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>火炎阵鬼雨</span><span class="cmd">空中 →↘↓↙← A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>鬼裂斩·血烟</span><span class="cmd">→↘↓↙←↙↓↘→ A+C</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>暗火炎阵·鬼缚</span><span class="cmd">↘A·A·B·B·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>鬼封·灭</span><span class="cmd">↓↓↙←→ A+B</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="char">
+        <header class="char-head">
+          <img class="select" src="assets/raiga_s.png" alt="雷牙选人像" />
+          <div class="char-titles">
+            <div class="style">无法赤狼</div>
+            <div class="name">雷牙</div>
+            <div class="roma">Raiga</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">赤狼</span>
+            <img src="assets/raiga.png" alt="雷牙立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">雷·地龙</span><span class="cmd">←蓄→ C/D</span></div>
+            <div class="move"><span class="n">雷·天龙</span><span class="cmd">↓蓄↑ C/D</span></div>
+            <div class="move"><span class="n">雷击杀·地雷龙</span><span class="cmd">↓↙←A/B → ←↙↓↘→A/B</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">摇杆一圈 + B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>暴雷击·爆杀</span><span class="cmd">←蓄→A/B·←→A/B·←→A/B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>雷神召</span><span class="cmd">↓蓄↑ B+D</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>闪光雷刃</span><span class="cmd">↓↘→←↙↓↘→ A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>雷神降临</span><span class="cmd">A·B·B·B·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>爆雷阵</span><span class="cmd">←→↘↓↙← C+D</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PAGE 3 · 人物出招 2 ===================== -->
+<section class="sheet" aria-label="人物出招表二">
+  <div class="page-frame">
+    <header class="hero-slim">
+      <div>
+        <div class="subbrand" style="margin-bottom:1mm">出招表 · 其二</div>
+        <h1 class="brand">霸王<em>忍法帖</em></h1>
+      </div>
+      <div class="right">
+        红天薰风 · 怪盗无双 · 破魔明星<br />
+        阴阳云水 · 神乐无明 · 灭界霸王
+      </div>
+    </header>
+
+    <div class="roster">
+      <article class="char">
+        <header class="char-head">
+          <img class="select" src="assets/kasumi_s.png" alt="霞选人像" />
+          <div class="char-titles">
+            <div class="style">红天薰风</div>
+            <div class="name">霞</div>
+            <div class="roma">Kasumi</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">薰风</span>
+            <img src="assets/kasumi.png" alt="霞立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">挂脚圆旋蹴</span><span class="cmd">↓↘→ C/D</span></div>
+            <div class="move"><span class="n">绯龙闪</span><span class="cmd">↑↓ C/D（空中可）</span></div>
+            <div class="move"><span class="n">绯旋蹴</span><span class="cmd">→↘↓↙← C/D</span></div>
+            <div class="move"><span class="n">绯天脚</span><span class="cmd">↓蓄 ↖/↑/↗+C/D 后追击</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">↓↙←→ B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>绯斩击·芍药</span><span class="cmd">(↓↘→ A/B)×3</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>绯闪肘击</span><span class="cmd">←蓄→ A+B（可按住）</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>绯燕闪</span><span class="cmd">→↘↓↙←→ A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>奥义·花蝶缭乱</span><span class="cmd">B·B·A·B·→A</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>绯旋圆舞阵</span><span class="cmd">↓↓↙←→ A+C</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="char">
+        <header class="char-head">
+          <img class="select" src="assets/goemon_s.png" alt="伍佑卫门选人像" />
+          <div class="char-titles">
+            <div class="style">怪盗无双</div>
+            <div class="name">伍佑卫门</div>
+            <div class="roma">Goemon</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">怪盗</span>
+            <img src="assets/goemon.png" alt="伍佑卫门立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">地铁球</span><span class="cmd">收/落 ↓↘→ A/B</span></div>
+            <div class="move"><span class="n">轰击炮</span><span class="cmd">持 ↓↘→ A/B</span></div>
+            <div class="move"><span class="n">爆烟障</span><span class="cmd">→↓↘ A/B</span></div>
+            <div class="move"><span class="n">火炎障</span><span class="cmd">收/落 ↓↙← A/B</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">←↓↙ D</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>天诛地灭</span><span class="cmd">(↓↘→ C/D)×3</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>铁球火炎狱</span><span class="cmd">↓↙←→ A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>烈火炎杀掌</span><span class="cmd">←↓↙→ A+C</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>灭杀·铁拳诛</span><span class="cmd">↘A·B·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>暗器双邪业</span><span class="cmd">←→↓↘ A+C</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="char">
+        <header class="char-head">
+          <img class="select" src="assets/houoh_s.png" alt="凤凰选人像" />
+          <div class="char-titles">
+            <div class="style">破魔明星</div>
+            <div class="name">凤凰</div>
+            <div class="roma">Houoh</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">破魔</span>
+            <img src="assets/houoh.png" alt="凤凰立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">空闪光</span><span class="cmd">←蓄→ A/B</span></div>
+            <div class="move"><span class="n">地裂闪</span><span class="cmd">←蓄→ C/D</span></div>
+            <div class="move"><span class="n">凤凰天舞</span><span class="cmd">↓蓄↑ C/D</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">←→↘↓ B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>鬼神斩·邪鬼杀</span><span class="cmd">←↙↓↘→A/B·↓↘→A/B×2</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>破邪灵波动</span><span class="cmd">↓↙←→ A+B（可蓄）</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>大日遮·那招来</span><span class="cmd">←↙↓↑ A+C</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>凤凰天翔</span><span class="cmd">近 D·D·A·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>无双太阳剑</span><span class="cmd">→↘↓↙←→↘↓ A+C</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="char">
+        <header class="char-head">
+          <img class="select" src="assets/tenho_s.png" alt="天和选人像" />
+          <div class="char-titles">
+            <div class="style">阴阳云水</div>
+            <div class="name">天和</div>
+            <div class="roma">Tenho</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">阴阳</span>
+            <img src="assets/tenho.png" alt="天和立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">观涛符</span><span class="cmd">↓↘→ A/B</span></div>
+            <div class="move"><span class="n">风烈弹</span><span class="cmd">↓↘→ C/D</span></div>
+            <div class="move"><span class="n">闪灭掌</span><span class="cmd">拳连打</span></div>
+            <div class="move"><span class="n">守护兽烈弹</span><span class="cmd">D 按住再放开</span></div>
+            <div class="move"><span class="n">天魔圆杀阵</span><span class="cmd">→↘↓↙← A/B</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">←↓↙ B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>旋风定创松竹梅</span><span class="cmd">→↓↘A/B·↓↘→A/B×2</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>太极破</span><span class="cmd">↓↙←↙↓↘→ A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>旋阵封邪</span><span class="cmd">→↘↓↙←→↘↓ A+C</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>国士无双</span><span class="cmd">近 A·B·C·→D·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>修罗放邪</span><span class="cmd">收/落 A蓄·↓↙←A</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="char boss">
+        <header class="char-head">
+          <img class="select" src="assets/ranmaru_s.png" alt="兰丸选人像" />
+          <div class="char-titles">
+            <div class="style">神乐无明 · 隐藏</div>
+            <div class="name">兰丸</div>
+            <div class="roma">Ranmaru</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">副霸</span>
+            <img src="assets/ranmaru.png" alt="兰丸立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">梦幻樱</span><span class="cmd">↓↘→ A/B</span></div>
+            <div class="move"><span class="n">幻斩舞</span><span class="cmd">→↓↘ A/B</span></div>
+            <div class="move"><span class="n">幻斩舞·虚空</span><span class="cmd">空中 →↘↓↙ A/B</span></div>
+            <div class="move"><span class="n">连樱花</span><span class="cmd">→←↙↓↘→ C/D</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">→↘↓↙← D</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>幻樱舞·樱花</span><span class="cmd">(↓↙← C/D)×3</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>梦想冥缚</span><span class="cmd">→↘↓↙←→ A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>梦幻樱花</span><span class="cmd">←→↘↓↙← A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>命露散华</span><span class="cmd">A·B·A·B·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>幻魔操掌</span><span class="cmd">↓↘→←↙↓ A+B</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="char boss">
+        <header class="char-head">
+          <img class="select" src="assets/nobunaga_s.png" alt="信长选人像" />
+          <div class="char-titles">
+            <div class="style">灭界霸王 · 最终</div>
+            <div class="name">信长</div>
+            <div class="roma">Nobunaga</div>
+          </div>
+        </header>
+        <div class="char-body">
+          <div class="char-art">
+            <span class="accent">霸王</span>
+            <img src="assets/nobunaga.png" alt="信长立绘" />
+          </div>
+          <div class="moves">
+            <div class="move"><span class="n">落凤斩</span><span class="cmd">→↓↘ A/B</span></div>
+            <div class="move"><span class="n">大六天魔镜</span><span class="cmd">↓↘→ A/B</span></div>
+            <div class="move"><span class="n">黑旋连还杀</span><span class="cmd">↓↘→ C/D</span></div>
+            <div class="move"><span class="n">飞枪天舞</span><span class="cmd">↓蓄↑ C/D</span></div>
+            <div class="move"><span class="n">飞天雷爪</span><span class="cmd">上式后接 C/D</span></div>
+            <div class="move"><span class="n">指令投</span><span class="cmd">→←↙ D</span></div>
+            <div class="move"><span class="n"><span class="tag mk-a">▲</span>三界无惨</span><span class="cmd">←蓄→A/B·←→A/B·←→A/B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-s">☆</span>怨灵爆</span><span class="cmd">↓↙←↙↓↘→ A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-t">★</span>炎狱乱剑舞</span><span class="cmd">←→↘↓↙← A+B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-d">◇</span>万象灰尘</span><span class="cmd">↘A·→D·B·D·→B</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>冥道轮回</span><span class="cmd">收/落 ↓↙←→↘↓↙← A+C</span></div>
+            <div class="move"><span class="n"><span class="tag mk-p">◆</span>暗连弹·愚者必灭</span><span class="cmd">←蓄→A+B 后多段追击</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

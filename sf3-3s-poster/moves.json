@@ -1,0 +1,2172 @@
+{
+  "alex": {
+    "title": "亚历克斯 ALEX",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "力量投",
+        "cmd": "近敌时，轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "蹲轻脚·蹲中脚",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "蹲轻脚·蹲重脚",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "破骨割",
+        "cmd": "→++中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "回旋重击",
+        "cmd": "→+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "头部炸弹",
+        "cmd": "←+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "颈锁",
+        "cmd": "在对手背后时，←+重拳(任意键连打)",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "飞翔十字斩",
+        "cmd": "垂直跳跃or前跳中，↓+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "闪光斩★",
+        "cmd": "↓↘→ +拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "空升膝碎★",
+        "cmd": "↓↘→ +脚",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "强力轰炸",
+        "cmd": "→↘↓↙←+拳(抓住对手背部时动作会有所不同)",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "危险回旋",
+        "cmd": "→↘↓↙←+脚",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "猛突肘击★",
+        "cmd": "←蓄→ + 腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "空降踏碎★",
+        "cmd": "↓蓄↑ + 腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.1)超强力轰炸",
+        "cmd": "摇杆转一圈+拳(抓住对手背部时动作会有所不同)",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.2)回旋镖强袭",
+        "cmd": "↓↘→↓↘→ +拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)晕击头槌",
+        "cmd": "↓↘→↓↘→ +拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "ryu": {
+    "title": "隆 RYU",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "背负投",
+        "cmd": "近敌时 N or/→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "巴投",
+        "cmd": "近敌时 ←+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "远距离站立重拳·站立重脚",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "鸠尾碎",
+        "cmd": "→+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "锁骨割",
+        "cmd": "→+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "波动拳★",
+        "cmd": "↓↘→+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "升龙拳★",
+        "cmd": "→↓↘+ 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "龙卷旋风脚★",
+        "cmd": "↓↙← + 脚",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "空中龙卷旋风脚★",
+        "cmd": "空中↓↙← + 脚",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "上段足刀蹴★",
+        "cmd": "←↙↓↘→+ 脚",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.2)真空波动拳",
+        "cmd": "↓↘→↓↘→ +拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.1)真·升龙拳",
+        "cmd": "↓↘→↓↘→ +拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)电刃波动拳",
+        "cmd": "↓↘→↓↘→ +拳(可蓄)",
+        "sec": "sa"
+      }
+    ]
+  },
+  "ken": {
+    "title": "肯 KEN",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "膝蹴",
+        "cmd": "近敌时，N+轻拳+轻脚(任意键连打)",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "背负投",
+        "cmd": "近敌时，→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "地狱车",
+        "cmd": "近敌时，←+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "近距离站立中拳·站立重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "稻妻割",
+        "cmd": "中腿按住不放，←+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "踏进前蹴",
+        "cmd": "→+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "紫电踵落",
+        "cmd": "→+重腿（重腿按住不放为伪技）",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "波动拳★",
+        "cmd": "↓↘→+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "升龙拳★",
+        "cmd": "→↓↘+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "龙卷旋风脚★",
+        "cmd": "↓↙← + 脚",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "空中龙卷旋风脚★",
+        "cmd": "空中↓↙← + 脚",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.2)升龙裂破",
+        "cmd": "↓↘→↓↘→+拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.1)神龙拳",
+        "cmd": "↓↘→↓↘→+腿.腿连打",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.3)疾风迅雷腿",
+        "cmd": "↓↘→↓↘→+拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "gouki": {
+    "title": "豪鬼 GOUKI",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "背负投",
+        "cmd": "近敌时 N or/→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "巴投",
+        "cmd": "近敌时 ←+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "近距离站立中拳·站立重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "天魔空刃腿",
+        "cmd": "跳到最高点时，↓+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "头盖破杀",
+        "cmd": "→+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "豪波动拳",
+        "cmd": "↓↘→+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "斩空波动拳",
+        "cmd": "空中↓↘→+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "灼热波动拳",
+        "cmd": "→↘↓↙←+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "豪升龙拳",
+        "cmd": "→↓↘+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "龙卷斩空腿",
+        "cmd": "↓↙←+腿（空中可）",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "阿修罗闪空（飞前）",
+        "cmd": "→↓↘+二拳或二腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "阿修罗闪空（飞后）",
+        "cmd": "←↓↙+二拳或二腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "百鬼袭",
+        "cmd": "→↓↘+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "┣百鬼豪 斩",
+        "cmd": "“百鬼袭”中后不输入任何指令",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "┣百鬼豪 冲",
+        "cmd": "“百鬼袭”中 +拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "┣百鬼豪 碎",
+        "cmd": "“百鬼袭”中 近敌头部时，轻拳+轻脚",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "┗百鬼豪 刃",
+        "cmd": "“百鬼袭”中 +腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.2)灭杀豪波动",
+        "cmd": "↓↘→↓↘→+拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.2)天魔豪斩空",
+        "cmd": "空中↓↘→↓↘→+拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.2)灭杀豪升龙",
+        "cmd": "↓↘→↓↘→+拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.2)灭杀豪螺旋",
+        "cmd": "↓↘→↓↘→+腿",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.2)灭杀豪旋风",
+        "cmd": "空中↓↘→↓↘→+腿",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SA(共通)瞬狱杀",
+        "cmd": "轻拳.轻拳→轻腿.重拳(MAX限定)",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SA(共通)金刚国裂斩",
+        "cmd": "↓↓↓+2个拳(MAX限定)",
+        "sec": "sa"
+      }
+    ]
+  },
+  "chunli": {
+    "title": "春丽 CHUN LI",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "虎袭倒",
+        "cmd": "近敌时，轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "龙星落",
+        "cmd": "空中近敌时，轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "斜跳重拳·空中重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "鹤首落脚",
+        "cmd": "近距离站立中腿按住不放",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "双连掌",
+        "cmd": "←+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "发劲",
+        "cmd": "←+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "尖杖蹴",
+        "cmd": "→+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "翼旋蹴",
+        "cmd": "→+重腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "转身鹫脚",
+        "cmd": "↘+重腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "鹰爪脚",
+        "cmd": "空中↓+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "三角跳",
+        "cmd": "空中近版边时↗or→or↘",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "气功拳★",
+        "cmd": "←↙↓↘→+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "霸山蹴★",
+        "cmd": "→↘↓↙←+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "百裂脚★",
+        "cmd": "腿连打",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "回旋鹤脚蹴★",
+        "cmd": "↓蓄↑+腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.1)气功掌",
+        "cmd": "↓↘→↓↘→+拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.2)凤翼扇",
+        "cmd": "↓↘→↓↘→+腿",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.3)天星乱华",
+        "cmd": "↓↘→↓↘→+腿",
+        "sec": "sa"
+      }
+    ]
+  },
+  "ibuki": {
+    "title": "息吹 IBUKI",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "暗葛",
+        "cmd": "近敌时，轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "翔猿",
+        "cmd": "空中近敌时，轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "空中重拳·空中→+中腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "斜跳轻拳·空中→+重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "斜跳轻腿·空中→+中腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立轻腿·站立中腿·站立重腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "近距离站立重拳·蹲重腿·站立重腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "←+中拳（1击)·站立重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "←+中腿·→+中腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "近距离站立轻拳·站中拳·蹲重腿·站立重腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "近距离站立轻拳·站中拳(1击)·站立重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "远距离站立轻拳·站立中拳·→+轻腿",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "卷蹴",
+        "cmd": "→+轻腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "头碎",
+        "cmd": "→+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "梵钟蹴",
+        "cmd": "→+重腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "砂斩",
+        "cmd": "↘+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "扬面",
+        "cmd": "←+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "里卷蹴",
+        "cmd": "←+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "追里拳",
+        "cmd": "远距离重拳·重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "首折★",
+        "cmd": "↓↘→ +拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "苦无★",
+        "cmd": "空中↓↘→ +拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "霞驱",
+        "cmd": "↓↘→ +腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "旋★",
+        "cmd": "↓↙←+腿(再输入↓+腿会变成下段攻击)(中“旋”中可输入中腿追加攻击)",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "筑地越",
+        "cmd": "→↓↘+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "风斩★",
+        "cmd": "→↓↘+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "飞燕★",
+        "cmd": "←↓↙+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "雷打",
+        "cmd": "→↘↓↙←+拳",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.3)霞朱雀",
+        "cmd": "空中↓↘→↓↘→+拳.拳连打",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.1)铠通",
+        "cmd": "↓↘→↓↘→ +拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)暗时雨",
+        "cmd": "↓↘→↓↘→ +拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "makoto": {
+    "title": "诚 MAKOTO",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "引寄头突·塔头",
+        "cmd": "近敌时，N+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "肘落三连突·荒矶",
+        "cmd": "近敌时， ←or→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立轻腿·站立中腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "→+中腿.重腿",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "小手突 风见",
+        "cmd": "→+轻拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "下突 熏菜",
+        "cmd": "→+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "踏进正拳突 风卷",
+        "cmd": "→+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "踏进正拳三连突 山背",
+        "cmd": "“踏进正拳突 风卷”中，重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "前蹴 飞沫",
+        "cmd": "→+轻腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "踏进上段回蹴 鸣斗",
+        "cmd": "→+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "踏进足拂 黑潮",
+        "cmd": "→+重腿（重腿按住不放为伪技）",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "突进正拳突·疾风★",
+        "cmd": "↓↘→+拳 （普通版可蓄）",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "突进正拳突·疾风·特殊动作",
+        "cmd": "“突进正拳突·疾风”后，重拳+重脚",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "突进正拳突·疾风·取消",
+        "cmd": "“突进正拳突·疾风”蓄力中，腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "直上正拳突·吹上★",
+        "cmd": "→↓↘+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "打下手刀·岚★",
+        "cmd": "↓↙←+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "闪空踵落剑★",
+        "cmd": "垂直跳跃or前跳中，↓↙←+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "吊喉轮·唐草",
+        "cmd": "→↘↓↙←+腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.1)正中线五段突",
+        "cmd": "↓↘→↓↘→ +拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.2)暴土佐波碎",
+        "cmd": "↓↘→↓↘→ +腿",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)丹田连气·攻之型",
+        "cmd": "↓↘→↓↘→ +拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "elena": {
+    "title": "艾莉娜 ELENA",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "足投",
+        "cmd": "近敌时，轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立中腿·蹲重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立重拳·站立重腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "空中轻拳·空中中腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "空中中拳·空中重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "倒立踢",
+        "cmd": "→+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "低蹴",
+        "cmd": "→+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "踵割",
+        "cmd": "←+重腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "滑踢",
+        "cmd": "↘+重腿",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "旋转镰刀★",
+        "cmd": "↓↙←+腿 (可连续输入2次)",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "车轮割★",
+        "cmd": "→↓↘+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "山猫脚★",
+        "cmd": "←↓↙+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "犀牛角★",
+        "cmd": "←↙↓↘→+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "槌棒强打★",
+        "cmd": "→↘↓↙←+拳",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.3)回转打击",
+        "cmd": "↓↘→↓↘→ +腿",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.2)勇者之舞",
+        "cmd": "↓↘→↓↘→ +腿",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)治疗",
+        "cmd": "↓↘→↓↘→+拳(2个拳键同时按可快速取消)",
+        "sec": "sa"
+      }
+    ]
+  },
+  "yun": {
+    "title": "阴 YUN",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "膝蹴",
+        "cmd": "近敌时，N+轻拳+轻脚(任意键连打)",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "侧进巴落",
+        "cmd": "近敌时， →+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "巴落",
+        "cmd": "近敌时， ←+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "空中轻拳·空中→+重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "蹲中拳·蹲重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "蹲重腿·站立重腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立中拳·站立重拳·←+重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "近距离站立轻拳·站立轻腿·站立中拳",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "旋风脚",
+        "cmd": "→+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "打开",
+        "cmd": "→+重腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "雷击蹴",
+        "cmd": "垂直跳跃or前跳中，↘+腿",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "绝招步法★",
+        "cmd": "↓↘→ +拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "铁山靠★",
+        "cmd": "→↓↘ +拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "二翔脚★",
+        "cmd": "→↓↘ +脚",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "虎扑子",
+        "cmd": "↓↙← +拳 or2个拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "前方转身",
+        "cmd": "→↘↓↙←+腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.1)扬炮",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.3)枪雷连击",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)幻影阵",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "sean": {
+    "title": "肖恩 SEAN",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "背负投",
+        "cmd": "近敌时 N or/→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "巴投",
+        "cmd": "近敌时 ←+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "近距离站立中拳·N+站立重腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "近距离N+重拳·→+重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "头突",
+        "cmd": "→+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "反跃踢",
+        "cmd": "→+重腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "前转",
+        "cmd": "↓↙← +拳",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "肖恩滑轨★",
+        "cmd": "←↙↓↘→+按住拳不放",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "龙破拳★",
+        "cmd": "→↓↘+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "龙卷风★",
+        "cmd": "↓↙←+ 脚",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "龙尾脚★",
+        "cmd": "↓↘→+ 脚",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.3)强力裂破",
+        "cmd": "↓↘→↓↘→+拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.2)升龙加农",
+        "cmd": "↓↘→↓↘→+拳.拳连打",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)超强龙卷风",
+        "cmd": "↓↘→↓↘→+拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "yang": {
+    "title": "阳 YANG",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "膝蹴",
+        "cmd": "近敌时，N+轻拳+轻脚(任意键连打)",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "鹰翻飞云",
+        "cmd": "近敌时， →+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "巴落",
+        "cmd": "近敌时， ←+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "前跳中，中腿·空中↘+中腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立中拳·站立重拳·←+重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立轻腿·站立中腿·站立重腿",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "旋风脚",
+        "cmd": "→+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "雷击蹴",
+        "cmd": "垂直跳跃or前跳中，↘+腿",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "螳螂斩★",
+        "cmd": "↓↘→ + 拳(可连续输入3次；EX版可连续输入5次)",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "穿弓腿★",
+        "cmd": "↓↘→ + 腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "白虎双掌打",
+        "cmd": "↓↙← +拳 or2个拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "快跑",
+        "cmd": "→↓↘ +腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "前方转身",
+        "cmd": "→↘↓↙←+腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.1)雷震魔破拳",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.2)转身穿弓腿",
+        "cmd": "↓↘→↓↘→ +腿",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)星影圆舞",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "necro": {
+    "title": "内克罗 NECRO",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "怪投",
+        "cmd": "近敌时，Nor→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "翻身投",
+        "cmd": "近敌时，←+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "长手投",
+        "cmd": "(在对手背后)近敌时，轻P+轻K",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "←+轻腿·站立中拳",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "反肘打",
+        "cmd": "←+轻拳or中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "上击",
+        "cmd": "←+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "肘打",
+        "cmd": "←+腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "螺旋踢",
+        "cmd": "空中↓+ 腿",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "电磁疾风",
+        "cmd": "→↓↘ +拳.拳连打",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "翱翔之蛇★",
+        "cmd": "↓↙← +拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "升空毒蟒★",
+        "cmd": "↓↙← +腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "旋风之钩★",
+        "cmd": "←↙↓↘→+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "蛇之毒牙",
+        "cmd": "←↙↓↘→+腿(抓住对手背部时动作会有所不同)",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.1)超电磁风暴",
+        "cmd": "↓↘→↓↘→ + 拳.拳连打",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.1)灌篮狂舞",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.2)电魔妖蛇",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "dudley": {
+    "title": "达德利 DUDLEY",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "连拳重击",
+        "cmd": "近敌时，N+轻拳+轻脚(任意键连打)",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "背负投",
+        "cmd": "近敌时， ←or→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "→+轻拳·站立中拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立轻拳·站立中拳·站立中腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立轻腿·站立中腿·站立中拳·站立重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立中拳·站立中腿·站立重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立中腿·站立重拳·站立重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "→+中腿·站立中腿·站立重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "→+重腿·站立中腿",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "蹲轻脚·蹲中拳·蹲重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "蹲轻脚·站立中脚",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "低击",
+        "cmd": "→+轻拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "踏进勾拳",
+        "cmd": "→+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "滑步重击",
+        "cmd": "→+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "拳打",
+        "cmd": "→+中脚",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "下割",
+        "cmd": "→+中脚",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "武神旋风脚喷射钩拳★",
+        "cmd": "→↓↘ +拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "机关枪突击★",
+        "cmd": "←↙↓↘→+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "闪避",
+        "cmd": "←↙↓↘→+脚",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "闪避直拳",
+        "cmd": "“闪避”中，拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "闪避钩拳",
+        "cmd": "“闪避”中，腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "十字反击★",
+        "cmd": "→↘↓↙←+拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "短摆突击★",
+        "cmd": "→↘↓↙←+腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.2)火箭钩拳",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.1)回旋雷击",
+        "cmd": "↓↘→↓↘→ + 拳+（3个拳同按可延长距离)·拳连打",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.3)螺旋突击",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "remy": {
+    "title": "雷米 REMY",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "狂击",
+        "cmd": "近敌时，N+轻P+轻K",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "眠乱",
+        "cmd": "近敌时， ←or→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "近距离站立中腿·站立重腿",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "无垢",
+        "cmd": "→+中脚",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "美德之残光·高音★",
+        "cmd": "←蓄→ + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "美德之残光·低音★",
+        "cmd": "←蓄→ + 腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "玛·雪利的悲哀★",
+        "cmd": "↓蓄↑ + 腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "冰冷苍白★",
+        "cmd": "↓↙← + 腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.2)愤怒之流星",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.2)美德之安息",
+        "cmd": "↓↘→↓↘→ +腿",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)伤心小夜曲",
+        "cmd": "↓↘→↓↘→ +腿",
+        "sec": "sa"
+      }
+    ]
+  },
+  "oro": {
+    "title": "欧罗 ORO",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "首缔肩车",
+        "cmd": "近敌时，Nor→+轻拳+轻脚(任意键连打)",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "巴投",
+        "cmd": "近敌时， ←+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "空中地狱车",
+        "cmd": "空中近敌时，轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "近距离站立轻腿·站立中腿",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "二段跳跃",
+        "cmd": "空中↖or↑or↗",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "鬼肘",
+        "cmd": "→+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "日轮掌★",
+        "cmd": "←蓄→ + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "鬼蜻蜓★",
+        "cmd": "↓蓄↑ + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "人柱渡★",
+        "cmd": "↓↘→+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "人柱登★",
+        "cmd": "空中↓↘→+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "仁王力",
+        "cmd": "→↘↓↙←+拳",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.1)鬼神力",
+        "cmd": "↓↘→↓↘→ + 拳.近敌时，拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.1)鬼神空中地狱车",
+        "cmd": "↓↘→↓↘→ + 拳.空中近敌时，拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.1)鬼神槌",
+        "cmd": "↓↘→↓↘→ + 2个拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.3)夜行魂",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.3)夜行大魂",
+        "cmd": "↓↘→↓↘→ + 2个拳(MAX限定)",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)天狗石",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)天狗乱石",
+        "cmd": "↓↘→↓↘→ +2个拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "twelve": {
+    "title": "",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "拥抱",
+        "cmd": "近敌时，Nor→+轻拳+轻脚(任意键连打)",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "怪手杀",
+        "cmd": "近敌时，→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "怪手投",
+        "cmd": "近敌时，←+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "特殊技",
+        "name": "滑空",
+        "cmd": "空中→→or ←←",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "壁张付",
+        "cmd": "“滑空”中到版边时，输入版边方向。",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "高踢",
+        "cmd": "←+中脚",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "秘密之针★",
+        "cmd": "↓↘→ + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "乱舞之斧★",
+        "cmd": "↓↙← + 拳·拳连打(空中可)",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "飞龙袭★",
+        "cmd": "空中↓↙← + 腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.2)X秘密之针",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.1)X飞龙袭",
+        "cmd": "空中↓↘→↓↘→ +腿",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)X拷贝",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "q": {
+    "title": "",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "捕获及膝部用痛打(假)",
+        "cmd": "近敌时，N+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "捕获及投掷坠落冲击(假)",
+        "cmd": "近敌时， ←or→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "特殊技",
+        "name": "腕部上方攻击(假)",
+        "cmd": "←+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "两腕前进痛击(假)",
+        "cmd": "←+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "转倒头部痛击(假)",
+        "cmd": "←+重腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "转倒脚部痛击(假)",
+        "cmd": "↓or↘ +重腿",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "头部打击(假)★",
+        "cmd": "←蓄→ + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "突进中段打击(假)",
+        "cmd": "←蓄→ + 拳+按住拳不放",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "突进下肢打击(假)★",
+        "cmd": "←蓄→ + 腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "高速度连续打击(假)★",
+        "cmd": "↓↙← + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "捕获及痛恨打击(假)",
+        "cmd": "→↘↓↙←+腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.2)突进及致死连续打击(假)",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.1)腹部及后头部之痛打(假)",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)爆发伴打击捕获(假)",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)爆发伴打击捕获(假)打击",
+        "cmd": "“爆发伴打击捕获(假)”后，↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.1)爆发伴打击捕获(假)捕获",
+        "cmd": "“爆发伴打击捕获(假)”后，↓↘→ + 腿",
+        "sec": "sa"
+      }
+    ]
+  },
+  "hugo": {
+    "title": "",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "锁头",
+        "cmd": "近敌时，N+轻拳+轻脚(任意键连打)",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "重扣投杀",
+        "cmd": "近敌时，←or→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "特殊技",
+        "name": "体压",
+        "cmd": "空中↓+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "回旋重击",
+        "cmd": "→+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "巨人飞踢",
+        "cmd": "←or→+重腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "特殊挑衅1",
+        "cmd": "按住重拳+重脚不放",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "特殊挑衅2",
+        "cmd": "START+重拳+重脚(CPS3版)",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "巨人双掌破★",
+        "cmd": "↓↙← + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "怪兽绳索★",
+        "cmd": "↓↘→ +腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "击落骨碎",
+        "cmd": "→↓↘ +腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "极端投掷",
+        "cmd": "→↘↓↙←+腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "月球重压",
+        "cmd": "近敌时摇杆一圈 + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "肉弹积压",
+        "cmd": "近敌时摇杆一圈 + 脚",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.1)十亿超重压",
+        "cmd": "近敌时摇杆两圈 + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.2)百万吨压迫",
+        "cmd": "↓↘→↓↘→ +腿",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.2)开山铁锤",
+        "cmd": "↓↘→↓↘→ + 拳(按住延迟出招,长按不放不会出招)",
+        "sec": "sa"
+      }
+    ]
+  },
+  "urien": {
+    "title": "尤里安 URIEN",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "碎头击",
+        "cmd": "近敌时，N+轻拳+轻脚(任意键连打)",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "重扣落",
+        "cmd": "近敌时，←or→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立轻拳·站立中拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "→+中拳·重拳",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "上击",
+        "cmd": "→+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "踏进踢",
+        "cmd": "→+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "下勾拳",
+        "cmd": "→+重拳",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "金属光球★",
+        "cmd": "↓↘→ + 拳(可蓄)",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "滑轨战车★",
+        "cmd": "←蓄→ + 腿",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "危险头突★",
+        "cmd": "↓蓄↑ + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "爆裂膝落★",
+        "cmd": "↓蓄↑ + 脚",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅠ-(LV.2)暴君之怒吼",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅡ-(LV.2)现世之雷",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SAⅢ-(LV.2)防护反射镜",
+        "cmd": "↓↘→↓↘→ + 拳 or 2个拳",
+        "sec": "sa"
+      }
+    ]
+  },
+  "gill": {
+    "title": "基尔 GILL",
+    "moves": [
+      {
+        "section": "投技",
+        "name": "碎头击",
+        "cmd": "近敌时，N+轻拳+轻脚(任意键连打)",
+        "sec": "throw"
+      },
+      {
+        "section": "投技",
+        "name": "重扣落",
+        "cmd": "近敌时，←or→+轻拳+轻脚",
+        "sec": "throw"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "站立轻拳·站立中拳",
+        "sec": "tc"
+      },
+      {
+        "section": "TC",
+        "name": "目标连段",
+        "cmd": "蹲轻腿·蹲中腿",
+        "sec": "tc"
+      },
+      {
+        "section": "特殊技",
+        "name": "上击",
+        "cmd": "←+中拳",
+        "sec": "unique"
+      },
+      {
+        "section": "特殊技",
+        "name": "踏进踢",
+        "cmd": "→+中腿",
+        "sec": "unique"
+      },
+      {
+        "section": "必杀技",
+        "name": "冰之祭礼&炎之炼狱",
+        "cmd": "↓↘→ + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "生化攻击",
+        "cmd": "→↓↘ +拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "精神力头击",
+        "cmd": "↓↙← + 拳",
+        "sec": "special"
+      },
+      {
+        "section": "必杀技",
+        "name": "月巢之缆",
+        "cmd": "→↘↓↙←+腿",
+        "sec": "special"
+      },
+      {
+        "section": "超必杀",
+        "name": "SA(共通)复活",
+        "cmd": "能量槽全满，生命值为0时自行发动。不过1个Round(回合)只能使用1次。",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SA(共通)陨石攻击",
+        "cmd": "↓↘→↓↘→ + 拳",
+        "sec": "sa"
+      },
+      {
+        "section": "超必杀",
+        "name": "SA(共通)六翼天使斩",
+        "cmd": "↓↘→↓↘→ +腿",
+        "sec": "sa"
+      }
+    ]
+  }
+}

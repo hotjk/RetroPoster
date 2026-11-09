@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>豪血寺一族2 · 出招表</title>
+<style>
+  :root {
+    --base: 3.6mm;
+    --ink: #0c2040;
+    --ink-soft: #1a3a66;
+    --blue: #1e5bb8;
+    --blue-deep: #0d3a7a;
+    --green: #1a7a3a;
+    --red: #c41820;
+    --btn-a: #ff6bb5;
+    --btn-b: #ff3b3b;
+    --btn-c: #c44dff;
+    --btn-d: #c9a000;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: var(--base); }
+
+  body {
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    font-size: 1rem;
+    color: var(--ink);
+    background: #e8eaee;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    max-height: 297mm;
+    margin: 12px auto;
+    padding: 0.75em 0.9em 0.6em;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 12px 40px rgba(0,0,0,.35);
+  }
+
+  .otane-bg {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 36%;
+    height: auto;
+    max-height: 34%;
+    z-index: 0;
+    object-fit: contain;
+    object-position: right bottom;
+    pointer-events: none;
+  }
+
+  .frame {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    border: 0.1em solid rgba(13, 58, 122, .35);
+    padding: 0.6em 0.65em 0.45em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65em;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.95em;
+    flex: 0 0 auto;
+  }
+
+  .logo-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0.85em;
+    background: transparent;
+    border: none;
+    padding: 0.35em 0.2em 0.45em;
+    border-bottom: 0.08em solid rgba(13, 58, 122, .25);
+  }
+
+  .logo-wrap img {
+    width: auto;
+    max-width: 78%;
+    max-height: 8.2em;
+    object-fit: contain;
+    object-position: left center;
+    display: block;
+    flex: 1 1 auto;
+    filter: drop-shadow(0.04em 0.05em 0.08em rgba(0, 0, 0, .18));
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+    padding-bottom: 0.35em;
+    flex: 0 0 auto;
+  }
+
+  .sub {
+    font-size: 1em;
+    letter-spacing: .18em;
+    color: var(--blue-deep);
+    font-weight: 700;
+  }
+
+  .meta {
+    font-size: 0.8em;
+    color: var(--ink-soft);
+    letter-spacing: .06em;
+  }
+
+  .ops {
+    background: transparent;
+    border: none;
+    padding: 2em 2em;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.55em;
+    align-items: center;
+  }
+
+  .ops h2 {
+    grid-column: 1 / -1;
+    font-size: 0.9em;
+    color: var(--blue-deep);
+    letter-spacing: .2em;
+    border-bottom: 0.06em solid rgba(30, 91, 184, .2);
+    padding-bottom: 0.12em;
+    margin-bottom: 0.05em;
+  }
+
+  .stick {
+    margin: 2em;
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 50% 50%, #ff4d4d 0 18%, transparent 19%),
+      conic-gradient(from 0deg, #c62828, #e53935, #c62828);
+    border: 0.12em solid #7a1010;
+    position: relative;
+    box-shadow: inset 0 0 0.35em rgba(0,0,0,.25);
+  }
+
+  .stick span {
+    position: absolute;
+    font-size: 0.62em;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0.05em 0.08em rgba(0,0,0,.45);
+  }
+
+  .stick .u  { top: 0.2em; left: 50%; transform: translateX(-50%); }
+  .stick .d  { bottom: 0.2em; left: 50%; transform: translateX(-50%); }
+  .stick .l  { left: 0.28em; top: 50%; transform: translateY(-50%); }
+  .stick .r  { right: 0.28em; top: 50%; transform: translateY(-50%); }
+  .stick .ul { top: 0.85em; left: 0.85em; }
+  .stick .ur { top: 0.85em; right: 0.85em; }
+  .stick .dl { bottom: 0.85em; left: 0.85em; }
+  .stick .dr { bottom: 0.85em; right: 0.85em; }
+
+  .ops-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0.28em;
+    min-width: 0;
+  }
+
+  .btns {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.25em;
+  }
+
+  .btn {
+    text-align: center;
+    border: 0.07em solid var(--ink);
+    background: #fff;
+    padding: 0.18em 0.1em;
+  }
+
+  .btn strong {
+    display: block;
+    font-size: 1.15em;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 0.05em 0 rgba(0,0,0,.35);
+  }
+
+  .btn span {
+    display: block;
+    font-size: 0.62em;
+    font-weight: 700;
+    margin-top: 0.1em;
+  }
+
+  .btn.a { background: linear-gradient(#fff, #ffe6f3); }
+  .btn.a strong { color: var(--btn-a); text-shadow: none; }
+  .btn.b { background: linear-gradient(#fff, #ffe5e5); }
+  .btn.b strong { color: var(--btn-b); text-shadow: none; }
+  .btn.c { background: linear-gradient(#fff, #f3e6ff); }
+  .btn.c strong { color: var(--btn-c); text-shadow: none; }
+  .btn.d { background: linear-gradient(#fff, #fff8d0); }
+  .btn.d strong { color: #c9a000; text-shadow: none; }
+
+  .tips {
+    font-size: 1em;
+    line-height: 1.35;
+    color: var(--ink-soft);
+  }
+
+  .tips b { color: var(--blue-deep); }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    font-size: 1em;
+    color: var(--ink-soft);
+  }
+
+  .legend i {
+    font-style: normal;
+    font-weight: 900;
+    margin-right: 0.15em;
+  }
+
+  .mk-s { color: var(--red); }
+  .mk-a { color: #c44dff; }
+  .mk-d { color: var(--blue); }
+
+  .roster {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: grid;
+    gap: 0.75em;
+  }
+
+  .roster-p1 {
+    flex: 0 0 auto;
+    height: 66%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .roster-p2 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .char {
+    background: #f0f0f0;
+    border: 0.08em solid rgba(13, 58, 122, .4);
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    min-height: 0;
+    padding: 0.4em;
+  }
+
+  .char.boss {
+    border-color: rgba(158, 18, 24, .45);
+  }
+
+  .char.boss .name { color: var(--red); }
+
+  .char.otane {
+    background: transparent;
+  }
+
+  .char-slot { min-height: 0; }
+
+  .char-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1em;
+    padding: 1em 0.1em 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    flex: 0 0 auto;
+  }
+
+  .char-head .avatar {
+    width: 4.2em;
+    height: 4.2em;
+    object-fit: contain;
+    image-rendering: pixelated;
+    background: transparent;
+    border: none;
+    display: block;
+  }
+
+  .char-head .name {
+    font-size: 1.05em;
+    font-weight: 900;
+    letter-spacing: .08em;
+    color: var(--blue-deep);
+    line-height: 1.1;
+    text-align: center;
+  }
+
+  .char-head .subline {
+    font-size: 0.68em;
+    color: var(--ink-soft);
+    letter-spacing: .02em;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .moves {
+    flex: 0 0 auto;
+    min-height: 0;
+    padding: 0.05em 0.12em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.08em;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  .move {
+    display: flex;
+    flex-direction: column;
+    gap: 0.01em;
+    line-height: 1.12;
+  }
+
+  .move .n {
+    display: block;
+    font-size: 0.92em;
+    font-weight: 800;
+    color: var(--ink);
+    text-align: left;
+    line-height: 1.12;
+  }
+
+  .move .cmd {
+    display: block;
+    font-size: 0.84em;
+    font-weight: 700;
+    color: var(--ink-soft);
+    font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  .move.sp .n { color: var(--green); }
+  .move.su .n { color: var(--red); }
+  .move.xf .n { color: #7a3db8; }
+
+  .foot {
+    flex: 0 0 auto;
+    text-align: center;
+    font-size: 0.68em;
+    letter-spacing: .28em;
+    color: var(--blue-deep);
+    font-weight: 900;
+  }
+
+  @media screen {
+    body { padding: 16px 0 40px; background: #e8eaee; }
+  }
+
+  @media print {
+    /* 用宽×高锁定竖版；避免 A4 portrait 与对话框/驱动抢方向 */
+    @page { size: 210mm 297mm; margin: 0; }
+    html, body {
+      width: 210mm;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #fff;
+    }
+    .sheet {
+      margin: 0 !important;
+      box-shadow: none !important;
+      width: 210mm !important;
+      height: 297mm !important;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+    }
+    .sheet:last-of-type {
+      page-break-after: auto;
+      break-after: auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1 · 说明 + 6 人 ===================== -->
+<section class="sheet" aria-label="出招表其一">
+  <div class="frame">
+    <header class="header">
+      <div class="logo-wrap">
+        <img src="assets/title-logo.png?v=2" alt="豪血寺一族2" />
+        <div class="logo-text">
+          <div class="sub">出招表 · MOVE CHART · 其一</div>
+          <div class="meta">Atlus × CAVE · 1994 · Power Instinct 2</div>
+        </div>
+      </div>
+
+      <section class="ops">
+        <div class="stick" aria-hidden="true">
+          <span class="u">↑</span><span class="d">↓</span>
+          <span class="l">←</span><span class="r">→</span>
+          <span class="ul">↖</span><span class="ur">↗</span>
+          <span class="dl">↙</span><span class="dr">↘</span>
+        </div>
+        <div class="ops-right">
+          <div class="btns">
+            <div class="btn a"><strong>A</strong><span>轻拳</span></div>
+            <div class="btn b"><strong>B</strong><span>轻踢</span></div>
+            <div class="btn c"><strong>C</strong><span>重拳</span></div>
+            <div class="btn d"><strong>D</strong><span>重踢</span></div>
+          </div>
+          <p class="tips">
+            <b>二段跳</b> 一段跳后 ↖/↑/↗　·　
+            <b>冲刺</b> →→　·　
+            <b>后撤</b> ←←　·　
+            <b>投技</b> 近身 ←/→+C<br />
+            <b>忍耐槽</b> 被击中或对手防下攻击时积攒；满槽可放一发奥义
+          </p>
+          <div class="legend">
+            <span><i class="mk-s">■</i>一发奥义</span>
+            <span><i style="color:var(--green)">■</i>必杀</span>
+            <span><i class="mk-a">■</i>变身相关</span>
+            <span>14 人全表 · 本页 6 人</span>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <div class="roster roster-p1">
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/kurara_s.png" alt="花小路" />
+          <div class="name">花小路</div>
+          <div class="subline">魔法少女 · 猴 · Kurara</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">梦幻回力镖</span><span class="cmd">↓↘→ A/C</span></div>
+          <div class="move sp"><span class="n">奇迹攻击</span><span class="cmd">↓↙← B/D</span></div>
+          <div class="move xf"><span class="n">奇迹死亡之吻</span><span class="cmd">→←↙↓ + AC · 变身</span></div>
+          <div class="move xf"><span class="n">梦幻回转</span><span class="cmd">↓↘→ A/C（变身后）</span></div>
+          <div class="move xf"><span class="n">奇迹障壁</span><span class="cmd">↓↙← B/D（变身后）</span></div>
+          <div class="move xf"><span class="n">辉煌突进</span><span class="cmd">→↓↘ B/D（变身后）</span></div>
+          <div class="move su"><span class="n">星尘革命</span><span class="cmd">↓↘→ AC</span></div>
+        </div>
+      </article>
+
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/kanji_s.png" alt="千滋" />
+          <div class="name">孤空院千滋</div>
+          <div class="subline">分裂老人 · 羊 · Kanji</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">口壁</span><span class="cmd">↓蓄↑ A/C</span></div>
+          <div class="move sp"><span class="n">片飞腿</span><span class="cmd">←蓄→ B/D</span></div>
+          <div class="move sp"><span class="n">一尺布打</span><span class="cmd">←↙↓↘→ BD</span></div>
+          <div class="move sp"><span class="n">密义筋收体</span><span class="cmd">↓↘→ A/C</span></div>
+          <div class="move xf"><span class="n">吸饮愚爆</span><span class="cmd">←蓄→ C（老头）</span></div>
+          <div class="move xf"><span class="n">嘘睡膝凌</span><span class="cmd">←蓄→ B/D（老头）</span></div>
+          <div class="move xf"><span class="n">减命气功弹</span><span class="cmd">→↘↓↙← A/C（老头）</span></div>
+          <div class="move su"><span class="n">爆裂放屁</span><span class="cmd">←蓄→ BD · 变身</span></div>
+        </div>
+      </article>
+
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/sahad_s.png" alt="萨哈德" />
+          <div class="name">萨哈德</div>
+          <div class="subline">阿拉伯王子 · 猪 · Sahad</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">匕首射击</span><span class="cmd">↓↘→ A</span></div>
+          <div class="move sp"><span class="n">军刀射击</span><span class="cmd">↓↘→ C</span></div>
+          <div class="move sp"><span class="n">阿拉伯恰恰</span><span class="cmd">←蓄→ A/C</span></div>
+          <div class="move sp"><span class="n">火焰攻击</span><span class="cmd">→↓↘ A/C</span></div>
+          <div class="move sp"><span class="n">火焰风暴</span><span class="cmd">↓蓄↑ A/C</span></div>
+          <div class="move su"><span class="n">贾斯汀魔术</span><span class="cmd">↓↘→ AC</span></div>
+        </div>
+      </article>
+
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/kinta_s.png" alt="金田朗" />
+          <div class="name">孤空院金田朗</div>
+          <div class="subline">幼稚园生 · 狗 · Kinta</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">滚球弹</span><span class="cmd">空中 ↓↘→ A/C</span></div>
+          <div class="move sp"><span class="n">恋恋火飞鲤</span><span class="cmd">↓蓄↑ A/C</span></div>
+          <div class="move sp"><span class="n">力量挥击</span><span class="cmd">←蓄→ A/C</span></div>
+          <div class="move xf"><span class="n">变身投</span><span class="cmd">近身投 · 变狗</span></div>
+          <div class="move xf"><span class="n">摇头熊</span><span class="cmd">↓↙← B/D（变身后）</span></div>
+          <div class="move xf"><span class="n">汪汪俯冲</span><span class="cmd">空中 360° + A/C</span></div>
+          <div class="move su"><span class="n">盖瑞凯撒</span><span class="cmd">A+B+C+D</span></div>
+        </div>
+      </article>
+
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/reiji_s.png" alt="礼儿" />
+          <div class="name">大山礼儿</div>
+          <div class="subline">热血空手 · 猪 · Reiji</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">激掌破动波</span><span class="cmd">↓↘→ A/C</span></div>
+          <div class="move sp"><span class="n">雷吼脚</span><span class="cmd">B/D 连打</span></div>
+          <div class="move sp"><span class="n">流炎升</span><span class="cmd">→↓↘ A/C</span></div>
+          <div class="move sp"><span class="n">升燕舞</span><span class="cmd">空中 360° + B/D</span></div>
+          <div class="move su"><span class="n">流气升炎斩</span><span class="cmd">→↓↘ AC</span></div>
+        </div>
+      </article>
+
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/keith_s.png" alt="Keith" />
+          <div class="name">Keith</div>
+          <div class="subline">误解青年 · 鼠 · Keith Wayne</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">闪电闪光</span><span class="cmd">↓↙← A/C</span></div>
+          <div class="move sp"><span class="n">指关节轰炸机</span><span class="cmd">←蓄→ A/C</span></div>
+          <div class="move sp"><span class="n">螺旋踢</span><span class="cmd">↓↘→ B/D · 可连打追击</span></div>
+          <div class="move sp"><span class="n">滚动加农</span><span class="cmd">→↘↓ B/D</span></div>
+          <div class="move su"><span class="n">最终撞击轰炸机</span><span class="cmd">←蓄→ AC</span></div>
+        </div>
+      </article>
+    </div>
+
+    <footer class="foot">ATLUS · CAVE · PAGE 1 / 2</footer>
+  </div>
+</section>
+
+<!-- ===================== PAGE 2 · 8 人 + Otane ===================== -->
+<section class="sheet" aria-label="出招表其二">
+  <img class="otane-bg" src="assets/otane-bg.png" alt="" />
+
+  <div class="frame">
+    <div class="roster roster-p2">
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/annie_s.png" alt="Annie" />
+          <div class="name">Annie</div>
+          <div class="subline">动物少女 · 鸡 · Annie Hamilton</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">天鹅冲击</span><span class="cmd">←↙↓↘→ A/C</span></div>
+          <div class="move sp"><span class="n">彩虹障壁</span><span class="cmd">←蓄→ A/C</span></div>
+          <div class="move sp"><span class="n">光子爆发</span><span class="cmd">空中 ↓↘→ A/C</span></div>
+          <div class="move sp"><span class="n">Annie Dynamic</span><span class="cmd">D 按住后放开</span></div>
+          <div class="move su"><span class="n">迷幻投掷</span><span class="cmd">近身 → + AC</span></div>
+        </div>
+      </article>
+
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/white_s.png" alt="白水牛" />
+          <div class="name">白水牛</div>
+          <div class="subline">部落战士 · 马 · White Buffalo</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">箭射</span><span class="cmd">←↙↓↘→ A/C</span></div>
+          <div class="move sp"><span class="n">冲撞打击</span><span class="cmd">←蓄→ A/C</span></div>
+          <div class="move sp"><span class="n">野牛风暴</span><span class="cmd">←蓄→ B/D</span></div>
+          <div class="move sp"><span class="n">飞肘</span><span class="cmd">空中 360° + A/C</span></div>
+          <div class="move su"><span class="n">超级龙卷战斧</span><span class="cmd">←↙↓↘→ AC</span></div>
+        </div>
+      </article>
+
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/saizo_s.png" alt="才藏" />
+          <div class="name">服部才藏</div>
+          <div class="subline">孤高忍者 · 牛 · Saizo</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">龙炎波</span><span class="cmd">↓↘→ A/C</span></div>
+          <div class="move sp"><span class="n">青炎裂伤斩</span><span class="cmd">←↙↓↘→ B/D</span></div>
+          <div class="move sp"><span class="n">狱炎升龙弹</span><span class="cmd">↓↙← A/C</span></div>
+          <div class="move sp"><span class="n">震空旋风斩</span><span class="cmd">空中 360° + A/C</span></div>
+          <div class="move su"><span class="n">极恶升流弹</span><span class="cmd">↓↙← AC</span></div>
+        </div>
+      </article>
+
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/angela_s.png" alt="Angela" />
+          <div class="name">Angela</div>
+          <div class="subline">鞭子大姐 · 蛇 · Angela Belti</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">爱我吧鞭</span><span class="cmd">←蓄→ A/C</span></div>
+          <div class="move sp"><span class="n">身体冲撞</span><span class="cmd">←蓄→ B/D</span></div>
+          <div class="move sp"><span class="n">雷墙</span><span class="cmd">AC</span></div>
+          <div class="move sp"><span class="n">粉碎踢</span><span class="cmd">空中 ↑↓ + B/D</span></div>
+          <div class="move su"><span class="n">巨人克星</span><span class="cmd">←蓄→ AC</span></div>
+        </div>
+      </article>
+
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/thin_s.png" alt="陈念" />
+          <div class="name">陈念</div>
+          <div class="subline">好色和尚 · 虎 · Thin Nen</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">烈光掌</span><span class="cmd">→←→ A/C</span></div>
+          <div class="move sp"><span class="n">缚符</span><span class="cmd">→↘↓↙← AC</span></div>
+          <div class="move sp"><span class="n">闪光烈脚</span><span class="cmd">↓↘→↗ B/D</span></div>
+          <div class="move sp"><span class="n">炼狱灵波</span><span class="cmd">空中 ←↙↓↘→ AC</span></div>
+          <div class="move su"><span class="n">炼鬼降临</span><span class="cmd">A+B+C+D</span></div>
+        </div>
+      </article>
+
+      <article class="char">
+        <div class="char-head">
+          <img class="avatar" src="assets/oume_s.png" alt="梅" />
+          <div class="name">豪血寺梅</div>
+          <div class="subline">前族长 · 兔 · Oume</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">岩碎齿</span><span class="cmd">←蓄→ A/C</span></div>
+          <div class="move sp"><span class="n">威吓颜</span><span class="cmd">↓蓄↑ A/C</span></div>
+          <div class="move sp"><span class="n">天舞脚</span><span class="cmd">空中 ↑↓ + B/D</span></div>
+          <div class="move sp"><span class="n">星流乱舞弹</span><span class="cmd">→ + A/C 连打</span></div>
+          <div class="move xf"><span class="n">桃恋火</span><span class="cmd">↓↘→ A/C（变身后）</span></div>
+          <div class="move xf"><span class="n">虹色壁</span><span class="cmd">←蓄→ A/C（变身后）</span></div>
+          <div class="move su"><span class="n">豪血流御颜打</span><span class="cmd">↓蓄↑ AC</span></div>
+        </div>
+      </article>
+
+      <article class="char boss">
+        <div class="char-head">
+          <img class="avatar" src="assets/oshima_s.png" alt="志摩" />
+          <div class="name">豪血寺志摩</div>
+          <div class="subline">大会主持 · CPU · Oshima</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">流星弹</span><span class="cmd">←↙↓↘→ A/C（可蓄）</span></div>
+          <div class="move sp"><span class="n">岩碎发</span><span class="cmd">←蓄→ A/C</span></div>
+          <div class="move sp"><span class="n">天舞脚</span><span class="cmd">→↘↓↙← B/D</span></div>
+          <div class="move sp"><span class="n">威吓炮</span><span class="cmd">空中 360° + A/C</span></div>
+          <div class="move su"><span class="n">破灵彗星神</span><span class="cmd">←↙↓↘→ AC</span></div>
+        </div>
+      </article>
+
+      <article class="char boss otane">
+        <div class="char-head">
+          <img class="avatar" src="assets/otane_s.png" alt="种" />
+          <div class="name">豪血寺种</div>
+          <div class="subline">最终首领 · CPU · Otane</div>
+        </div>
+        <div class="moves">
+          <div class="move sp"><span class="n">神通冲</span><span class="cmd">→↓↘ A/C</span></div>
+          <div class="move sp"><span class="n">岩碎齿</span><span class="cmd">←蓄→ A/C</span></div>
+          <div class="move sp"><span class="n">威吓颜</span><span class="cmd">↓蓄↑ A/C</span></div>
+          <div class="move sp"><span class="n">星流乱舞弹</span><span class="cmd">→ + A/C 连打</span></div>
+          <div class="move sp"><span class="n">天舞脚</span><span class="cmd">空中 ↑↓ + B/D</span></div>
+          <div class="move xf"><span class="n">变身投</span><span class="cmd">近身投 · 变年轻体</span></div>
+          <div class="move xf"><span class="n">桃恋火 / 虹色壁</span><span class="cmd">变身后可用</span></div>
+          <div class="move su"><span class="n">豪血流御颜打</span><span class="cmd">↓蓄↑ AC</span></div>
+        </div>
+      </article>
+
+      <div class="char-slot" aria-hidden="true"></div>
+    </div>
+
+    <footer class="foot">ATLUS · CAVE · PAGE 2 / 2</footer>
+  </div>
+</section>
+
+</body>
+</html>

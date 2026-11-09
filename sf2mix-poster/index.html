@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Street Fighter 2 Mix · 出招表</title>
+<style>
+
+:root {
+  --paper: #ffffff;
+  --panel: #f3f5f9;
+  --card: #ffffff;
+  --line: #8aa0c0;
+  --line-soft: #c5d0e0;
+  --red: #c41820;
+  --gold: #9a7a00;
+  --green: #1a7a3a;
+  --blue: #1e4a8c;
+  --ink: #122038;
+  --muted: #4a5d7a;
+  --base: 3.8mm;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: var(--base); }
+body {
+  font-family: "SimHei", "黑体", "Heiti SC", "STHeiti", sans-serif;
+  background: #dce1ea;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.sheet {
+  width: 210mm;
+  height: 297mm;
+  margin: 14px auto;
+  padding: 0.75em 0.85em;
+  background: var(--paper);
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  overflow: hidden;
+  page-break-after: always;
+}
+.sheet:last-of-type { page-break-after: auto; }
+.panel {
+  height: 100%;
+  background: var(--panel);
+  border: 0.12em solid var(--line);
+  outline: 0.08em solid #d4a017;
+  outline-offset: -0.28em;
+  padding: 0.65em 0.7em 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45em;
+}
+.topbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  flex: 0 0 auto;
+  padding-bottom: 0.4em;
+  border-bottom: 0.08em solid var(--line-soft);
+  margin-bottom: 0.1em;
+}
+.topbar-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55em;
+}
+.brand { display: flex; align-items: center; gap: 0.5em; min-width: 0; }
+.brand img.logo { height: 2.6em; image-rendering: pixelated; flex: 0 0 auto; }
+.brand h1 {
+  font-size: 1.4em;
+  letter-spacing: .08em;
+  color: var(--blue);
+  line-height: 1.1;
+}
+.brand .sub {
+  font-size: 0.82em;
+  color: var(--muted);
+  letter-spacing: .1em;
+  margin-top: 0.06em;
+}
+.page-tag {
+  font-size: 0.95em;
+  color: var(--gold);
+  letter-spacing: .14em;
+  text-align: right;
+  flex: 0 0 auto;
+  font-weight: 900;
+}
+.keysbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.32em 0.5em;
+  background: #fff;
+  border: 0.06em solid var(--line-soft);
+  padding: 0.35em 0.45em;
+}
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.22em;
+  flex: 1 1 auto;
+}
+.btn {
+  display: flex; align-items: center; gap: 0.14em;
+  background: #eef2f8;
+  border: 0.05em solid var(--line-soft);
+  padding: 0.16em 0.32em;
+  font-size: 0.88em;
+}
+.btn img { width: 1.25em; height: 1.25em; image-rendering: pixelated; flex: 0 0 auto; }
+.btn b { color: var(--blue); }
+.btn span { color: var(--ink); }
+.sysbar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  margin: 0.1em 0 0.15em;
+}
+.sys-block {
+  background: #fff;
+  border: 0.08em solid var(--line-soft);
+  padding: 0.45em 0.6em;
+}
+.sys-block h2 {
+  font-size: 0.98em;
+  color: var(--gold);
+  letter-spacing: .12em;
+  margin-bottom: 0.28em;
+  border-left: 0.18em solid var(--red);
+  padding-left: 0.28em;
+}
+.mech {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2em 0.7em;
+  font-size: 0.9em;
+  line-height: 1.32;
+}
+.mech .row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  gap: 0.35em;
+  min-width: 0;
+}
+.mech strong {
+  color: var(--green);
+  flex: 0 0 5.6em;
+  white-space: nowrap;
+}
+.mech .cmd {
+  color: var(--blue);
+  font-weight: 700;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.mech em {
+  color: var(--muted);
+  font-style: normal;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.select-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.18em 0.7em;
+  font-size: 0.9em;
+  line-height: 1.34;
+}
+.select-list .row {
+  display: flex;
+  gap: 0.35em;
+  align-items: baseline;
+  min-width: 0;
+}
+.select-list strong {
+  color: var(--blue);
+  flex: 0 0 5.8em;
+  white-space: nowrap;
+}
+.select-list span { color: var(--ink); min-width: 0; }
+.vigor-mini {
+  display: grid !important;
+  grid-template-columns: auto 1fr;
+  gap: 0.45em;
+  align-items: center;
+  font-size: 0.88em; line-height: 1.38; color: var(--muted);
+}
+.vigor-mini img { height: 1.5em; image-rendering: pixelated; }
+.legend {
+  display: flex; flex-wrap: wrap; gap: 0.18em 0.5em;
+  font-size: 0.84em; color: var(--muted);
+  flex: 0 0 auto;
+}
+.legend i {
+  display: inline-block; width: .9em; height: .9em;
+  text-align: center; line-height: .9em; font-style: normal;
+  font-weight: 900; margin-right: 0.1em;
+}
+.legend .v { background: var(--green); color: #fff; }
+.legend .n { background: var(--gold); color: #fff; }
+.legend .e { background: #3a7fc4; color: #fff; }
+.roster {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  margin-top: 0.15em;
+}
+.fighter {
+  flex: 1 1 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 5.6em 1fr;
+  gap: 0.5em;
+  background: var(--card);
+  border: 0.08em solid var(--line-soft);
+  border-left: 0.24em solid var(--blue);
+  padding: 0.4em 0.55em;
+  overflow: hidden;
+}
+.fighter.variant {
+  border-left-color: var(--red);
+  background: #fff8f8;
+}
+.id {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 0.15em; text-align: center;
+  padding: 0.1em 0;
+}
+.face {
+  width: 3.15em; height: 3.15em;
+  image-rendering: pixelated;
+  background: #e8eef6;
+  border: 0.08em solid var(--line);
+}
+.fighter.variant .face { border-color: var(--red); }
+.names .zh {
+  font-size: 1.22em; font-weight: 900; color: var(--ink);
+  letter-spacing: .06em; line-height: 1.1;
+}
+.fighter.variant .names .zh { color: var(--red); }
+.names .en {
+  font-size: 0.64em; color: var(--muted);
+  letter-spacing: .03em; text-transform: uppercase;
+}
+.names .note {
+  font-size: 0.6em;
+  color: var(--gold);
+  letter-spacing: .08em;
+  margin-top: 0.08em;
+}
+.list {
+  min-width: 0; min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: flex-start;
+  gap: 0.06em 0.7em;
+  padding: 0.1em 0.15em;
+}
+.sec {
+  width: calc(50% - 0.35em);
+  font-size: 0.7em;
+  letter-spacing: .12em;
+  color: var(--gold);
+  background: #eef2f8;
+  padding: 0.1em 0.28em;
+  border-left: 0.14em solid var(--red);
+  margin-top: 0.08em;
+}
+.mv {
+  width: calc(50% - 0.35em);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 0.35em;
+  row-gap: 0.02em;
+  align-items: baseline;
+  line-height: 1.22;
+  padding: 0.04em 0.08em;
+}
+.mv .n {
+  font-size: 0.98em;
+  color: var(--ink);
+  white-space: nowrap;
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+.mv .c {
+  font-size: 0.88em;
+  color: var(--muted);
+  text-align: right;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  margin-left: auto;
+  max-width: 100%;
+}
+.mv.vigor .n { color: var(--green); }
+.mv.new .n { color: var(--gold); }
+.mv.extra .n { color: #2a6aaa; }
+.b {
+  display: inline-block;
+  width: 0.95em; height: 0.95em;
+  font-style: normal; font-size: 0.72em;
+  text-align: center; line-height: 0.95em;
+  margin-right: 0.14em; font-weight: 900;
+  vertical-align: 0.05em;
+}
+.b.v { background: var(--green); color: #fff; }
+.b.n { background: var(--gold); color: #fff; }
+.b.e { background: #3a7fc4; color: #fff; }
+.foot {
+  flex: 0 0 auto;
+  text-align: center;
+  font-size: 0.64em;
+  letter-spacing: .22em;
+  color: var(--muted);
+  padding-top: 0.2em;
+  margin-top: 0.1em;
+}
+@media screen {
+  body { padding: 16px 0 40px; }
+}
+@media print {
+  /* 用宽×高锁定竖版；避免 A4 portrait 与对话框/驱动抢方向 */
+  @page { size: 210mm 297mm; margin: 0; }
+  html, body {
+    width: 210mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff;
+  }
+  .sheet {
+    margin: 0 !important;
+    box-shadow: none !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+  .sheet:last-of-type {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<section class="sheet" aria-label="隆 · 肯 · 盖尔">
+  <div class="panel">
+    <header class="topbar">
+      <div class="topbar-main">
+        <div class="brand">
+          <img class="logo" src="assets/icon.png" alt="SF2 Mix" />
+          <div>
+            <h1>STREET FIGHTER 2 MIX · 出招表</h1>
+            <div class="sub">BASIC / SELECT · 隆 · 肯 · 盖尔</div>
+          </div>
+        </div>
+        <div class="page-tag">PAGE 1 / 3</div>
+      </div>
+      
+<div class="keysbar">
+  <div class="btns">
+    <div class="btn"><img src="assets/moves/lpunch.png" alt=""/><b>LP</b><span>轻拳</span></div>
+    <div class="btn"><img src="assets/moves/mpunch.png" alt=""/><b>MP</b><span>中拳</span></div>
+    <div class="btn"><img src="assets/moves/hpunch.png" alt=""/><b>HP</b><span>重拳</span></div>
+    <div class="btn"><img src="assets/moves/lkick.png" alt=""/><b>LK</b><span>轻踢</span></div>
+    <div class="btn"><img src="assets/moves/mkick.png" alt=""/><b>MK</b><span>中踢</span></div>
+    <div class="btn"><img src="assets/moves/hkick.png" alt=""/><b>HK</b><span>重踢</span></div>
+  </div>
+  <div class="legend">
+    <span><i class="v">V</i>精力</span>
+    <span><i class="n">N</i>新招</span>
+    <span><i class="e">E</i>追加</span>
+    <span>P/K=任意拳踢 · 蓄=蓄力 · Ver1.3+</span>
+  </div>
+</div>
+
+    </header>
+    
+<div class="sysbar">
+  <div class="sys-block">
+    <h2>基础移动 BASIC MOVES</h2>
+    <div class="mech">
+      <div class="row"><strong>完美防御</strong><span class="cmd">← 瞬防</span><em>快硬直·不掉槽·微量回血/回槽</em></div>
+      <div class="row"><strong>破防</strong><span class="cmd">← 无槽防</span><em>短暂瘫痪硬直</em></div>
+      <div class="row"><strong>抓投脱出</strong><span class="cmd">↑+任意键</span><em>被抓时 · 耗1/3槽</em></div>
+      <div class="row"><strong>翻滚</strong><span class="cmd">START / LP+LK</span><em>翻滚中无敌</em></div>
+      <div class="row"><strong>后撤</strong><span class="cmd">←←</span><em>Backstep</em></div>
+      <div class="row"><strong>冲刺</strong><span class="cmd">→→</span><em>冲刺中不可抓投</em></div>
+      <div class="row"><strong>短跳</strong><span class="cmd">站立 ↑</span><em>IDLE 状态</em></div>
+      <div class="row"><strong>常跳</strong><span class="cmd">↑</span><em>不同 IDLE</em></div>
+      <div class="row"><strong>长跳</strong><span class="cmd">↓↑急 或 冲刺↑</span><em>Long Jump</em></div>
+      <div class="row"><strong>回合换人</strong><span class="cmd">START+对应键</span><em>需 SW(B6)</em></div>
+    </div>
+  </div>
+  <div class="sys-block">
+    <h2>选人屏 SELECT SCREEN</h2>
+    <div class="select-list">
+      <div class="row"><strong>色1 Color1</strong><span>拳键（任意 Punch）</span></div>
+      <div class="row"><strong>色2 Color2</strong><span>START</span></div>
+      <div class="row"><strong>色3 Color3</strong><span>轻踢 LK</span></div>
+      <div class="row"><strong>色4 Color4</strong><span>中踢 MK</span></div>
+      <div class="row"><strong>色5 Color5</strong><span>重踢 HK</span></div>
+      <div class="row"><strong>随机模式</strong><span>蓄↑ · 每场随机角色与色</span></div>
+      <div class="row"><strong>单次随机</strong><span>三拳同时 · 仅随机一次</span></div>
+      <div class="row"><strong>表演赛</strong><span>三踢同时 · CPU vs CPU</span></div>
+      <div class="row"><strong>Complete</strong><span>蓄↓ · 伪3D/印度车/随机Bonus/随机站位</span></div>
+      <div class="row"><strong>Classic</strong><span>蓄↓ + 三踢 · 关闭 Complete Mode</span></div>
+    </div>
+  </div>
+  <div class="sys-block vigor-mini">
+    <img src="assets/vigorbar.png" alt="VigorBar" />
+    <div><b style="color:var(--gold)">VigorBar 精力槽</b> 槽空时受击或防御易眩晕。精力招、完美防御相关收益、抓投脱出均依赖此槽。蓄力招蓄力更快、连打更易成立（Ver 1.3+）。</div>
+  </div>
+</div>
+
+    <div class="roster">
+      
+<article class="fighter" id="ryu">
+  <div class="id">
+    <img class="face" src="assets/ryu.png" alt="隆" />
+    <div class="names">
+      <div class="zh">隆</div>
+      <div class="en">Ryu</div>
+      
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">背负投</span><span class="c">近身 →/← + MP/HP</span></div>
+<div class="mv throw"><span class="n">巴投</span><span class="c">近身 →/← + MK/HK</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">波动拳</span><span class="c">↓↘→ + P</span></div>
+<div class="mv special"><span class="n">升龙拳</span><span class="c">→↓↘ + P</span></div>
+<div class="mv special"><span class="n">旋风腿</span><span class="c">↓↙← + MK/HK · 穿弹（电波除外）</span></div>
+<div class="mv special"><span class="n">空中旋风腿</span><span class="c">空中 ↓↙← + K</span></div>
+<div class="sec">EXTRA</div>
+<div class="mv extra"><span class="n"><i class="b e">E</i>旋风腿（追加）</span><span class="c">↓↙← + LK · Extra Hit</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>电波动拳</span><span class="c">↓↘→ + K · ≥1/4槽 · Extra Hit</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>失败波动</span><span class="c">↓↘→ + K · <1/4槽 · 不出波</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>二重电波动</span><span class="c">↓↘→ + P×2 · 耗1/2槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>觉醒·恶隆</span><span class="c">↓↘→ + K×2 · 损1/3血·满槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>觉醒·恶隆（全装）</span><span class="c">↓↘→ + K×3 · 损1/3血·满槽</span></div>
+  </div>
+</article>
+
+<article class="fighter" id="ken">
+  <div class="id">
+    <img class="face" src="assets/ken.png" alt="肯" />
+    <div class="names">
+      <div class="zh">肯</div>
+      <div class="en">Ken</div>
+      
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">背负投</span><span class="c">近身 →/← + MP/HP</span></div>
+<div class="mv throw"><span class="n">巴投</span><span class="c">近身 →/← + MK/HK</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">波动拳</span><span class="c">↓↘→ + P</span></div>
+<div class="mv special"><span class="n">假波动</span><span class="c">↓↘→ + P×2 · 快收招</span></div>
+<div class="mv special"><span class="n">炎之升龙（有槽）</span><span class="c">→↓↘ + P · 槽>0</span></div>
+<div class="mv special"><span class="n">升龙拳（空槽）</span><span class="c">→↓↘ + P · 槽=0</span></div>
+<div class="mv special"><span class="n">旋风腿</span><span class="c">↓↙← + K · 可收尾踢 · 穿弹</span></div>
+<div class="mv special"><span class="n">空中旋风腿</span><span class="c">空中 ↓↙← + K</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>炎波动拳</span><span class="c">↓↘→ + K · ≥1/3槽 · Extra Hit</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>失败波动</span><span class="c">↓↘→ + K · <1/3槽 · 不出波</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>超级炎升龙</span><span class="c">→↓↘ + P×2 · 耗1/2槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>觉醒·狂肯</span><span class="c">↓↘→ + K×3 · 白发 · 损1/3血·满槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>觉醒·狂肯（变体）</span><span class="c">↓↘→ + LK+HK/LK+MK/MK+HK · 换色</span></div>
+  </div>
+</article>
+
+<article class="fighter" id="guile">
+  <div class="id">
+    <img class="face" src="assets/guile.png" alt="盖尔" />
+    <div class="names">
+      <div class="zh">盖尔</div>
+      <div class="en">Guile</div>
+      
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">柔道投</span><span class="c">近身 →/← + MP</span></div>
+<div class="mv throw"><span class="n">龙式过肩摔</span><span class="c">近身 →/← + HP</span></div>
+<div class="mv throw"><span class="n">空中飞马</span><span class="c">近身空中 ↓ + MP/HP</span></div>
+<div class="mv throw"><span class="n">空中爆落</span><span class="c">近身空中 ↓ + MK/HK</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">膝炮</span><span class="c">→/← + MK</span></div>
+<div class="mv special"><span class="n">回转踢</span><span class="c">→/← + HK</span></div>
+<div class="mv special"><span class="n">音速拳</span><span class="c">蓄←→ + LP/HP</span></div>
+<div class="mv special"><span class="n">闪光踢</span><span class="c">蓄↓↑ + K</span></div>
+<div class="sec">NEW</div>
+<div class="mv new"><span class="n"><i class="b n">N</i>垂直音速拳</span><span class="c">蓄←→ + MP · Extra Hit</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>滚动扫踢</span><span class="c">→→ 蓄 + MK · 耗1/3槽 · 跳弹</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>二重闪光踢</span><span class="c">蓄↓↑ + K×2 · 耗1/2槽</span></div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="sheet" aria-label="本田 · 布兰卡 · 春丽 · 桑吉尔夫 · 达尔锡姆">
+  <div class="panel">
+    <header class="topbar">
+      <div class="topbar-main">
+        <div class="brand">
+          <img class="logo" src="assets/icon.png" alt="SF2 Mix" />
+          <div>
+            <h1>STREET FIGHTER 2 MIX · 出招表</h1>
+            <div class="sub">本田 · 布兰卡 · 春丽 · 桑吉尔夫 · 达尔锡姆</div>
+          </div>
+        </div>
+        <div class="page-tag">PAGE 2 / 3</div>
+      </div>
+      
+<div class="keysbar">
+  <div class="btns">
+    <div class="btn"><img src="assets/moves/lpunch.png" alt=""/><b>LP</b><span>轻拳</span></div>
+    <div class="btn"><img src="assets/moves/mpunch.png" alt=""/><b>MP</b><span>中拳</span></div>
+    <div class="btn"><img src="assets/moves/hpunch.png" alt=""/><b>HP</b><span>重拳</span></div>
+    <div class="btn"><img src="assets/moves/lkick.png" alt=""/><b>LK</b><span>轻踢</span></div>
+    <div class="btn"><img src="assets/moves/mkick.png" alt=""/><b>MK</b><span>中踢</span></div>
+    <div class="btn"><img src="assets/moves/hkick.png" alt=""/><b>HK</b><span>重踢</span></div>
+  </div>
+  <div class="legend">
+    <span><i class="v">V</i>精力</span>
+    <span><i class="n">N</i>新招</span>
+    <span><i class="e">E</i>追加</span>
+    <span>P/K=任意拳踢 · 蓄=蓄力 · Ver1.3+</span>
+  </div>
+</div>
+
+    </header>
+    
+    <div class="roster">
+      
+<article class="fighter" id="honda">
+  <div class="id">
+    <img class="face" src="assets/honda.png" alt="本田" />
+    <div class="names">
+      <div class="zh">本田</div>
+      <div class="en">E.Honda</div>
+      
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">俵投</span><span class="c">近身 →/← + MP</span></div>
+<div class="mv throw"><span class="n">鯖折</span><span class="c">近身 →/← + HP</span></div>
+<div class="mv throw"><span class="n">折槛脚</span><span class="c">近身 →/← + HK</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">膝蹴</span><span class="c">远距离 HK · Extra Hit</span></div>
+<div class="mv special"><span class="n">百裂張り手</span><span class="c">连打 P（可 ←/→）</span></div>
+<div class="mv special"><span class="n">スーパー頭突き</span><span class="c">蓄←→ + P</span></div>
+<div class="mv special"><span class="n">スーパー百贯落</span><span class="c">蓄↓↑ + K</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>スーパー怒頭突き</span><span class="c">蓄←→ + P×2 · 耗1/2槽 · 防下破防</span></div>
+  </div>
+</article>
+
+<article class="fighter" id="blanka">
+  <div class="id">
+    <img class="face" src="assets/blanka.png" alt="布兰卡" />
+    <div class="names">
+      <div class="zh">布兰卡</div>
+      <div class="en">Blanka</div>
+      
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">野性之牙</span><span class="c">近身 →/← + HP</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">岩石碎击</span><span class="c">近身 →/← + MP</span></div>
+<div class="mv special"><span class="n">电光石火</span><span class="c">连打 P</span></div>
+<div class="mv special"><span class="n">滚动攻击</span><span class="c">蓄←→ + P</span></div>
+<div class="mv special"><span class="n">二段滚动</span><span class="c">滚动中 蓄↑ · 耗1/5槽</span></div>
+<div class="mv special"><span class="n">取消滚动</span><span class="c">滚动中 蓄↓ · 耗1/4槽</span></div>
+<div class="mv special"><span class="n">垂直滚动</span><span class="c">蓄↓↑ + K</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>电滚动攻击</span><span class="c">蓄←→ + P×2 · 耗1/2槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>旋转冲刺</span><span class="c">电滚动中 蓄 P</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>二段/取消（电滚）</span><span class="c">蓄↑ / 蓄↓ · 耗1/4槽</span></div>
+  </div>
+</article>
+
+<article class="fighter" id="chunli">
+  <div class="id">
+    <img class="face" src="assets/chunli.png" alt="春丽" />
+    <div class="names">
+      <div class="zh">春丽</div>
+      <div class="en">Chun-Li</div>
+      
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">刻舟投</span><span class="c">近身 →/← + MP/HP</span></div>
+<div class="mv throw"><span class="n">流星落</span><span class="c">近身空中 →/← + MP/HP</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">三角跳</span><span class="c">靠墙跳 · 反向键</span></div>
+<div class="mv special"><span class="n">后方回转脚</span><span class="c">→/← + MK</span></div>
+<div class="mv special"><span class="n">角蹴落</span><span class="c">→/← + HK · Extra Hit</span></div>
+<div class="mv special"><span class="n">空中后空翻</span><span class="c">空中 ↑ + HK · Extra Hit</span></div>
+<div class="mv special"><span class="n">鹰爪脚</span><span class="c">空中 ↓ + MK</span></div>
+<div class="mv special"><span class="n">百裂脚</span><span class="c">连打 K</span></div>
+<div class="mv special"><span class="n">气功拳</span><span class="c">↓↘→ + P</span></div>
+<div class="mv special"><span class="n">旋转鸟踢</span><span class="c">↓↑ + K · 穿弹 · 可蓄P取消(1/4槽)</span></div>
+<div class="sec">NEW</div>
+<div class="mv new"><span class="n"><i class="b n">N</i>空中旋转鸟踢</span><span class="c">空中 ↓↑ + K</span></div>
+<div class="mv new"><span class="n"><i class="b n">N</i>二段踢</span><span class="c">↓↘→ + K</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>集中气功拳</span><span class="c">↓↘→ + P×2 · 耗1/2槽</span></div>
+  </div>
+</article>
+
+<article class="fighter" id="zanguief">
+  <div class="id">
+    <img class="face" src="assets/zanguief.png" alt="桑吉尔夫" />
+    <div class="names">
+      <div class="zh">桑吉尔夫</div>
+      <div class="en">Zangief</div>
+      
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">打桩摔</span><span class="c">近身 →/← + MP</span></div>
+<div class="mv throw"><span class="n">脑天碎击</span><span class="c">近身 →/← + HP</span></div>
+<div class="mv throw"><span class="n">死亡驾驶</span><span class="c">近身 ↙/↘ + MP</span></div>
+<div class="mv throw"><span class="n">足投</span><span class="c">近身 ↙/↘ + HP</span></div>
+<div class="mv throw"><span class="n">德国式过肩摔</span><span class="c">近身 →/← + MK</span></div>
+<div class="mv throw"><span class="n">雷火炸弹</span><span class="c">近身 →/← + HK</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">铁爪</span><span class="c">→/← + MP</span></div>
+<div class="mv special"><span class="n">咬击</span><span class="c">→/← + HP</span></div>
+<div class="mv special"><span class="n">腹爪</span><span class="c">↙/↘ + MP/HP</span></div>
+<div class="mv special"><span class="n">空中头槌</span><span class="c">空中 ↑ + MP/HP</span></div>
+<div class="mv special"><span class="n">飞行身体攻击</span><span class="c">空中 ↑↓ + HP</span></div>
+<div class="mv special"><span class="n">快速回转</span><span class="c">LP+MP · 可←/→远距</span></div>
+<div class="mv special"><span class="n">双重回转</span><span class="c">MP+HP · 可←/→近距</span></div>
+<div class="mv special"><span class="n">螺旋打桩摔</span><span class="c">近身 ←↙↓↘→ + P</span></div>
+<div class="sec">NEW</div>
+<div class="mv new"><span class="n"><i class="b n">N</i>霍帕克踢</span><span class="c">MK+HK · 可←/→远距</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>超级螺旋打桩摔</span><span class="c">近身 ←↙↓↘→ + P×3 · 耗3/4槽</span></div>
+  </div>
+</article>
+
+<article class="fighter" id="dhalsim">
+  <div class="id">
+    <img class="face" src="assets/dhalsim.png" alt="达尔锡姆" />
+    <div class="names">
+      <div class="zh">达尔锡姆</div>
+      <div class="en">Dhalsim</div>
+      
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">瑜伽粉碎</span><span class="c">近身 →/← + MP</span></div>
+<div class="mv throw"><span class="n">瑜伽投</span><span class="c">近身 →/← + HP</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">瑜伽木乃伊</span><span class="c">空中 ↓ + HP</span></div>
+<div class="mv special"><span class="n">瑜伽矛</span><span class="c">空中 ↓ + HK · Extra Hit</span></div>
+<div class="mv special"><span class="n">瑜伽火焰</span><span class="c">↓↘→ + P</span></div>
+<div class="mv special"><span class="n">瑜伽炎</span><span class="c">↓↙← + P</span></div>
+<div class="mv special"><span class="n">瑜伽瞬移·前</span><span class="c">→↓↘ + K</span></div>
+<div class="mv special"><span class="n">瑜伽瞬移·后</span><span class="c">←↓↙ + K</span></div>
+<div class="sec">NEW</div>
+<div class="mv new"><span class="n"><i class="b n">N</i>空中瞬移·前</span><span class="c">空中 →↓↘ + K</span></div>
+<div class="mv new"><span class="n"><i class="b n">N</i>空中瞬移·后</span><span class="c">空中 ←↓↙ + K</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>二重瑜伽火焰</span><span class="c">↓↘→ + P×2 · 耗1/2槽</span></div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="sheet" aria-label="巴洛克 · 维加 · 萨卡特 · 贝森 · 恶隆 · 狂肯">
+  <div class="panel">
+    <header class="topbar">
+      <div class="topbar-main">
+        <div class="brand">
+          <img class="logo" src="assets/icon.png" alt="SF2 Mix" />
+          <div>
+            <h1>STREET FIGHTER 2 MIX · 出招表</h1>
+            <div class="sub">巴洛克 · 维加 · 萨卡特 · 贝森 · 恶隆 · 狂肯</div>
+          </div>
+        </div>
+        <div class="page-tag">PAGE 3 / 3</div>
+      </div>
+      
+<div class="keysbar">
+  <div class="btns">
+    <div class="btn"><img src="assets/moves/lpunch.png" alt=""/><b>LP</b><span>轻拳</span></div>
+    <div class="btn"><img src="assets/moves/mpunch.png" alt=""/><b>MP</b><span>中拳</span></div>
+    <div class="btn"><img src="assets/moves/hpunch.png" alt=""/><b>HP</b><span>重拳</span></div>
+    <div class="btn"><img src="assets/moves/lkick.png" alt=""/><b>LK</b><span>轻踢</span></div>
+    <div class="btn"><img src="assets/moves/mkick.png" alt=""/><b>MK</b><span>中踢</span></div>
+    <div class="btn"><img src="assets/moves/hkick.png" alt=""/><b>HK</b><span>重踢</span></div>
+  </div>
+  <div class="legend">
+    <span><i class="v">V</i>精力</span>
+    <span><i class="n">N</i>新招</span>
+    <span><i class="e">E</i>追加</span>
+    <span>P/K=任意拳踢 · 蓄=蓄力 · Ver1.3+</span>
+  </div>
+</div>
+
+    </header>
+    
+    <div class="roster">
+      
+<article class="fighter" id="balrog">
+  <div class="id">
+    <img class="face" src="assets/balrog.png" alt="巴洛克" />
+    <div class="names">
+      <div class="zh">巴洛克</div>
+      <div class="en">Balrog</div>
+      <div class="note">拳王</div>
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">头槌轰炸</span><span class="c">近身 →/← + MP/HP</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">冲拳直击</span><span class="c">蓄←→ + P</span></div>
+<div class="mv special"><span class="n">冲拳上勾</span><span class="c">蓄←→ + K</span></div>
+<div class="mv special"><span class="n">蓄力回转拳</span><span class="c">蓄P或K后放开</span></div>
+<div class="sec">NEW</div>
+<div class="mv new"><span class="n"><i class="b n">N</i>地面冲拳</span><span class="c">蓄←↘ + P</span></div>
+<div class="mv new"><span class="n"><i class="b n">N</i>水牛头槌</span><span class="c">蓄↓↑ + P · Extra Hit · 穿弹</span></div>
+<div class="mv new"><span class="n"><i class="b n">N</i>最终攻击</span><span class="c">冲拳中 P或K</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>拳击机器</span><span class="c">蓄←→ + P×2 · 耗1/2槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>You Can Fly</span><span class="c">蓄←↘ + P×2 · 耗1/2槽</span></div>
+  </div>
+</article>
+
+<article class="fighter" id="vega">
+  <div class="id">
+    <img class="face" src="assets/vega.png" alt="维加" />
+    <div class="names">
+      <div class="zh">维加</div>
+      <div class="en">Vega</div>
+      <div class="note">爪王</div>
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">彩虹过肩摔</span><span class="c">近身 →/← + MP/HP</span></div>
+<div class="mv throw"><span class="n">星尘落</span><span class="c">近身空中 →/← + MP/HP</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">三角跳</span><span class="c">靠墙跳 · 反向键</span></div>
+<div class="mv special"><span class="n">滚动水晶闪</span><span class="c">蓄←→ + P</span></div>
+<div class="mv special"><span class="n">巴塞罗那攻击</span><span class="c">蓄↓↑ + K，再 P</span></div>
+<div class="mv special"><span class="n">铁网悬挂</span><span class="c">蓄↓↑ + LK · 仅爪场</span></div>
+<div class="mv special"><span class="n">伊豆那落</span><span class="c">蓄↓↑ + K，近身 →/← + P</span></div>
+<div class="sec">NEW</div>
+<div class="mv new"><span class="n"><i class="b n">N</i>猩红踢击</span><span class="c">蓄↓↑ + P</span></div>
+<div class="mv new"><span class="n"><i class="b n">N</i>卸爪</span><span class="c">K×3 · 回复1/4槽</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>元素炎爪（有爪）</span><span class="c">P×3 · 耗1/2槽 · 加爪伤/削防</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>预备爪（无爪）</span><span class="c">P×3 · 耗1/2槽</span></div>
+  </div>
+</article>
+
+<article class="fighter" id="sagat">
+  <div class="id">
+    <img class="face" src="assets/sagat.png" alt="萨卡特" />
+    <div class="names">
+      <div class="zh">萨卡特</div>
+      <div class="en">Sagat</div>
+      
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">虎搬运</span><span class="c">近身 →/← + MP/HP</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">虎射击</span><span class="c">↓↘→ + P</span></div>
+<div class="mv special"><span class="n">地面虎射击</span><span class="c">↓↘→ + K</span></div>
+<div class="mv special"><span class="n">虎升拳</span><span class="c">→↓↘ + P</span></div>
+<div class="mv special"><span class="n">虎膝碎</span><span class="c">→↓↘ + K</span></div>
+<div class="sec">EXTRA</div>
+<div class="mv extra"><span class="n"><i class="b e">E</i>虎膝碎（追加）</span><span class="c">→↓↘ + LK · Extra Hit</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>迅虎膝</span><span class="c">→↓↘ + K×2 · 耗1/2槽</span></div>
+  </div>
+</article>
+
+<article class="fighter" id="bison">
+  <div class="id">
+    <img class="face" src="assets/bison.png" alt="贝森" />
+    <div class="names">
+      <div class="zh">贝森</div>
+      <div class="en">M.Bison</div>
+      <div class="note">独裁者</div>
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">死亡投</span><span class="c">近身 →/← + MP/HP</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">精神拳</span><span class="c">P 或 ↓+P · 削防</span></div>
+<div class="mv special"><span class="n">空中精神拳</span><span class="c">空中 P · Extra Hit · 削防</span></div>
+<div class="mv special"><span class="n">精神粉碎者</span><span class="c">蓄←→ + P · 可蓄K取消</span></div>
+<div class="mv special"><span class="n">二段膝压</span><span class="c">蓄←→ + K</span></div>
+<div class="mv special"><span class="n">头压 / 骷髅俯冲</span><span class="c">蓄↓↑ + K，再 P</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>空中精神粉碎</span><span class="c">空中 蓄←→ + P · 耗1/5槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>超级精神粉碎</span><span class="c">蓄←→ + P×2 · 耗1/2槽 · 自动防</span></div>
+  </div>
+</article>
+
+<article class="fighter variant" id="eryu">
+  <div class="id">
+    <img class="face" src="assets/eryu.png" alt="恶隆" />
+    <div class="names">
+      <div class="zh">恶隆</div>
+      <div class="en">Evil Ryu</div>
+      <div class="note">觉醒体</div>
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">背负投</span><span class="c">近身 →/← + MP/HP</span></div>
+<div class="mv throw"><span class="n">巴投</span><span class="c">近身 →/← + MK/HK</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">炎波动拳</span><span class="c">↓↘→ + P · Extra Hit</span></div>
+<div class="mv special"><span class="n">假波动</span><span class="c">↓↘→ + K · 快收招</span></div>
+<div class="mv special"><span class="n">升龙拳</span><span class="c">→↓↘ + P</span></div>
+<div class="mv special"><span class="n">旋风腿</span><span class="c">↓↙← + MK/HK · 穿弹</span></div>
+<div class="mv special"><span class="n">空中旋风腿</span><span class="c">空中 ↓↙← + K · Extra Hit</span></div>
+<div class="sec">EXTRA</div>
+<div class="mv extra"><span class="n"><i class="b e">E</i>旋风腿（追加）</span><span class="c">↓↙← + LK · Extra Hit</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>阿修罗闪空</span><span class="c">→↓↘ + K · 耗3/16槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>二重炎波动</span><span class="c">↓↘→ + P×2 · 耗1/2槽</span></div>
+  </div>
+</article>
+
+<article class="fighter variant" id="vken">
+  <div class="id">
+    <img class="face" src="assets/vken.png" alt="狂肯" />
+    <div class="names">
+      <div class="zh">狂肯</div>
+      <div class="en">Violent Ken</div>
+      <div class="note">觉醒体</div>
+    </div>
+  </div>
+  <div class="list">
+    <div class="sec">THROW</div>
+<div class="mv throw"><span class="n">背负投</span><span class="c">近身 →/← + MP/HP</span></div>
+<div class="mv throw"><span class="n">巴投</span><span class="c">近身 →/← + MK/HK</span></div>
+<div class="sec">SPECIAL</div>
+<div class="mv special"><span class="n">波动拳</span><span class="c">↓↘→ + P</span></div>
+<div class="mv special"><span class="n">假波动</span><span class="c">↓↘→ + P×2 · 快收招</span></div>
+<div class="mv special"><span class="n">精神升龙</span><span class="c">→↓↘ + P</span></div>
+<div class="mv special"><span class="n">旋风腿</span><span class="c">↓↙← + K · 可收尾踢 · 穿弹</span></div>
+<div class="mv special"><span class="n">空中旋风腿</span><span class="c">空中 ↓↙← + K</span></div>
+<div class="sec">VIGOR</div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>精神波动拳</span><span class="c">↓↘→ + K · Extra Hit · 耗1/4槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>罗刹脚</span><span class="c">→↓↘ + K · 耗3/16槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>超级罗刹脚</span><span class="c">→↓↘ + K×2 · 耗1/2槽</span></div>
+<div class="mv vigor"><span class="n"><i class="b v">V</i>超级精神升龙</span><span class="c">升龙中 P</span></div>
+  </div>
+</article>
+
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

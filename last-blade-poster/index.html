@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>THE LAST BLADE · 出招表</title>
+<style>
+
+:root {
+  --paper: #f6f0e6;
+  --card: #fffdf8;
+  --ink: #1c1917;
+  --muted: #57534e;
+  --line: #d6c7b0;
+  --indigo: #1e3a5f;
+  --vermilion: #9f1239;
+  --amber: #b45309;
+  --teal: #0f766e;
+  --base: 5.6mm;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: var(--base); }
+body {
+  font-family: "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", "PingFang SC", "Heiti SC", sans-serif;
+  background: #e7dfd2;
+  color: var(--ink);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.sheet {
+  width: 210mm; height: 297mm; margin: 14px auto;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(30,58,95,.06), transparent 45%),
+    radial-gradient(ellipse at 100% 0%, rgba(159,18,57,.05), transparent 40%),
+    linear-gradient(180deg, #fffaf2 0%, var(--paper) 100%);
+  box-shadow: 0 8px 24px rgba(28,25,23,.15);
+  position: relative;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  padding: 0.5em 0.55em 0.4em; gap: 0.24em;
+  page-break-after: always;
+}
+.sheet:last-of-type { page-break-after: auto; }
+.sheet::before {
+  content: ""; position: absolute; inset: 0.26em;
+  border: 0.1em solid rgba(30,58,95,.35); pointer-events: none; z-index: 5;
+}
+.sheet::after {
+  content: ""; position: absolute; inset: 0.44em;
+  border: 0.03em dashed rgba(180,83,9,.35); pointer-events: none; z-index: 5;
+}
+
+.mast {
+  position: relative; z-index: 1; flex: 0 0 auto;
+  display: grid; grid-template-columns: 3.4em 1fr auto;
+  gap: 0.4em; align-items: center;
+  padding: 0.08em 0.12em 0.22em;
+  border-bottom: 0.1em solid var(--line);
+}
+.mast .logo {
+  width: 100%; height: auto; max-height: 3.2em;
+  object-fit: contain; object-position: left center; display: block;
+}
+.mast .titles { min-width: 0; }
+.kicker {
+  font-size: 0.64em; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--amber); font-weight: 700;
+  font-family: "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", "PingFang SC", "Heiti SC", sans-serif;
+}
+.title-zh {
+  font-size: 1.42em; font-weight: 900; letter-spacing: .08em;
+  color: var(--indigo); line-height: 1.1;
+}
+.title-en {
+  font-size: 0.72em; letter-spacing: .12em; color: var(--vermilion); font-weight: 700;
+  font-family: "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", "PingFang SC", "Heiti SC", sans-serif;
+}
+.meta { font-size: 0.64em; color: var(--muted); margin-top: 0.04em; line-height: 1.3; }
+.page-tag {
+  font-size: 0.76em; font-weight: 900; letter-spacing: .12em;
+  color: var(--vermilion); border: 0.07em solid rgba(159,18,57,.4);
+  padding: 0.26em 0.36em; background: #fff1f2; white-space: nowrap;
+  font-family: "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", "PingFang SC", "Heiti SC", sans-serif;
+}
+
+.sys {
+  position: relative; z-index: 1; flex: 0 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0.14em 0.3em; padding: 0.26em 0.35em;
+  background: var(--card); border: 0.06em solid var(--line);
+  border-left: 0.2em solid var(--indigo);
+}
+.sys h3 {
+  grid-column: 1 / -1; font-size: 0.78em; letter-spacing: .12em;
+  color: var(--indigo); font-weight: 900; margin-bottom: 0.04em;
+}
+.sys .cell { font-size: 0.64em; line-height: 1.28; color: var(--muted); }
+.sys .cell b { color: var(--ink); font-weight: 800; }
+.sys .cell .cmd { color: var(--amber); font-weight: 800; }
+
+.sword {
+  position: relative; z-index: 1; flex: 0 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.2em;
+}
+.sword .box {
+  background: var(--card); border: 0.06em solid var(--line);
+  padding: 0.24em 0.3em; min-height: 0;
+}
+.sword .box:nth-child(1) { border-top: 0.18em solid var(--vermilion); }
+.sword .box:nth-child(2) { border-top: 0.18em solid var(--teal); }
+.sword h4 {
+  font-size: 0.8em; letter-spacing: .12em; font-weight: 900;
+  margin-bottom: 0.1em; color: var(--indigo);
+}
+.sword p { font-size: 0.64em; line-height: 1.32; color: var(--muted); }
+.sword p b { color: var(--ink); font-weight: 800; }
+
+.hide {
+  position: relative; z-index: 1; flex: 0 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.14em 0.35em; padding: 0.26em 0.35em;
+  background: var(--card); border: 0.06em solid var(--line);
+  border-left: 0.2em solid var(--vermilion);
+}
+.hide h3 {
+  grid-column: 1 / -1; font-size: 0.78em; letter-spacing: .12em;
+  color: var(--vermilion); font-weight: 900; margin-bottom: 0.04em;
+}
+.hide .cell { font-size: 0.62em; line-height: 1.28; color: var(--muted); }
+.hide .cell b { color: var(--ink); font-weight: 800; }
+.hide .cell .cmd { color: var(--amber); font-weight: 800; }
+
+.grid {
+  position: relative; z-index: 1; flex: 1 1 auto; min-height: 0;
+  display: grid; gap: 0.16em;
+}
+.grid.n5 { grid-template-rows: repeat(5, 1fr); }
+.grid.n4 { grid-template-rows: repeat(4, 1fr); }
+.grid.n3 { grid-template-rows: repeat(3, 1fr); }
+.grid.n2 { grid-template-rows: repeat(2, 1fr); }
+.card {
+  display: grid; grid-template-columns: 3.8em 1fr; gap: 0;
+  background: var(--card); border: 0.06em solid var(--line);
+  border-left: 0.18em solid var(--indigo); overflow: hidden; min-height: 0;
+}
+.face {
+  position: relative; background: #ebe4d8;
+  border-right: 0.05em solid var(--line);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.face .art {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  display: block;
+}
+.info {
+  min-width: 0; min-height: 0; padding: 0.16em 0.32em 0.12em 0.28em;
+  display: flex; flex-direction: column; gap: 0.08em; overflow: hidden;
+}
+.idrow {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 0.3em;
+  flex: 0 0 auto;
+}
+.zh { font-size: 1.02em; font-weight: 900; color: var(--indigo); letter-spacing: .05em; }
+.en {
+  font-size: 0.56em; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--vermilion); font-weight: 800;
+  font-family: "Source Han Sans SC", "Noto Sans SC", "Microsoft YaHei", "SimHei", "PingFang SC", "Heiti SC", sans-serif;
+}
+.tag { font-size: 0.52em; color: var(--muted); font-weight: 700; white-space: nowrap; }
+.moves {
+  flex: 1 1 auto; min-height: 0;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0 0.5em; align-content: start;
+  overflow: hidden;
+}
+.mv {
+  display: flex; justify-content: space-between; gap: 0.1em;
+  align-items: baseline; font-size: 0.7em; line-height: 1.2;
+}
+.mv .n { color: var(--ink); font-weight: 800; white-space: nowrap; }
+.mv .c {
+  color: var(--muted); font-weight: 700; text-align: right;
+  margin-left: auto; max-width: 66%; white-space: normal;
+}
+.mv.super .n { color: var(--vermilion); }
+.mv.charge .n { color: var(--amber); }
+.mv.air .n { color: var(--teal); }
+.mv.ult .n { color: var(--indigo); }
+
+.hero-stack {
+  position: relative; z-index: 1; flex: 0 0 auto;
+  display: flex; flex-direction: column; gap: 0;
+  line-height: 0; border: 0.06em solid var(--line);
+  background: #000;
+}
+.hero-stack img {
+  width: 100%; height: auto;
+  display: block; vertical-align: top;
+  object-fit: contain;
+}
+
+.sheet-cover .roster {
+  flex: 1 1 auto; min-height: 0; align-content: stretch;
+}
+.sheet-cover .roster .slot {
+  display: flex; flex-direction: column; justify-content: center;
+}
+.roster {
+  position: relative; z-index: 1; flex: 0 0 auto;
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.12em;
+  align-content: center;
+}
+.roster .slot {
+  background: var(--card); border: 0.05em solid var(--line);
+  text-align: center; padding: 0.08em 0.04em 0.1em;
+}
+.roster img {
+  width: 100%; aspect-ratio: 1; object-fit: cover;
+  image-rendering: pixelated; display: block; margin-bottom: 0.06em;
+}
+.roster .nm { font-size: 0.5em; font-weight: 800; color: var(--indigo); line-height: 1.15; }
+
+@media screen { body { padding: 16px 0 40px; } }
+@media print {
+  @page { size: 210mm 297mm; margin: 0; }
+  html, body { width: 210mm; margin: 0 !important; padding: 0 !important; background: #fff; }
+  .sheet {
+    margin: 0 !important; box-shadow: none !important;
+    width: 210mm !important; height: 297mm !important;
+    page-break-after: always; break-after: page;
+  }
+  .sheet:last-of-type { page-break-after: auto; break-after: auto; }
+}
+
+</style>
+</head>
+<body>
+
+<section class="sheet sheet-cover" aria-label="封面与系统">
+  <div class="hero-stack">
+    <img src="assets/hero1.jpg" alt="THE LAST BLADE" width="520" height="142" />
+    <img src="assets/hero2.jpg" alt="" width="520" height="158" />
+  </div>
+  <div class="sword">
+    <div class="box">
+      <h4>力</h4>
+      <p>攻击力高，通常技即使被防也会消耗体力。<b>可升华</b>（特定必杀 CANCEL 进超奥义）。可使用潜在奥义。有防御不能斩。</p>
+    </div>
+    <div class="box">
+      <h4>技</h4>
+      <p>通常技可组合连杀斩。剑质槽满时可发动乱舞奥义：<b>↓↓+A/B</b>。动作加快、技可互 CANCEL。不可升华、不可潜在。</p>
+    </div>
+  </div>
+  <div class="sys">
+    <h3>共通系统 · 基本操作 / 弹挡</h3>
+    <div class="cell"><b>轻斩 / 重斩 / 脚 / 弹</b> <span class="cmd">A / B / C / D</span></div>
+    <div class="cell"><b>上/下弹（通常）</b> <span class="cmd">站/蹲 D</span></div>
+    <div class="cell"><b>必杀上/下弹</b> <span class="cmd">→+D / ↓+D</span></div>
+    <div class="cell"><b>前冲 / 踏后</b> <span class="cmd">→→ / ←←</span></div>
+    <div class="cell"><b>前冲跳 / 小跳</b> <span class="cmd">前冲中↗ / 短按↗</span></div>
+    <div class="cell"><b>←+A / →+B / →+C</b> 短斩 / 大斩 / 击飞踢</div>
+    <div class="cell"><b>足拂 / 挑空斩</b> <span class="cmd">↘+C / B+C</span></div>
+    <div class="cell"><b>投技</b> <span class="cmd">近身 C+D 或 →+B</span></div>
+    <div class="cell"><b>倒地追</b> <span class="cmd">↘+B</span>（角色例外见各卡）</div>
+    <div class="cell"><b>超奥义</b> 剑质槽满；残血闪烁时可无限</div>
+    <div class="cell"><b>潜在奥义</b> 残血闪烁 + 槽满（仅力）</div>
+    <div class="cell"><b>乱舞奥义</b> 槽满 ↓↓+A/B（仅技）</div>
+    <div class="cell"><b>武器掉落</b> 超奥/持续防/打断特定技 → 可拾回自武器</div>
+    <div class="cell"><b>挑拨</b> <span class="cmd">START</span></div>
+    <div class="cell"><b>说明</b> （升）升华 ·（超）超奥义 ·（潜）潜在</div>
+  </div>
+  <div class="hide">
+    <h3>隐藏指令</h3>
+    <div class="cell"><b>晓武藏 / 嘉神</b> 选人画面 3 秒内 <span class="cmd">C×6 · B×3 · C×4</span>（记「634」），出现箭头后移光标可选（嘉神多为家用版）</div>
+    <div class="cell"><b>百人斩模式</b> 标题画面按住 <span class="cmd">A+B+C</span> 不放，然后开始游戏</div>
+    <div class="cell"><b>PS 版隐藏</b> 选人 <span class="cmd">L1+L2+R1+R2</span> 解锁武藏/嘉神；通关后再输入可追加あか狸·木偶示源·小次郎</div>
+    <div class="cell"><b>说明</b> 出招据百度百科 / 游民星空整理；立绘百科，头像 SNK 官网</div>
+  </div>
+  <div class="roster"><div class="slot"><img src="assets/select/kaede.jpg" alt="枫" /><div class="nm">枫</div></div>
+<div class="slot"><img src="assets/select/moriya.jpg" alt="御名方守矢" /><div class="nm">御名方守矢</div></div>
+<div class="slot"><img src="assets/select/yuki.jpg" alt="雪" /><div class="nm">雪</div></div>
+<div class="slot"><img src="assets/select/okina.jpg" alt="玄武之翁" /><div class="nm">玄武之翁</div></div>
+<div class="slot"><img src="assets/select/akari.jpg" alt="一条明" /><div class="nm">一条明</div></div>
+<div class="slot"><img src="assets/select/juzo.jpg" alt="神崎十三" /><div class="nm">神崎十三</div></div>
+<div class="slot"><img src="assets/select/washizuka.jpg" alt="鹫冢庆一郎" /><div class="nm">鹫冢庆一郎</div></div>
+<div class="slot"><img src="assets/select/shikyo.jpg" alt="紫镜" /><div class="nm">紫镜</div></div>
+<div class="slot"><img src="assets/select/amano.jpg" alt="天野漂" /><div class="nm">天野漂</div></div>
+<div class="slot"><img src="assets/select/lee.jpg" alt="李烈火" /><div class="nm">李烈火</div></div>
+<div class="slot"><img src="assets/select/zantetsu.jpg" alt="斩铁" /><div class="nm">斩铁</div></div>
+<div class="slot"><img src="assets/select/shigen.jpg" alt="直卫示源" /><div class="nm">直卫示源</div></div>
+<div class="slot"><img src="assets/select/musashi.jpg" alt="晓武藏" /><div class="nm">晓武藏</div></div>
+<div class="slot"><img src="assets/select/kagami.jpg" alt="嘉神慎之介" /><div class="nm">嘉神慎之介</div></div></div>
+</section>
+
+
+<section class="sheet" aria-label="出招表 01">
+  <header class="mast">
+    <img class="logo" src="assets/images.png" alt="THE LAST BLADE" />
+    <div class="titles">
+      <div class="kicker">MOVE LIST</div>
+      <div class="title-zh">月华之剑士</div>
+      <div class="title-en">THE LAST BLADE</div>
+      <div class="meta">（升）升华 ·（超）超奥义 ·（潜）潜在 · 斜线为觉醒后名称</div>
+    </div>
+    <div class="page-tag">01 / 03</div>
+  </header>
+  <div class="grid n5">
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/kaede.jpg" alt="枫" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">枫</span>
+            <span class="en">Kaede</span>
+          </div>
+          <span class="tag">青龙 · 可觉醒</span>
+        </div>
+        <div class="moves">
+<div class="mv"><span class="n">觉醒</span><span class="c">B+C+D</span></div>
+<div class="mv"><span class="n">一刀·疾风 / 晨明·疾风</span><span class="c">↓↘→ · A/B</span></div>
+<div class="mv"><span class="n">一刀·空牙 / 晨明·空牙</span><span class="c">→↓↘ · A/B</span></div>
+<div class="mv"><span class="n">一刀·高空牙 / 晨明·高空牙</span><span class="c">B空牙后 →↓↘ · B</span></div>
+<div class="mv charge"><span class="n">(升)一刀·连刃斩 / 晨明·连刃斩</span><span class="c">↓↙← · A/B</span></div>
+<div class="mv"><span class="n">一刀·岚讨 / 晨明·岚讨</span><span class="c">近身 ←↙↓↘→ · C</span></div>
+<div class="mv"><span class="n">一刀·束风 / 晨明·束风</span><span class="c">↓↙← · C</span></div>
+<div class="mv super"><span class="n">(超)活心·伏龙</span><span class="c">↓↙←↙→ · A+B</span></div>
+<div class="mv super"><span class="n">(超)活心·醒龙（觉醒）</span><span class="c">↓↘→↓↘→ · A+B</span></div>
+<div class="mv ult"><span class="n">(潜)活心·亢龙</span><span class="c">↓↙←↙→ · B</span></div>
+<div class="mv ult"><span class="n">(潜)活心·苍龙（觉醒）</span><span class="c">近身 ↓↘→↓↘→ · B</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/moriya.jpg" alt="御名方守矢" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">御名方守矢</span>
+            <span class="en">Moriya</span>
+          </div>
+          <span class="tag">逸刀 · 冰月</span>
+        </div>
+        <div class="moves">
+<div class="mv"><span class="n">逸刀·胧</span><span class="c">↓↙← · A/B/C</span></div>
+<div class="mv"><span class="n">再待机</span><span class="c">胧出刀瞬间 A/B/C</span></div>
+<div class="mv"><span class="n">拔刀解除</span><span class="c">待机/再待机中 D（或同键）</span></div>
+<div class="mv"><span class="n">带刀·步月</span><span class="c">←↙↓ · A/B/C</span></div>
+<div class="mv"><span class="n">部月·胧</span><span class="c">带刀·步月中 A/B/C</span></div>
+<div class="mv"><span class="n">逸刀·新月</span><span class="c">→↓↘ · A</span></div>
+<div class="mv"><span class="n">逸刀·双月(技)</span><span class="c">新月击中后 →↓↘ · B</span></div>
+<div class="mv"><span class="n">逸刀·新月·里</span><span class="c">→↓↘ · B</span></div>
+<div class="mv charge"><span class="n">(升)逸刀·月影</span><span class="c">↓↘→ · A/B（可3回）</span></div>
+<div class="mv super"><span class="n">(超)活杀·十六夜月华</span><span class="c">→←↙↓↘→ · A+B</span></div>
+<div class="mv ult"><span class="n">(潜)活杀·乱雪月花</span><span class="c">→←↙↓↘→ · B</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/yuki.jpg" alt="雪" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">雪</span>
+            <span class="en">Yuki</span>
+          </div>
+          <span class="tag">封印巫女</span>
+        </div>
+        <div class="moves">
+<div class="mv"><span class="n">冰刃</span><span class="c">↓↘→ · A/B</span></div>
+<div class="mv"><span class="n">霜华</span><span class="c">→↓↘ · A/B</span></div>
+<div class="mv"><span class="n">冰镜</span><span class="c">←↙↓↘→ · C</span></div>
+<div class="mv"><span class="n">垂斩</span><span class="c">近身 →↘↓↙← · C</span></div>
+<div class="mv charge"><span class="n">(升)瞬雪斩</span><span class="c">↓↙← · A/B</span></div>
+<div class="mv super"><span class="n">(超)雪风斩</span><span class="c">↓↘→↓↘→ · A+B（连按A加攻）</span></div>
+<div class="mv ult"><span class="n">(潜)真·雪风卷</span><span class="c">↓↙←↙→ · B</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/okina.jpg" alt="玄武之翁" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">玄武之翁</span>
+            <span class="en">Okina</span>
+          </div>
+          <span class="tag">玄武 · 佛舍刀</span>
+        </div>
+        <div class="moves">
+<div class="mv"><span class="n">龟筮</span><span class="c">↓↘→ · A/B/C</span></div>
+<div class="mv"><span class="n">龟舞·天</span><span class="c">→↘↓↙← · C</span></div>
+<div class="mv charge"><span class="n">(升)龟舞·地</span><span class="c">→↘↓↙← · A/B</span></div>
+<div class="mv"><span class="n">钓果大良</span><span class="c">→↓↘ · A/B/C</span></div>
+<div class="mv"><span class="n">无功用</span><span class="c">↓↓ · C</span></div>
+<div class="mv super"><span class="n">(超)玄武咆吼</span><span class="c">→←↙↓↘→ · A+B</span></div>
+<div class="mv ult"><span class="n">(潜)玄武怒</span><span class="c">→←↙↓↘→ · B</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/akari.jpg" alt="一条明" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">一条明</span>
+            <span class="en">Akari</span>
+          </div>
+          <span class="tag">阴阳师</span>
+        </div>
+        <div class="moves">
+<div class="mv air"><span class="n">明流·踏住</span><span class="c">空中 ↓ · C</span></div>
+<div class="mv"><span class="n">明流·鞠落(技)</span><span class="c">明流·踏住后 ↓ · C</span></div>
+<div class="mv"><span class="n">式神·天空</span><span class="c">↓↘→ · A/B</span></div>
+<div class="mv"><span class="n">劾鬼·泥田坊</span><span class="c">→↓↘ · A/B/C</span></div>
+<div class="mv"><span class="n">明流·鞠放</span><span class="c">泥田坊接地后 ↑ · C</span></div>
+<div class="mv"><span class="n">明流·鞠落</span><span class="c">泥田坊接地后 ↓ · C</span></div>
+<div class="mv"><span class="n">劾鬼·清姬</span><span class="c">→↘↓↙← · A</span></div>
+<div class="mv"><span class="n">变化人形</span><span class="c">→↘↓↙← · C</span></div>
+<div class="mv charge"><span class="n">(升)天文·星之巡</span><span class="c">↓↑ · C</span></div>
+<div class="mv super"><span class="n">(超)式神·六合</span><span class="c">↓↙←↙→ · A+B</span></div>
+<div class="mv ult"><span class="n">(潜)劾鬼·百鬼夜行</span><span class="c">→↘↓↙←→ · B</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sheet" aria-label="出招表 02">
+  <header class="mast">
+    <img class="logo" src="assets/images.png" alt="THE LAST BLADE" />
+    <div class="titles">
+      <div class="kicker">MOVE LIST</div>
+      <div class="title-zh">月华之剑士</div>
+      <div class="title-en">THE LAST BLADE</div>
+      <div class="meta">（升）升华 ·（超）超奥义 ·（潜）潜在 · 斜线为觉醒后名称</div>
+    </div>
+    <div class="page-tag">02 / 03</div>
+  </header>
+  <div class="grid n5">
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/juzo.jpg" alt="神崎十三" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">神崎十三</span>
+            <span class="en">Juzoh</span>
+          </div>
+          <span class="tag">怪力保镖</span>
+        </div>
+        <div class="moves">
+<div class="mv"><span class="n">践踏</span><span class="c">对方倒地后 →→</span></div>
+<div class="mv"><span class="n">轰弹冲</span><span class="c">任意键按住 2 秒以上</span></div>
+<div class="mv charge"><span class="n">(升)金刚重坠</span><span class="c">↓↘→ · A/B</span></div>
+<div class="mv"><span class="n">激震</span><span class="c">→↓↘ · A/B</span></div>
+<div class="mv"><span class="n">猛投</span><span class="c">近身 →↘↓↙← · B</span></div>
+<div class="mv"><span class="n">远远打飞</span><span class="c">猛投中 ↓↘→ · B</span></div>
+<div class="mv"><span class="n">猛力打飞</span><span class="c">远远打飞中 ↓↘→ · B</span></div>
+<div class="mv super"><span class="n">(超)刮目·大激恸</span><span class="c">↓↙←↙→ · A+B</span></div>
+<div class="mv"><span class="n">打飞</span><span class="c">刮目·大激恸中 ↓↘→ · B</span></div>
+<div class="mv ult"><span class="n">(潜)刮目·超激恸</span><span class="c">(→↘↓↙←)×2 · B</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/washizuka.jpg" alt="鹫冢庆一郎" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">鹫冢庆一郎</span>
+            <span class="en">Washizuka</span>
+          </div>
+          <span class="tag">新撰组 · 隼</span>
+        </div>
+        <div class="moves">
+<div class="mv charge"><span class="n">疾空杀</span><span class="c">←蓄→ · A/B</span></div>
+<div class="mv charge"><span class="n">虚空杀</span><span class="c">↓蓄↑ · A/B</span></div>
+<div class="mv charge"><span class="n">狼牙</span><span class="c">←蓄→ · C</span></div>
+<div class="mv"><span class="n">狼牙·直式</span><span class="c">狼牙后 ↓↘→ · C</span></div>
+<div class="mv"><span class="n">俊杀</span><span class="c">↓↙← · A/B</span></div>
+<div class="mv"><span class="n">俊杀·连</span><span class="c">俊杀打击后 A/B 连打</span></div>
+<div class="mv super"><span class="n">(超)真·狼牙</span><span class="c">↓↙←↙→ · A+B</span></div>
+<div class="mv ult"><span class="n">(潜)最终·狼牙</span><span class="c">↓↙←↙→ · B</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/shikyo.jpg" alt="紫镜" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">紫镜</span>
+            <span class="en">Shikyoh</span>
+          </div>
+          <span class="tag">浮浪杀手</span>
+        </div>
+        <div class="moves">
+<div class="mv"><span class="n">狂行·脏物探</span><span class="c">倒地攻击中 转动摇杆</span></div>
+<div class="mv"><span class="n">秃鹫</span><span class="c">↓↙← · A/B</span></div>
+<div class="mv"><span class="n">啄食</span><span class="c">秃鹫中 ↑ · B</span></div>
+<div class="mv"><span class="n">回转肝</span><span class="c">→↓↘ · A/B</span></div>
+<div class="mv"><span class="n">回转肝追加</span><span class="c">回转肝中 A/B 连打</span></div>
+<div class="mv"><span class="n">斩肉镰鼬</span><span class="c">←↙↓↘→ · A/B</span></div>
+<div class="mv charge"><span class="n">(升)斩肉大侠</span><span class="c">跳跃中 ↓↙← · B</span></div>
+<div class="mv"><span class="n">无慈悲</span><span class="c">近身 →↘↓↙← · C</span></div>
+<div class="mv"><span class="n">地舔滑</span><span class="c">→←→ · C</span></div>
+<div class="mv super"><span class="n">(超)迷凶死衰·狂喜</span><span class="c">↓↘→↓↘→ · A+B（可蓄）</span></div>
+<div class="mv ult"><span class="n">(潜)迷凶死衰·凶饥</span><span class="c">↓↘→↓↘→ · B</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/amano.jpg" alt="天野漂" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">天野漂</span>
+            <span class="en">Amano</span>
+          </div>
+          <span class="tag">将棋剑客</span>
+        </div>
+        <div class="moves">
+<div class="mv charge"><span class="n">(升)雀刺</span><span class="c">→←→ · A/B</span></div>
+<div class="mv"><span class="n">高飞车</span><span class="c">→↘↓↙← · C</span></div>
+<div class="mv"><span class="n">居飞车穴熊</span><span class="c">A 连打</span></div>
+<div class="mv"><span class="n">穴熊之脱裤</span><span class="c">居飞车穴熊中 ↓↘→ · B</span></div>
+<div class="mv"><span class="n">必至</span><span class="c">→↘↓↙← · B（按键蓄力）</span></div>
+<div class="mv charge"><span class="n">必至·将</span><span class="c">必至键按住蓄至不可防</span></div>
+<div class="mv"><span class="n">将棋倒</span><span class="c">近身 ↘↘ · C</span></div>
+<div class="mv"><span class="n">桂马高上</span><span class="c">→↓↘ · C</span></div>
+<div class="mv super"><span class="n">(超)盘上此之一手「成金」</span><span class="c">(→↘↓↙←)×2 · A+B</span></div>
+<div class="mv super"><span class="n">(超)盘上此之一手「飞车」</span><span class="c">(→↘↓↙←)×2 · B</span></div>
+<div class="mv ult"><span class="n">(潜)盘上此之一手「角行」</span><span class="c">(→↘↓↙←)×2 · A</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/lee.jpg" alt="李烈火" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">李烈火</span>
+            <span class="en">Lee</span>
+          </div>
+          <span class="tag">少林 · 炎拳</span>
+        </div>
+        <div class="moves">
+<div class="mv air"><span class="n">无影脚</span><span class="c">跳跃中 ↓ · C</span></div>
+<div class="mv"><span class="n">龙碎落</span><span class="c">B 后 → · C</span></div>
+<div class="mv"><span class="n">龙槌旋</span><span class="c">↓↙← · C（可三回）</span></div>
+<div class="mv"><span class="n">炎扇翔</span><span class="c">→↓↘ · B</span></div>
+<div class="mv"><span class="n">凤落踵</span><span class="c">炎扇翔中 ↓ · B</span></div>
+<div class="mv charge"><span class="n">(升)炎龙摆尾</span><span class="c">→↘↓↙← · A/B</span></div>
+<div class="mv"><span class="n">狮子咆吼</span><span class="c">强炎龙摆尾后 →↘↓↙← · B</span></div>
+<div class="mv charge"><span class="n">(升)霞</span><span class="c">A+B</span></div>
+<div class="mv"><span class="n">火影</span><span class="c">霞中 A/B/C</span></div>
+<div class="mv"><span class="n">龙碎踢</span><span class="c">霞中 ↓ · C（可三回）</span></div>
+<div class="mv"><span class="n">龙碎落(技)</span><span class="c">龙碎踢 ↓B 后 ↓ · C（可三回）</span></div>
+<div class="mv super"><span class="n">(超)奥义·炎龙缠身</span><span class="c">↓↙←↙→ · A+B</span></div>
+<div class="mv ult"><span class="n">(潜)秘奥义·苍天无影脚</span><span class="c">↓↙←↙→ · B</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="sheet" aria-label="出招表 03">
+  <header class="mast">
+    <img class="logo" src="assets/images.png" alt="THE LAST BLADE" />
+    <div class="titles">
+      <div class="kicker">MOVE LIST</div>
+      <div class="title-zh">月华之剑士</div>
+      <div class="title-en">THE LAST BLADE</div>
+      <div class="meta">（升）升华 ·（超）超奥义 ·（潜）潜在 · 斜线为觉醒后名称</div>
+    </div>
+    <div class="page-tag">03 / 03</div>
+  </header>
+  <div class="grid n4">
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/zantetsu.jpg" alt="斩铁" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">斩铁</span>
+            <span class="en">Zantetsu</span>
+          </div>
+          <span class="tag">影忍</span>
+        </div>
+        <div class="moves">
+<div class="mv"><span class="n">流影阵</span><span class="c">↓↘→ · A/B（可2回）</span></div>
+<div class="mv"><span class="n">断钢改</span><span class="c">→←↙↓↘→ · B</span></div>
+<div class="mv charge"><span class="n">(升)气孔炮</span><span class="c">↓↙← · B</span></div>
+<div class="mv"><span class="n">天魔落</span><span class="c">近身 →↘↓↙← · C</span></div>
+<div class="mv air"><span class="n">骸缝</span><span class="c">跳跃中 ↓↘→ · A/B</span></div>
+<div class="mv"><span class="n">胧斩</span><span class="c">→↓↘ · C</span></div>
+<div class="mv"><span class="n">水面隐</span><span class="c">←↓↙ · A</span></div>
+<div class="mv air"><span class="n">天魔脚</span><span class="c">跳跃中 ↓ · C</span></div>
+<div class="mv"><span class="n">转轮</span><span class="c">天魔脚中 ↓ · C</span></div>
+<div class="mv super"><span class="n">(超)螳螂双刃</span><span class="c">↓↙←↙→ · A+B</span></div>
+<div class="mv ult"><span class="n">(潜)暗狩</span><span class="c">近身 (→↘↓↙←)×2 · B</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/shigen.jpg" alt="直卫示源" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">直卫示源</span>
+            <span class="en">Shigen</span>
+          </div>
+          <span class="tag">白虎</span>
+        </div>
+        <div class="moves">
+<div class="mv"><span class="n">烈咆哮</span><span class="c">→↓↘ · A</span></div>
+<div class="mv"><span class="n">绝咆哮</span><span class="c">→↓↘ · B</span></div>
+<div class="mv charge"><span class="n">(升)白虎爪</span><span class="c">↓↙← · A/B</span></div>
+<div class="mv"><span class="n">翡翠碎</span><span class="c">←↙↓↘→ · C</span></div>
+<div class="mv"><span class="n">金刚碎</span><span class="c">近身 →↘↓↙←→ · C</span></div>
+<div class="mv super"><span class="n">(超)因果应报</span><span class="c">(←↙↓↘→←)×2 · A+B</span></div>
+<div class="mv ult"><span class="n">(潜)不俱戴天</span><span class="c">近身 (→↘↓↙←)×2 · B</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/musashi.jpg" alt="晓武藏" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">晓武藏</span>
+            <span class="en">Musashi</span>
+          </div>
+          <span class="tag">隐藏 · 剑圣</span>
+        </div>
+        <div class="moves">
+<div class="mv"><span class="n">飞刃二连</span><span class="c">↘ · B</span></div>
+<div class="mv"><span class="n">集中</span><span class="c">按住 A</span></div>
+<div class="mv"><span class="n">劫炎剑</span><span class="c">← · B</span></div>
+<div class="mv"><span class="n">间欠泉</span><span class="c">↓↘→ · B</span></div>
+<div class="mv charge"><span class="n">(升)恫吓</span><span class="c">←↙↓↘→ · A</span></div>
+<div class="mv"><span class="n">十字格局</span><span class="c">→↓↘ · B</span></div>
+<div class="mv"><span class="n">枕二连</span><span class="c">近身 →↘↓↙← · B</span></div>
+<div class="mv super"><span class="n">(超)五轮连</span><span class="c">→↘↓↙←→ · A+B</span></div>
+<div class="mv ult"><span class="n">(潜)二天无双剑</span><span class="c">(→↘↓↙←)×2 · B</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="face">
+        <img class="art" src="assets/art/kagami.jpg" alt="嘉神慎之介" />
+      </div>
+      <div class="info">
+        <div class="idrow">
+          <div>
+            <span class="zh">嘉神慎之介</span>
+            <span class="en">Kagami</span>
+          </div>
+          <span class="tag">隐藏 · 朱雀</span>
+        </div>
+        <div class="moves">
+<div class="mv"><span class="n">觉醒</span><span class="c">槽满/残血 B+C+D</span></div>
+<div class="mv charge"><span class="n">(升)焦脚·焚如 / 降炎</span><span class="c">跳跃中 ↓ · C</span></div>
+<div class="mv"><span class="n">不知火 / 地狱之劫炎</span><span class="c">↓↘→ · A/B</span></div>
+<div class="mv"><span class="n">焦咆吼 / 飞向黄泉之翼</span><span class="c">→↓↘ · A/B</span></div>
+<div class="mv"><span class="n">焰咆吼 / 愚者的叹息</span><span class="c">近身 →↘↓↙← · A/B</span></div>
+<div class="mv"><span class="n">冥府向导（觉醒）</span><span class="c">↓↙← · A/B（B可蓄）</span></div>
+<div class="mv"><span class="n">欺瞒之镜（觉醒）</span><span class="c">←↙↓↘→ · C</span></div>
+<div class="mv super"><span class="n">(超)负之洗礼（觉醒）</span><span class="c">→←↙↓↘→ · A+B</span></div>
+<div class="mv super"><span class="n">(超)红莲朱雀 / 负之裁决</span><span class="c">跳跃中 ←↙↓↘→ · A+B</span></div>
+<div class="mv ult"><span class="n">(潜)焚书坑儒 / 绀碧之猛禽</span><span class="c">↓↙←↙→ · B</span></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+</body>
+</html>
