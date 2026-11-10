@@ -17,6 +17,7 @@
 | `power-instinct-2-poster/` | 豪血寺一族 2 | Power Instinct 2 |
 | `ninja-masters-poster/` | 霸王忍法帖 | Ninja Master's |
 | `double-dragon-poster/` | Double Dragon | 双截龙格斗（Neo Geo） |
+| `ninja-baseball-poster/` | Ninja Baseball Bat Man | 忍者棒球 |
 | `Poster/` | — | 已导出的 PDF 成品 |
 
 ## 使用方法
